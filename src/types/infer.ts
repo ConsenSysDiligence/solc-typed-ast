@@ -51,7 +51,7 @@ import {
     resolveAny
 } from "../ast";
 import { DataLocation, ExternalReferenceType } from "../ast/constants";
-import { assert, eq, forAll, forAny, pp } from "../misc";
+import { assert, eq, forAll, forAny, pp, repeat } from "../misc";
 import { ABIEncoderVersion, abiTypeToCanonicalName, abiTypeToLibraryCanonicalName } from "./abi";
 import {
     AddressType,
@@ -2446,15 +2446,28 @@ export class InferType {
         if (type instanceof ArrayType) {
             const elT = this.toABIEncodedType(type.elementT, encoderVersion);
 
+            if (type.size !== undefined) {
+                return new TupleType(repeat(elT, Number(type.size)));
+            }
+
             return new ArrayType(elT, type.size);
         }
 
         if (type instanceof PointerType) {
             const toT = this.toABIEncodedType(type.to, encoderVersion, normalizePointers);
 
-            return this.isABITypeEncodingDynamic(toT)
-                ? new PointerType(toT, normalizePointers ? DataLocation.Memory : type.location)
-                : toT;
+            if (toT instanceof TupleType) {
+                return toT;
+            }
+
+            if (toT instanceof PackedArrayType || toT instanceof ArrayType) {
+                return new PointerType(
+                    toT,
+                    normalizePointers ? DataLocation.Memory : type.location
+                );
+            }
+
+            assert(false, `Unexpected ABI pointer type {0}`, toT);
         }
 
         if (type instanceof UserDefinedType) {

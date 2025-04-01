@@ -31,3 +31,12 @@ export function assert(
 
     throw new Error(fmt(message, ...details));
 }
+
+export function repeat<T>(x: T, n: number): T[] {
+    const res: T[] = [];
+    for (let i = 0; i < n; i++) {
+        res.push(x);
+    }
+
+    return res;
+}
