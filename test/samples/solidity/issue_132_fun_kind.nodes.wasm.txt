@@ -57,6 +57,7 @@ SourceUnit #56
         linearizedBaseContracts: Array(1) [ 55 ]
         usedErrors: Array(0)
         usedEvents: Array(0)
+        baseSlotExpression: undefined
         docString: undefined
         nameLocation: undefined
         context: ASTContext #1000

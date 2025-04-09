@@ -1319,6 +1319,10 @@ class ContractDefinitionWriter extends ASTNodeWriter {
 
         result.push(node.kind, " ", node.name);
 
+        if (node.baseSlotExpression) {
+            result.push(" layout at ", node.baseSlotExpression);
+        }
+
         if (node.vInheritanceSpecifiers.length) {
             result.push(" is ", ...join(node.vInheritanceSpecifiers, ", "));
         }

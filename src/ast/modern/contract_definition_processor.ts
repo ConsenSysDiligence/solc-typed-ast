@@ -1,6 +1,7 @@
 import { ASTReader, ASTReaderConfiguration } from "../ast_reader";
 import { ContractKind } from "../constants";
 import { ContractDefinition } from "../implementation/declaration/contract_definition";
+import { Expression } from "../implementation/expression";
 import { StructuredDocumentation } from "../implementation/meta";
 import { ModernNodeProcessor } from "./node_processor";
 
@@ -39,6 +40,17 @@ export class ModernContractDefinitionProcessor extends ModernNodeProcessor<Contr
                 ? [documentation, ...baseContracts, ...nodes]
                 : [...baseContracts, ...nodes];
 
+        let baseSlotExpression: Expression | undefined = undefined;
+
+        if (raw.storageLayout && raw.storageLayout.baseSlotExpression) {
+            baseSlotExpression = reader.convert(
+                raw.storageLayout.baseSlotExpression,
+                config
+            ) as Expression;
+
+            children.unshift(baseSlotExpression);
+        }
+
         return [
             id,
             src,
@@ -53,6 +65,7 @@ export class ModernContractDefinitionProcessor extends ModernNodeProcessor<Contr
             documentation,
             children,
             nameLocation,
+            baseSlotExpression,
             raw
         ];
     }

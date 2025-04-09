@@ -109,7 +109,9 @@ BaseClassList =
 
 ContractBody = LBRACE __ BraceSoup __ RBRACE { return text(); }
 
-ContractDefinition = abstract: (ABSTRACT __)? kind: (CONTRACT / LIBRARY / INTERFACE) __ name: Identifier bases: (__ IS __ BaseClassList)? __ body: ContractBody {
+ContractLayout = LAYOUT __ AT __ loc: LayoutExprSoup { return loc; }
+
+ContractDefinition = abstract: (ABSTRACT __)? kind: (CONTRACT / LIBRARY / INTERFACE) __ name: Identifier bases: (__ IS __ BaseClassList)? __ layout: ContractLayout? __ body: ContractBody {
     return { 
         abstract: abstract !== null,
         kind: FileLevelNodeKind.Contract,
@@ -259,6 +261,16 @@ ParenSoup =
         / LPAREN __ ParenSoup __ RPAREN
     )*
 
+LayoutExprSoup =
+    (
+        (
+            ([^"'()/{]+ ("/" [^/*"'()])?)  // non-comment, non-string literal, non-parenthesis anything
+            / StringLiteral  // string literal
+            / Comment // comment 
+        )
+        / LPAREN __ ParenSoup __ RPAREN
+    )*
+
 BraceSoup =
     (
         (
@@ -345,6 +357,8 @@ USING = "using"
 FOR = "for"
 GLOBAL = "global"
 ANONYMOUS = "anonymous"
+LAYOUT = "layout"
+AT="at"
 
 // ==== String literals
 

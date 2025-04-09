@@ -437,3 +437,6 @@ contract Features_0826 {
 contract Features_0828 {
     uint transient foo;
 }
+
+contract Features_0829 layout at  2**255 - 42 {
+}

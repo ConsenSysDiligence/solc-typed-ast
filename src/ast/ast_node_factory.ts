@@ -96,6 +96,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
             node.documentation,
             node.children,
             node.nameLocation,
+            node.baseSlotExpression,
             node.raw
         ]
     ],

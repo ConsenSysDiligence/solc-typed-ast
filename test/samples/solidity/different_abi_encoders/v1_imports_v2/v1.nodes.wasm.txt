@@ -80,6 +80,7 @@ SourceUnit #21
         linearizedBaseContracts: Array(2) [ 20, 14 ]
         usedErrors: Array(0)
         usedEvents: Array(0)
+        baseSlotExpression: undefined
         docString: undefined
         nameLocation: "50:1:0"
         context: ASTContext #1000
@@ -202,6 +203,7 @@ SourceUnit #30
         linearizedBaseContracts: Array(1) [ 29 ]
         usedErrors: Array(0)
         usedEvents: Array(0)
+        baseSlotExpression: undefined
         docString: undefined
         nameLocation: "30:1:1"
         context: ASTContext #1000

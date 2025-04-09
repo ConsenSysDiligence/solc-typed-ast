@@ -40,6 +40,7 @@ SourceUnit #146
         linearizedBaseContracts: Array(1) [ 90 ]
         usedErrors: Array(0)
         usedEvents: Array(0)
+        baseSlotExpression: undefined
         docString: undefined
         nameLocation: undefined
         context: ASTContext #1000
@@ -408,6 +409,7 @@ SourceUnit #146
         linearizedBaseContracts: Array(1) [ 100 ]
         usedErrors: Array(0)
         usedEvents: Array(0)
+        baseSlotExpression: undefined
         docString: undefined
         nameLocation: undefined
         context: ASTContext #1000
@@ -647,6 +649,7 @@ SourceUnit #146
         linearizedBaseContracts: Array(2) [ 145, 100 ]
         usedErrors: Array(0)
         usedEvents: Array(0)
+        baseSlotExpression: undefined
         docString: undefined
         nameLocation: undefined
         context: ASTContext #1000

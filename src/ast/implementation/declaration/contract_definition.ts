@@ -8,6 +8,7 @@ import {
     WithDanglingDocs,
     WithPrecedingDocs
 } from "../../documentation";
+import { Expression } from "../expression";
 import { InheritanceSpecifier } from "../meta/inheritance_specifier";
 import { SourceUnit } from "../meta/source_unit";
 import { StructuredDocumentation } from "../meta/structured_documentation";
@@ -78,6 +79,11 @@ export class ContractDefinition
      */
     usedEvents: number[];
 
+    /**
+     * The base slot expression - i.e. the `E` in ` ... layout at <E> ...`
+     */
+    baseSlotExpression: Expression | undefined;
+
     constructor(
         id: number,
         src: string,
@@ -92,6 +98,7 @@ export class ContractDefinition
         documentation?: string | StructuredDocumentation,
         children?: Iterable<ASTNode>,
         nameLocation?: string,
+        baseSlotExpression?: Expression,
         raw?: any
     ) {
         super(id, src, raw);
@@ -104,6 +111,7 @@ export class ContractDefinition
         this.linearizedBaseContracts = linearizedBaseContracts;
         this.usedErrors = usedErrors;
         this.usedEvents = usedEvents;
+        this.baseSlotExpression = baseSlotExpression;
 
         if (children) {
             for (const node of children) {

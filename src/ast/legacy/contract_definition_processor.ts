@@ -45,6 +45,7 @@ export class LegacyContractDefinitionProcessor extends LegacyNodeProcessor<Contr
             documentation,
             children,
             undefined,
+            undefined,
             raw
         ];
     }

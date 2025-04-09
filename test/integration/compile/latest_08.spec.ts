@@ -35,12 +35,12 @@ const encounters = new Map<string, number>([
     ["ElementaryTypeName", 70],
     ["EnumDefinition", 2],
     ["EnumValue", 6],
-    ["ContractDefinition", 23],
+    ["ContractDefinition", 24],
     ["FunctionDefinition", 36],
     ["ParameterList", 97],
     ["Block", 52],
     ["VariableDeclarationStatement", 16],
-    ["Literal", 43],
+    ["Literal", 46],
     ["UncheckedBlock", 4],
     ["ExpressionStatement", 25],
     ["UnaryOperation", 6],
@@ -59,7 +59,7 @@ const encounters = new Map<string, number>([
     ["TryStatement", 2],
     ["TryCatchClause", 8],
     ["IfStatement", 3],
-    ["BinaryOperation", 24],
+    ["BinaryOperation", 26],
     ["EventDefinition", 7],
     ["ModifierDefinition", 1],
     ["PlaceholderStatement", 1],
@@ -120,11 +120,11 @@ for (const compilerKind of PossibleCompilerKinds) {
             // console.log(sourceUnit.print());
             // console.log(sourceUnit.getChildren().length);
 
-            expect(sourceUnit.id).toEqual(881);
-            expect(sourceUnit.src).toEqual("0:10231:0");
+            expect(sourceUnit.id).toEqual(888);
+            expect(sourceUnit.src).toEqual("0:10283:0");
             expect(sourceUnit.absolutePath).toEqual(mainSample);
-            expect(sourceUnit.children.length).toEqual(40);
-            expect(sourceUnit.getChildren().length).toEqual(871);
+            expect(sourceUnit.children.length).toEqual(41);
+            expect(sourceUnit.getChildren().length).toEqual(877);
         });
 
         it(`Validate parsed output (${astKind})`, () => {

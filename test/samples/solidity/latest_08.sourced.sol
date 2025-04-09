@@ -381,6 +381,8 @@ contract Features_0826 {
 contract Features_0828 {
     uint internal transient foo;
 }
+
+contract Features_0829 layout at (2 ** 255) - 42 {}
 // ------------------------------------------------------------
 // test/samples/solidity/latest_imports_08.sol
 // ------------------------------------------------------------
