@@ -894,7 +894,9 @@ export class InferType {
         if (
             !(
                 baseT instanceof PointerType &&
-                baseT.to instanceof BytesType &&
+                (baseT.to instanceof BytesType ||
+                    baseT.to instanceof StringType ||
+                    baseT.to instanceof ArrayType) &&
                 baseT.location === DataLocation.CallData
             )
         ) {
