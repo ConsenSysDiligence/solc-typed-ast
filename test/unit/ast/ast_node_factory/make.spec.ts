@@ -310,7 +310,13 @@ describe("ASTNodeFactory.make*()", () => {
         );
 
         const type = factory.makeElementaryTypeName("uint8", "uint8");
-        const value = factory.makeLiteral(type.typeString, LiteralKind.Number, "01", "1");
+        const value = factory.makeLiteral(
+            type.typeString,
+            undefined,
+            LiteralKind.Number,
+            "01",
+            "1"
+        );
         const node = factory.makeVariableDeclaration(
             false,
             false,
@@ -321,6 +327,7 @@ describe("ASTNodeFactory.make*()", () => {
             StateVariableVisibility.Public,
             Mutability.Mutable,
             type.typeString,
+            undefined,
             "doc string",
             type,
             undefined,
@@ -354,7 +361,7 @@ describe("ASTNodeFactory.make*()", () => {
     it("makeElementaryTypeNameExpression()", () => {
         const factory = new ASTNodeFactory();
         const type = factory.makeElementaryTypeName("uint32", "uint32");
-        const node = factory.makeElementaryTypeNameExpression("uint32", type);
+        const node = factory.makeElementaryTypeNameExpression("uint32", undefined, type);
 
         verify(node, ElementaryTypeNameExpression, {
             id: 2,
@@ -383,13 +390,20 @@ describe("ASTNodeFactory.make*()", () => {
             Mutability.Mutable,
             type.typeString,
             undefined,
+            undefined,
             type,
             undefined,
             undefined
         );
 
         const parameters = factory.makeParameterList([variable]);
-        const expression = factory.makeLiteral(type.typeString, LiteralKind.Number, "ff", "255");
+        const expression = factory.makeLiteral(
+            type.typeString,
+            undefined,
+            LiteralKind.Number,
+            "ff",
+            "255"
+        );
         const node = factory.makeReturn(parameters.id, expression);
 
         verify(node, Return, {
@@ -467,12 +481,18 @@ describe("ASTNodeFactory.make*()", () => {
             Mutability.Mutable,
             type.typeString,
             undefined,
+            undefined,
             type,
             undefined,
             undefined
         );
 
-        const node = factory.makeIdentifier(variable.typeString, variable.name, variable.id);
+        const node = factory.makeIdentifier(
+            variable.typeString,
+            undefined,
+            variable.name,
+            variable.id
+        );
 
         verify(node, Identifier, {
             id: 3,
@@ -491,13 +511,13 @@ describe("ASTNodeFactory.make*()", () => {
     it("makeTupleExpression()", () => {
         const factory = new ASTNodeFactory();
 
-        const expr1 = factory.makeLiteral("uint256", LiteralKind.Number, "01", "1");
-        const expr2 = factory.makeLiteral("bool", LiteralKind.Bool, "00", "false");
+        const expr1 = factory.makeLiteral("uint256", undefined, LiteralKind.Number, "01", "1");
+        const expr2 = factory.makeLiteral("bool", undefined, LiteralKind.Bool, "00", "false");
 
         const components = [expr1, null, expr2];
         const typeString = `tuple(${expr1.typeString},,${expr2.typeString})`;
 
-        const node = factory.makeTupleExpression(typeString, false, components);
+        const node = factory.makeTupleExpression(typeString, undefined, false, components);
 
         verify(node, TupleExpression, {
             id: 3,
@@ -530,11 +550,11 @@ describe("ASTNodeFactory.make*()", () => {
     it("makeConditional()", () => {
         const factory = new ASTNodeFactory();
 
-        const c = factory.makeLiteral("bool", LiteralKind.Bool, "00", "false");
-        const t = factory.makeLiteral("uint256", LiteralKind.Number, "01", "1");
-        const f = factory.makeLiteral("uint256", LiteralKind.Number, "02", "2");
+        const c = factory.makeLiteral("bool", undefined, LiteralKind.Bool, "00", "false");
+        const t = factory.makeLiteral("uint256", undefined, LiteralKind.Number, "01", "1");
+        const f = factory.makeLiteral("uint256", undefined, LiteralKind.Number, "02", "2");
 
-        const node = factory.makeConditional("uint256", c, t, f);
+        const node = factory.makeConditional("uint256", undefined, c, t, f);
 
         verify(node, Conditional, {
             id: 4,
@@ -552,7 +572,7 @@ describe("ASTNodeFactory.make*()", () => {
     it("makeExpressionStatement()", () => {
         const factory = new ASTNodeFactory();
 
-        const expr = factory.makeLiteral("bool", LiteralKind.Bool, "01", "true");
+        const expr = factory.makeLiteral("bool", undefined, LiteralKind.Bool, "01", "true");
         const node = factory.makeExpressionStatement(expr, "doc string");
 
         verify(node, ExpressionStatement, {

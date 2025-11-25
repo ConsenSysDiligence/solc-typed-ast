@@ -20,91 +20,117 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
     [
         [
             "PrimaryExpression (invalid expression)",
-            (factory: ASTNodeFactory) => factory.makePrimaryExpression("???"),
+            (factory: ASTNodeFactory) => factory.makePrimaryExpression("???", undefined),
             false,
             undefined
         ],
         [
             "Literal (invalid kind)",
             (factory: ASTNodeFactory) =>
-                factory.makeLiteral("<missing>", "unknown" as LiteralKind, "", "???"),
+                factory.makeLiteral("<missing>", undefined, "unknown" as LiteralKind, "", "???"),
             true,
             undefined
         ],
         [
             "Literal (true)",
             (factory: ASTNodeFactory) =>
-                factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true"),
+                factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true"),
             true,
             true
         ],
         [
             "Literal (false)",
             (factory: ASTNodeFactory) =>
-                factory.makeLiteral("<missing>", LiteralKind.Bool, "", "false"),
+                factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "false"),
             true,
             false
         ],
         [
             "Literal (string)",
             (factory: ASTNodeFactory) =>
-                factory.makeLiteral("<missing>", LiteralKind.String, "", "abc"),
+                factory.makeLiteral("<missing>", undefined, LiteralKind.String, "", "abc"),
             true,
             "abc"
         ],
         [
             "Literal (unicode string)",
             (factory: ASTNodeFactory) =>
-                factory.makeLiteral("<missing>", LiteralKind.UnicodeString, "", "Some 😎 string"),
+                factory.makeLiteral(
+                    "<missing>",
+                    undefined,
+                    LiteralKind.UnicodeString,
+                    "",
+                    "Some 😎 string"
+                ),
             true,
             "Some 😎 string"
         ],
         [
             "Literal (hex string)",
             (factory: ASTNodeFactory) =>
-                factory.makeLiteral("<missing>", LiteralKind.HexString, "888990", "xyz"),
+                factory.makeLiteral("<missing>", undefined, LiteralKind.HexString, "888990", "xyz"),
             true,
             Buffer.from("888990", "hex")
         ],
         [
             "Literal (invalid UTF-8 sequence edge case)",
             (factory: ASTNodeFactory) =>
-                factory.makeLiteral("<missing>", LiteralKind.String, "7532eaac", null as any),
+                factory.makeLiteral(
+                    "<missing>",
+                    undefined,
+                    LiteralKind.String,
+                    "7532eaac",
+                    null as any
+                ),
             true,
             Buffer.from("7532eaac", "hex")
         ],
         [
             "Literal (uint8)",
             (factory: ASTNodeFactory) =>
-                factory.makeLiteral("<missing>", LiteralKind.Number, "", "256"),
+                factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "256"),
             true,
             256n
         ],
         [
             "Literal (uint16, underscore separator)",
             (factory: ASTNodeFactory) =>
-                factory.makeLiteral("<missing>", LiteralKind.Number, "", "0xff_ff"),
+                factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "0xff_ff"),
             true,
             BigInt("0xffff")
         ],
         [
             "Literal (uint with subdenomintation)",
             (factory: ASTNodeFactory) =>
-                factory.makeLiteral("<missing>", LiteralKind.Number, "", "2", EtherUnit.Ether),
+                factory.makeLiteral(
+                    "<missing>",
+                    undefined,
+                    LiteralKind.Number,
+                    "",
+                    "2",
+                    EtherUnit.Ether
+                ),
             true,
             2_000_000_000_000_000_000n
         ],
         [
             "Literal (decimal)",
             (factory: ASTNodeFactory) =>
-                factory.makeLiteral("<missing>", LiteralKind.Number, "", "2.5"),
+                factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2.5"),
             true,
             new Decimal(2.5)
         ],
         [
             "Literal (decimal with subdenomintation)",
             (factory: ASTNodeFactory) =>
-                factory.makeLiteral("<missing>", LiteralKind.Number, "", "2.5", EtherUnit.Ether),
+                factory.makeLiteral(
+                    "<missing>",
+                    undefined,
+                    LiteralKind.Number,
+                    "",
+                    "2.5",
+                    EtherUnit.Ether
+                ),
             true,
             2_500_000_000_000_000_000n
         ],
@@ -113,6 +139,7 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeLiteral(
                     "<missing>",
+                    undefined,
                     LiteralKind.Number,
                     "",
                     "1",
@@ -126,9 +153,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeUnaryOperation(
                     "<missing>",
+                    undefined,
                     true,
                     "!",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true")
                 ),
             true,
             false
@@ -138,9 +166,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeUnaryOperation(
                     "<missing>",
+                    undefined,
                     true,
                     "!",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "false")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "false")
                 ),
             true,
             true
@@ -150,9 +179,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeUnaryOperation(
                     "<missing>",
+                    undefined,
                     true,
                     "!",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "0")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "0")
                 ),
             true,
             undefined
@@ -162,9 +192,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeUnaryOperation(
                     "<missing>",
+                    undefined,
                     true,
                     "~",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "0")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "0")
                 ),
             true,
             -1n
@@ -174,9 +205,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeUnaryOperation(
                     "<missing>",
+                    undefined,
                     true,
                     "~",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "false")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "false")
                 ),
             true,
             undefined
@@ -186,9 +218,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeUnaryOperation(
                     "<missing>",
+                    undefined,
                     true,
                     "-",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1")
                 ),
             true,
             -1n
@@ -198,9 +231,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeUnaryOperation(
                     "<missing>",
+                    undefined,
                     true,
                     "-",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "0.5")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "0.5")
                 ),
             true,
             new Decimal(-0.5)
@@ -210,9 +244,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeUnaryOperation(
                     "<missing>",
+                    undefined,
                     true,
                     "-",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true")
                 ),
             true,
             undefined
@@ -222,9 +257,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeUnaryOperation(
                     "<missing>",
+                    undefined,
                     true,
                     "+",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1")
                 ),
             true,
             1n
@@ -234,9 +270,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeUnaryOperation(
                     "<missing>",
+                    undefined,
                     true,
                     "+",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "0.5")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "0.5")
                 ),
             true,
             new Decimal(0.5)
@@ -246,9 +283,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeUnaryOperation(
                     "<missing>",
+                    undefined,
                     true,
                     "+",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true")
                 ),
             true,
             undefined
@@ -258,9 +296,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeUnaryOperation(
                     "<missing>",
+                    undefined,
                     true,
                     "???",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true")
                 ),
             true,
             undefined
@@ -270,9 +309,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "&&",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true"),
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "false")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "false")
                 ),
             true,
             false
@@ -282,9 +322,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "||",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true"),
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "false")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "false")
                 ),
             true,
             true
@@ -294,9 +335,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "||",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             undefined
@@ -306,9 +348,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
-                    factory.makeLiteral("<missing>", LiteralKind.String, "", "abc"),
-                    factory.makeLiteral("<missing>", LiteralKind.String, "", "def")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.String, "", "abc"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.String, "", "def")
                 ),
             true,
             undefined
@@ -318,9 +361,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1")
                 ),
             true,
             true
@@ -330,9 +374,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true"),
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true")
                 ),
             true,
             true
@@ -342,9 +387,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "false"),
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "false")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "false"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "false")
                 ),
             true,
             true
@@ -354,9 +400,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true"),
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "false")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "false")
                 ),
             true,
             false
@@ -366,9 +413,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             false
@@ -378,9 +426,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "!=",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             true
@@ -390,9 +439,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "!=",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             false
@@ -402,9 +452,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "!=",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "0.5"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "0.5")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "0.5"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "0.5")
                 ),
             true,
             false
@@ -414,9 +465,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "!=",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true"),
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true")
                 ),
             true,
             false
@@ -426,9 +478,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "!=",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "false"),
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "false")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "false"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "false")
                 ),
             true,
             false
@@ -438,9 +491,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "!=",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true"),
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "false")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "false")
                 ),
             true,
             true
@@ -450,14 +504,28 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
                     factory.makeFunctionCall(
                         "bytes1",
+                        "t_bytes1",
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes1)", "bytes1"),
-                        [factory.makeLiteral("int_const 0", LiteralKind.Number, "30783030", "0x00")]
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes1)",
+                            "t_bytes1",
+                            "bytes1"
+                        ),
+                        [
+                            factory.makeLiteral(
+                                "int_const 0",
+                                undefined,
+                                LiteralKind.Number,
+                                "30783030",
+                                "0x00"
+                            )
+                        ]
                     ),
-                    factory.makeLiteral('literal_string ""', LiteralKind.String, "", "")
+                    factory.makeLiteral('literal_string ""', undefined, LiteralKind.String, "", "")
                 ),
             true,
             true
@@ -467,14 +535,34 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
                     factory.makeFunctionCall(
                         "bytes1",
+                        "t_bytes1",
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes1)", "bytes1"),
-                        [factory.makeLiteral("int_const 0", LiteralKind.Number, "30783030", "0x00")]
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes1)",
+                            undefined,
+                            "bytes1"
+                        ),
+                        [
+                            factory.makeLiteral(
+                                "int_const 0",
+                                undefined,
+                                LiteralKind.Number,
+                                "30783030",
+                                "0x00"
+                            )
+                        ]
                     ),
-                    factory.makeLiteral('literal_string ""', LiteralKind.HexString, "", "")
+                    factory.makeLiteral(
+                        'literal_string ""',
+                        undefined,
+                        LiteralKind.HexString,
+                        "",
+                        ""
+                    )
                 ),
             true,
             true
@@ -484,21 +572,34 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
                     factory.makeFunctionCall(
                         "bytes1",
+                        "t_bytes1",
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes1)", "bytes1"),
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes1)",
+                            undefined,
+                            "bytes1"
+                        ),
                         [
                             factory.makeLiteral(
                                 "int_const 88",
+                                undefined,
                                 LiteralKind.Number,
                                 "30783538",
                                 "0x58"
                             )
                         ]
                     ),
-                    factory.makeLiteral('literal_string "X"', LiteralKind.String, "58", "X")
+                    factory.makeLiteral(
+                        'literal_string "X"',
+                        undefined,
+                        LiteralKind.String,
+                        "58",
+                        "X"
+                    )
                 ),
             true,
             true
@@ -508,21 +609,34 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
                     factory.makeFunctionCall(
                         "bytes1",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes1)", "bytes1"),
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes1)",
+                            undefined,
+                            "bytes1"
+                        ),
                         [
                             factory.makeLiteral(
                                 "int_const 88",
+                                undefined,
                                 LiteralKind.Number,
                                 "30783538",
                                 "0x58"
                             )
                         ]
                     ),
-                    factory.makeLiteral('literal_string "X"', LiteralKind.HexString, "58", "X")
+                    factory.makeLiteral(
+                        'literal_string "X"',
+                        undefined,
+                        LiteralKind.HexString,
+                        "58",
+                        "X"
+                    )
                 ),
             true,
             true
@@ -532,21 +646,34 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
                     factory.makeFunctionCall(
                         "bytes2",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes2)", "bytes2"),
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes2)",
+                            undefined,
+                            "bytes2"
+                        ),
                         [
                             factory.makeLiteral(
                                 "int_const 22617",
+                                undefined,
                                 LiteralKind.Number,
                                 "307835383539",
                                 "0x5859"
                             )
                         ]
                     ),
-                    factory.makeLiteral('literal_string "XY"', LiteralKind.String, "5859", "XY")
+                    factory.makeLiteral(
+                        'literal_string "XY"',
+                        undefined,
+                        LiteralKind.String,
+                        "5859",
+                        "XY"
+                    )
                 ),
             true,
             true
@@ -556,21 +683,34 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
                     factory.makeFunctionCall(
                         "bytes2",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes2)", "bytes2"),
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes2)",
+                            undefined,
+                            "bytes2"
+                        ),
                         [
                             factory.makeLiteral(
                                 "int_const 22617",
+                                undefined,
                                 LiteralKind.Number,
                                 "307835383539",
                                 "0x5859"
                             )
                         ]
                     ),
-                    factory.makeLiteral('literal_string "XY"', LiteralKind.HexString, "5859", "XY")
+                    factory.makeLiteral(
+                        'literal_string "XY"',
+                        undefined,
+                        LiteralKind.HexString,
+                        "5859",
+                        "XY"
+                    )
                 ),
             true,
             true
@@ -580,9 +720,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "<",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             true
@@ -592,9 +733,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "<",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1")
                 ),
             true,
             false
@@ -604,9 +746,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "<=",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             true
@@ -616,9 +759,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "<=",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1")
                 ),
             true,
             true
@@ -628,9 +772,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "<=",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1")
                 ),
             true,
             false
@@ -640,9 +785,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     ">",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1")
                 ),
             true,
             true
@@ -652,9 +798,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     ">",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1")
                 ),
             true,
             false
@@ -664,9 +811,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     ">=",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1")
                 ),
             true,
             true
@@ -676,9 +824,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     ">=",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1")
                 ),
             true,
             true
@@ -688,9 +837,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     ">=",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             false
@@ -700,9 +850,22 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     ">=",
-                    factory.makeLiteral('literal_string "Y"', LiteralKind.String, "59", "Y"),
-                    factory.makeLiteral('literal_string "X"', LiteralKind.String, "58", "X")
+                    factory.makeLiteral(
+                        'literal_string "Y"',
+                        undefined,
+                        LiteralKind.String,
+                        "59",
+                        "Y"
+                    ),
+                    factory.makeLiteral(
+                        'literal_string "X"',
+                        undefined,
+                        LiteralKind.String,
+                        "58",
+                        "X"
+                    )
                 ),
             true,
             undefined
@@ -712,9 +875,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "+",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             3n
@@ -724,9 +888,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "-",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             -1n
@@ -736,9 +901,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "*",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             4n
@@ -748,9 +914,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "/",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "4"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "4"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             2n
@@ -762,10 +929,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
         //     "BinaryOperation (1 / 2)",
         //     (factory: ASTNodeFactory) =>
         //         factory.makeBinaryOperation(
-        //             "<missing>",
+        //             "<missing>", undefined,
         //             "/",
-        //             factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-        //             factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+        //             factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+        //             factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
         //         ),
         //     true,
         //     "0n"
@@ -775,9 +942,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "%",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "3"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "3"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             1n
@@ -787,9 +955,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "%",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "4"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "4"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             0n
@@ -799,9 +968,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "**",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "8")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "8")
                 ),
             true,
             256n
@@ -811,9 +981,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "**",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "256")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "256")
                 ),
             true,
             115792089237316195423570985008687907853269984665640564039457584007913129639936n
@@ -823,9 +994,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "<<",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "5")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "5")
                 ),
             true,
             64n
@@ -835,9 +1007,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "<<",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "100")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "100")
                 ),
             true,
             2535301200456458802993406410752n
@@ -847,9 +1020,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     ">>",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "126"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "3")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "126"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "3")
                 ),
             true,
             15n
@@ -859,14 +1033,16 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     ">>",
                     factory.makeLiteral(
                         "<missing>",
+                        undefined,
                         LiteralKind.Number,
                         "",
                         "2535301200456458802993406410752"
                     ),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "100")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "100")
                 ),
             true,
             2n
@@ -876,9 +1052,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "|",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "11"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "116")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "11"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "116")
                 ),
             true,
             127n
@@ -888,9 +1065,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "|",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "-11"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "-116")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "-11"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "-116")
                 ),
             true,
             -3n
@@ -900,9 +1078,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "&",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "10"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "3")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "10"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "3")
                 ),
             true,
             2n
@@ -912,9 +1091,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "&",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "-10"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "-3")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "-10"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "-3")
                 ),
             true,
             -12n
@@ -924,9 +1104,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "^",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "8"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "10")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "8"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "10")
                 ),
             true,
             2n
@@ -936,9 +1117,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "^",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "-8"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "-10")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "-8"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "-10")
                 ),
             true,
             14n
@@ -948,9 +1130,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "^",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "0.5"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "0.5")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "0.5"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "0.5")
                 ),
             true,
             undefined
@@ -960,24 +1143,26 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "???",
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 ),
             true,
             undefined
         ],
         [
             "TupleExpression (empty)",
-            (factory: ASTNodeFactory) => factory.makeTupleExpression("<missing>", false, []),
+            (factory: ASTNodeFactory) =>
+                factory.makeTupleExpression("<missing>", undefined, false, []),
             false,
             undefined
         ],
         [
             "TupleExpression ([10])",
             (factory: ASTNodeFactory) =>
-                factory.makeTupleExpression("<missing>", true, [
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "10")
+                factory.makeTupleExpression("<missing>", undefined, true, [
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "10")
                 ]),
             false,
             undefined
@@ -985,24 +1170,25 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
         [
             "TupleExpression ((10, 20))",
             (factory: ASTNodeFactory) =>
-                factory.makeTupleExpression("<missing>", false, [
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "10"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "20")
+                factory.makeTupleExpression("<missing>", undefined, false, [
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "10"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "20")
                 ]),
             false,
             undefined
         ],
         [
             "TupleExpression ((null))",
-            (factory: ASTNodeFactory) => factory.makeTupleExpression("<missing>", false, [null]),
+            (factory: ASTNodeFactory) =>
+                factory.makeTupleExpression("<missing>", undefined, false, [null]),
             false,
             undefined
         ],
         [
             "TupleExpression ((10))",
             (factory: ASTNodeFactory) =>
-                factory.makeTupleExpression("<missing>", false, [
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "10")
+                factory.makeTupleExpression("<missing>", undefined, false, [
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "10")
                 ]),
             true,
             10n
@@ -1012,9 +1198,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeConditional(
                     "<missing>",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "true"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "10"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1000")
+                    undefined,
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "true"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "10"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1000")
                 ),
             true,
             10n
@@ -1024,9 +1211,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeConditional(
                     "<missing>",
-                    factory.makeLiteral("<missing>", LiteralKind.Bool, "", "false"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "10"),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1000")
+                    undefined,
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Bool, "", "false"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "10"),
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1000")
                 ),
             true,
             1000n
@@ -1045,16 +1233,18 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
                     Mutability.Constant,
                     "uint8",
                     undefined,
-                    factory.makeElementaryTypeName("uint8", "uint8"),
                     undefined,
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeElementaryTypeName("uint8", undefined, "uint8"),
+                    undefined,
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 );
 
                 return factory.makeBinaryOperation(
                     "uint8",
+                    undefined,
                     "+",
                     factory.makeIdentifierFor(v),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1")
                 );
             },
             true,
@@ -1074,15 +1264,17 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
                     Mutability.Mutable,
                     "uint8",
                     undefined,
-                    factory.makeElementaryTypeName("uint8", "uint8"),
+                    undefined,
+                    factory.makeElementaryTypeName("uint8", undefined, "uint8"),
                     undefined
                 );
 
                 return factory.makeBinaryOperation(
                     "uint8",
+                    undefined,
                     "+",
                     factory.makeIdentifierFor(v),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1")
                 );
             },
             false,
@@ -1102,9 +1294,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeFunctionCall(
                     "uint256",
+                    undefined,
                     FunctionCallKind.TypeConversion,
-                    factory.makeElementaryTypeNameExpression("uint256", "uint256"),
-                    [factory.makeLiteral("uint8", LiteralKind.Number, "", "1")]
+                    factory.makeElementaryTypeNameExpression("uint256", undefined, "uint256"),
+                    [factory.makeLiteral("uint8", undefined, LiteralKind.Number, "", "1")]
                 ),
             true,
             1n
@@ -1114,8 +1307,9 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) => {
                 return factory.makeFunctionCall(
                     "uint256",
+                    undefined,
                     FunctionCallKind.TypeConversion,
-                    factory.makeElementaryTypeNameExpression("uint256", "uint256"),
+                    factory.makeElementaryTypeNameExpression("uint256", undefined, "uint256"),
                     [
                         factory.makeVariableDeclaration(
                             false,
@@ -1128,7 +1322,8 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
                             Mutability.Mutable,
                             "uint8",
                             undefined,
-                            factory.makeElementaryTypeName("uint8", "uint8"),
+                            undefined,
+                            factory.makeElementaryTypeName("uint8", undefined, "uint8"),
                             undefined
                         )
                     ]
@@ -1142,9 +1337,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeFunctionCall(
                     "uint8",
+                    undefined,
                     FunctionCallKind.TypeConversion,
-                    factory.makeElementaryTypeNameExpression("uint8", "uint8"),
-                    [factory.makeLiteral("uint16", LiteralKind.Number, "", "255")]
+                    factory.makeElementaryTypeNameExpression("uint8", undefined, "uint8"),
+                    [factory.makeLiteral("uint16", undefined, LiteralKind.Number, "", "255")]
                 ),
             true,
             255n
@@ -1154,9 +1350,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeFunctionCall(
                     "uint8",
+                    undefined,
                     FunctionCallKind.TypeConversion,
-                    factory.makeElementaryTypeNameExpression("uint8", "uint8"),
-                    [factory.makeLiteral("uint16", LiteralKind.Number, "", "256")]
+                    factory.makeElementaryTypeNameExpression("uint8", undefined, "uint8"),
+                    [factory.makeLiteral("uint16", undefined, LiteralKind.Number, "", "256")]
                 ),
             true,
             0n
@@ -1166,9 +1363,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeFunctionCall(
                     "int8",
+                    undefined,
                     FunctionCallKind.TypeConversion,
-                    factory.makeElementaryTypeNameExpression("uint8", "int8"),
-                    [factory.makeLiteral("uint16", LiteralKind.Number, "", "128")]
+                    factory.makeElementaryTypeNameExpression("uint8", undefined, "int8"),
+                    [factory.makeLiteral("uint16", undefined, LiteralKind.Number, "", "128")]
                 ),
             true,
             -128n
@@ -1178,9 +1376,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeFunctionCall(
                     "int8",
+                    undefined,
                     FunctionCallKind.TypeConversion,
-                    factory.makeElementaryTypeNameExpression("uint8", "int8"),
-                    [factory.makeLiteral("uint16", LiteralKind.Number, "", "127")]
+                    factory.makeElementaryTypeNameExpression("uint8", undefined, "int8"),
+                    [factory.makeLiteral("uint16", undefined, LiteralKind.Number, "", "127")]
                 ),
             true,
             127n
@@ -1190,9 +1389,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeFunctionCall(
                     "int8",
+                    undefined,
                     FunctionCallKind.TypeConversion,
-                    factory.makeElementaryTypeNameExpression("uint8", "int8"),
-                    [factory.makeLiteral("int16", LiteralKind.Number, "", "-128")]
+                    factory.makeElementaryTypeNameExpression("uint8", undefined, "int8"),
+                    [factory.makeLiteral("int16", undefined, LiteralKind.Number, "", "-128")]
                 ),
             true,
             -128n
@@ -1202,9 +1402,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeFunctionCall(
                     "int8",
+                    undefined,
                     FunctionCallKind.TypeConversion,
-                    factory.makeElementaryTypeNameExpression("uint8", "int8"),
-                    [factory.makeLiteral("int16", LiteralKind.Number, "", "-129")]
+                    factory.makeElementaryTypeNameExpression("uint8", undefined, "int8"),
+                    [factory.makeLiteral("int16", undefined, LiteralKind.Number, "", "-129")]
                 ),
             true,
             127n
@@ -1214,9 +1415,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeFunctionCall(
                     "int8",
+                    undefined,
                     FunctionCallKind.TypeConversion,
-                    factory.makeElementaryTypeNameExpression("uint8", "int8"),
-                    [factory.makeLiteral("int16", LiteralKind.Number, "", "-256")]
+                    factory.makeElementaryTypeNameExpression("uint8", undefined, "int8"),
+                    [factory.makeLiteral("int16", undefined, LiteralKind.Number, "", "-256")]
                 ),
             true,
             0n
@@ -1226,9 +1428,10 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeFunctionCall(
                     "int8",
+                    undefined,
                     FunctionCallKind.TypeConversion,
-                    factory.makeElementaryTypeNameExpression("uint8", "int8"),
-                    [factory.makeLiteral("int16", LiteralKind.Number, "", "-255")]
+                    factory.makeElementaryTypeNameExpression("uint8", undefined, "int8"),
+                    [factory.makeLiteral("int16", undefined, LiteralKind.Number, "", "-255")]
                 ),
             true,
             1n
@@ -1238,18 +1441,33 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeFunctionCall(
                     "uint256",
+                    undefined,
                     FunctionCallKind.TypeConversion,
-                    factory.makeElementaryTypeNameExpression("type(uint256)", "uint256"),
+                    factory.makeElementaryTypeNameExpression("type(uint256)", undefined, "uint256"),
                     [
                         factory.makeUnaryOperation(
                             "uint8",
+                            undefined,
                             true,
                             "~",
                             factory.makeFunctionCall(
                                 "uint8",
+                                undefined,
                                 FunctionCallKind.TypeConversion,
-                                factory.makeElementaryTypeNameExpression("type(uint8)", "uint8"),
-                                [factory.makeLiteral("int_const 1", LiteralKind.Number, "31", "1")]
+                                factory.makeElementaryTypeNameExpression(
+                                    "type(uint8)",
+                                    undefined,
+                                    "uint8"
+                                ),
+                                [
+                                    factory.makeLiteral(
+                                        "int_const 1",
+                                        undefined,
+                                        LiteralKind.Number,
+                                        "31",
+                                        "1"
+                                    )
+                                ]
                             )
                         )
                     ]
@@ -1262,13 +1480,23 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeUnaryOperation(
                     "<missing>",
+                    undefined,
                     true,
                     "-",
                     factory.makeFunctionCall(
                         "uint8",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(uint8)", "uint8"),
-                        [factory.makeLiteral("int_const 1", LiteralKind.Number, "31", "1")]
+                        factory.makeElementaryTypeNameExpression("type(uint8)", undefined, "uint8"),
+                        [
+                            factory.makeLiteral(
+                                "int_const 1",
+                                undefined,
+                                LiteralKind.Number,
+                                "31",
+                                "1"
+                            )
+                        ]
                     )
                 ),
             true,
@@ -1279,14 +1507,24 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "+",
                     factory.makeFunctionCall(
                         "uint8",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(uint8)", "uint8"),
-                        [factory.makeLiteral("int_const 255", LiteralKind.Number, "", "255")]
+                        factory.makeElementaryTypeNameExpression("type(uint8)", undefined, "uint8"),
+                        [
+                            factory.makeLiteral(
+                                "int_const 255",
+                                undefined,
+                                LiteralKind.Number,
+                                "",
+                                "255"
+                            )
+                        ]
                     ),
-                    factory.makeLiteral("int_const 1", LiteralKind.Number, "31", "1")
+                    factory.makeLiteral("int_const 1", undefined, LiteralKind.Number, "31", "1")
                 ),
             true,
             0n
@@ -1296,13 +1534,23 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "+",
-                    factory.makeLiteral("int_const 1", LiteralKind.Number, "31", "1"),
+                    factory.makeLiteral("int_const 1", undefined, LiteralKind.Number, "31", "1"),
                     factory.makeFunctionCall(
                         "uint8",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(uint8)", "uint8"),
-                        [factory.makeLiteral("int_const 255", LiteralKind.Number, "", "255")]
+                        factory.makeElementaryTypeNameExpression("type(uint8)", undefined, "uint8"),
+                        [
+                            factory.makeLiteral(
+                                "int_const 255",
+                                undefined,
+                                LiteralKind.Number,
+                                "",
+                                "255"
+                            )
+                        ]
                     )
                 ),
             true,
@@ -1313,9 +1561,18 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeFunctionCall(
                     "bytes1",
+                    undefined,
                     FunctionCallKind.TypeConversion,
-                    factory.makeElementaryTypeNameExpression("type(bytes1)", "bytes1"),
-                    [factory.makeLiteral("int_const 1000", LiteralKind.Number, "", "1000")]
+                    factory.makeElementaryTypeNameExpression("type(bytes1)", undefined, "bytes1"),
+                    [
+                        factory.makeLiteral(
+                            "int_const 1000",
+                            undefined,
+                            LiteralKind.Number,
+                            "",
+                            "1000"
+                        )
+                    ]
                 ),
             true,
             BigInt("0xe8")
@@ -1325,18 +1582,41 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
                     factory.makeFunctionCall(
                         "bytes2",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes2)", "bytes2"),
-                        [factory.makeLiteral("<missing>", LiteralKind.Number, "ff00", "0xff00")]
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes2)",
+                            undefined,
+                            "bytes2"
+                        ),
+                        [
+                            factory.makeLiteral(
+                                "<missing>",
+                                undefined,
+                                LiteralKind.Number,
+                                "ff00",
+                                "0xff00"
+                            )
+                        ]
                     ),
                     factory.makeFunctionCall(
                         "byte",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(byte)", "byte"),
-                        [factory.makeLiteral("<missing>", LiteralKind.Number, "ff", "0xff")]
+                        factory.makeElementaryTypeNameExpression("type(byte)", undefined, "byte"),
+                        [
+                            factory.makeLiteral(
+                                "<missing>",
+                                undefined,
+                                LiteralKind.Number,
+                                "ff",
+                                "0xff"
+                            )
+                        ]
                     )
                 ),
             true,
@@ -1347,18 +1627,41 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "<",
                     factory.makeFunctionCall(
                         "bytes2",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes2)", "bytes2"),
-                        [factory.makeLiteral("<missing>", LiteralKind.Number, "cc00", "0xcc00")]
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes2)",
+                            undefined,
+                            "bytes2"
+                        ),
+                        [
+                            factory.makeLiteral(
+                                "<missing>",
+                                undefined,
+                                LiteralKind.Number,
+                                "cc00",
+                                "0xcc00"
+                            )
+                        ]
                     ),
                     factory.makeFunctionCall(
                         "byte",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(byte)", "byte"),
-                        [factory.makeLiteral("<missing>", LiteralKind.Number, "ee", "0xee")]
+                        factory.makeElementaryTypeNameExpression("type(byte)", undefined, "byte"),
+                        [
+                            factory.makeLiteral(
+                                "<missing>",
+                                undefined,
+                                LiteralKind.Number,
+                                "ee",
+                                "0xee"
+                            )
+                        ]
                     )
                 ),
             true,
@@ -1369,19 +1672,27 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
-                    factory.makeTupleExpression("<missing>", false, [
+                    factory.makeTupleExpression("<missing>", undefined, false, [
                         factory.makeUnaryOperation(
                             "<missing>",
+                            undefined,
                             true,
                             "~",
                             factory.makeFunctionCall(
                                 "bytes4",
+                                undefined,
                                 FunctionCallKind.TypeConversion,
-                                factory.makeElementaryTypeNameExpression("type(bytes4)", "bytes4"),
+                                factory.makeElementaryTypeNameExpression(
+                                    "type(bytes4)",
+                                    undefined,
+                                    "bytes4"
+                                ),
                                 [
                                     factory.makeLiteral(
                                         "<missing>",
+                                        undefined,
                                         LiteralKind.Number,
                                         "F0FF000F",
                                         "0xF0FF000F"
@@ -1390,7 +1701,13 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
                             )
                         )
                     ]),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "0f00fff0", "0x0f00fff0")
+                    factory.makeLiteral(
+                        "<missing>",
+                        undefined,
+                        LiteralKind.Number,
+                        "0f00fff0",
+                        "0x0f00fff0"
+                    )
                 ),
             true,
             true
@@ -1400,19 +1717,27 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
-                    factory.makeTupleExpression("<missing>", false, [
+                    factory.makeTupleExpression("<missing>", undefined, false, [
                         factory.makeUnaryOperation(
                             "<missing>",
+                            undefined,
                             true,
                             "~",
                             factory.makeFunctionCall(
                                 "bytes4",
+                                undefined,
                                 FunctionCallKind.TypeConversion,
-                                factory.makeElementaryTypeNameExpression("type(bytes4)", "bytes4"),
+                                factory.makeElementaryTypeNameExpression(
+                                    "type(bytes4)",
+                                    undefined,
+                                    "bytes4"
+                                ),
                                 [
                                     factory.makeLiteral(
                                         "<missing>",
+                                        undefined,
                                         LiteralKind.Number,
                                         "FFFFFFFF",
                                         "0xFFFFFFFF"
@@ -1421,7 +1746,7 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
                             )
                         )
                     ]),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "00", "0")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "00", "0")
                 ),
             true,
             true
@@ -1431,19 +1756,27 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
-                    factory.makeTupleExpression("<missing>", false, [
+                    factory.makeTupleExpression("<missing>", undefined, false, [
                         factory.makeUnaryOperation(
                             "<missing>",
+                            undefined,
                             true,
                             "~",
                             factory.makeFunctionCall(
                                 "bytes4",
+                                undefined,
                                 FunctionCallKind.TypeConversion,
-                                factory.makeElementaryTypeNameExpression("type(bytes4)", "bytes4"),
+                                factory.makeElementaryTypeNameExpression(
+                                    "type(bytes4)",
+                                    undefined,
+                                    "bytes4"
+                                ),
                                 [
                                     factory.makeLiteral(
                                         "<missing>",
+                                        undefined,
                                         LiteralKind.Number,
                                         "00000000",
                                         "0x00000000"
@@ -1452,7 +1785,13 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
                             )
                         )
                     ]),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "FFFFFFFF", "0xFFFFFFFF")
+                    factory.makeLiteral(
+                        "<missing>",
+                        undefined,
+                        LiteralKind.Number,
+                        "FFFFFFFF",
+                        "0xFFFFFFFF"
+                    )
                 ),
             true,
             true
@@ -1462,19 +1801,40 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
                     factory.makeBinaryOperation(
                         "<missing>",
+                        undefined,
                         "|",
                         factory.makeFunctionCall(
                             "bytes1",
+                            undefined,
                             FunctionCallKind.TypeConversion,
-                            factory.makeElementaryTypeNameExpression("type(bytes1)", "bytes1"),
-                            [factory.makeLiteral("<missing>", LiteralKind.Number, "01", "0x01")]
+                            factory.makeElementaryTypeNameExpression(
+                                "type(bytes1)",
+                                undefined,
+                                "bytes1"
+                            ),
+                            [
+                                factory.makeLiteral(
+                                    "<missing>",
+                                    undefined,
+                                    LiteralKind.Number,
+                                    "01",
+                                    "0x01"
+                                )
+                            ]
                         ),
-                        factory.makeLiteral("<missing>", LiteralKind.HexString, "02", "0x02")
+                        factory.makeLiteral(
+                            "<missing>",
+                            undefined,
+                            LiteralKind.HexString,
+                            "02",
+                            "0x02"
+                        )
                     ),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "03", "0x03")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "03", "0x03")
                 ),
             true,
             true
@@ -1484,19 +1844,34 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
                     factory.makeUnaryOperation(
                         "<missing>",
+                        undefined,
                         true,
                         "~",
                         factory.makeFunctionCall(
                             "bytes1",
+                            undefined,
                             FunctionCallKind.TypeConversion,
-                            factory.makeElementaryTypeNameExpression("type(bytes1)", "bytes1"),
-                            [factory.makeLiteral("<missing>", LiteralKind.Number, "01", "0x01")]
+                            factory.makeElementaryTypeNameExpression(
+                                "type(bytes1)",
+                                undefined,
+                                "bytes1"
+                            ),
+                            [
+                                factory.makeLiteral(
+                                    "<missing>",
+                                    undefined,
+                                    LiteralKind.Number,
+                                    "01",
+                                    "0x01"
+                                )
+                            ]
                         )
                     ),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "fe", "0xfe")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "fe", "0xfe")
                 ),
             true,
             true
@@ -1506,18 +1881,45 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
                     factory.makeFunctionCall(
                         "bytes2",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes2)", "bytes2"),
-                        [factory.makeLiteral("<missing>", LiteralKind.HexString, "ff", "ff")]
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes2)",
+                            undefined,
+                            "bytes2"
+                        ),
+                        [
+                            factory.makeLiteral(
+                                "<missing>",
+                                undefined,
+                                LiteralKind.HexString,
+                                "ff",
+                                "ff"
+                            )
+                        ]
                     ),
                     factory.makeFunctionCall(
                         "bytes1",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes1)", "bytes1"),
-                        [factory.makeLiteral("<missing>", LiteralKind.Number, "ff", "0xff")]
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes1)",
+                            undefined,
+                            "bytes1"
+                        ),
+                        [
+                            factory.makeLiteral(
+                                "<missing>",
+                                undefined,
+                                LiteralKind.Number,
+                                "ff",
+                                "0xff"
+                            )
+                        ]
                     )
                 ),
             true,
@@ -1528,18 +1930,45 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "<",
                     factory.makeFunctionCall(
                         "bytes2",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes2)", "bytes2"),
-                        [factory.makeLiteral("<missing>", LiteralKind.HexString, "cc", "cc")]
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes2)",
+                            undefined,
+                            "bytes2"
+                        ),
+                        [
+                            factory.makeLiteral(
+                                "<missing>",
+                                undefined,
+                                LiteralKind.HexString,
+                                "cc",
+                                "cc"
+                            )
+                        ]
                     ),
                     factory.makeFunctionCall(
                         "bytes1",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes1)", "bytes1"),
-                        [factory.makeLiteral("<missing>", LiteralKind.Number, "ee", "0xee")]
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes1)",
+                            undefined,
+                            "bytes1"
+                        ),
+                        [
+                            factory.makeLiteral(
+                                "<missing>",
+                                undefined,
+                                LiteralKind.Number,
+                                "ee",
+                                "0xee"
+                            )
+                        ]
                     )
                 ),
             true,
@@ -1550,14 +1979,20 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
                     factory.makeFunctionCall(
                         "bytes2",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes2)", "bytes2"),
-                        [factory.makeLiteral("<missing>", LiteralKind.HexString, "", "")]
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes2)",
+                            undefined,
+                            "bytes2"
+                        ),
+                        [factory.makeLiteral("<missing>", undefined, LiteralKind.HexString, "", "")]
                     ),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "00", "0")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "00", "0")
                 ),
             true,
             true
@@ -1567,14 +2002,20 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
                     factory.makeFunctionCall(
                         "bytes2",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes2)", "bytes2"),
-                        [factory.makeLiteral("<missing>", LiteralKind.String, "", "")]
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes2)",
+                            undefined,
+                            "bytes2"
+                        ),
+                        [factory.makeLiteral("<missing>", undefined, LiteralKind.String, "", "")]
                     ),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "00", "0")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "00", "0")
                 ),
             true,
             true
@@ -1584,14 +2025,34 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
             (factory: ASTNodeFactory) =>
                 factory.makeBinaryOperation(
                     "<missing>",
+                    undefined,
                     "==",
                     factory.makeFunctionCall(
                         "bytes2",
+                        undefined,
                         FunctionCallKind.TypeConversion,
-                        factory.makeElementaryTypeNameExpression("type(bytes2)", "bytes2"),
-                        [factory.makeLiteral("<missing>", LiteralKind.String, "6162", "ab")]
+                        factory.makeElementaryTypeNameExpression(
+                            "type(bytes2)",
+                            undefined,
+                            "bytes2"
+                        ),
+                        [
+                            factory.makeLiteral(
+                                "<missing>",
+                                undefined,
+                                LiteralKind.String,
+                                "6162",
+                                "ab"
+                            )
+                        ]
                     ),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "6162", "0x6162")
+                    factory.makeLiteral(
+                        "<missing>",
+                        undefined,
+                        LiteralKind.Number,
+                        "6162",
+                        "0x6162"
+                    )
                 ),
             true,
             true
@@ -1610,15 +2071,17 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
                     Mutability.Constant,
                     "string",
                     undefined,
-                    factory.makeElementaryTypeName("string", "string"),
                     undefined,
-                    factory.makeLiteral("<missing>", LiteralKind.String, "", "abcdef")
+                    factory.makeElementaryTypeName("string", undefined, "string"),
+                    undefined,
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.String, "", "abcdef")
                 );
 
                 return factory.makeIndexAccess(
                     "string",
+                    undefined,
                     factory.makeIdentifierFor(v),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "2")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "2")
                 );
             },
             true,
@@ -1638,15 +2101,23 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
                     Mutability.Constant,
                     "bytes3",
                     undefined,
-                    factory.makeElementaryTypeName("bytes3", "bytes3"),
                     undefined,
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "0xab_cd_ef")
+                    factory.makeElementaryTypeName("bytes3", undefined, "bytes3"),
+                    undefined,
+                    factory.makeLiteral(
+                        "<missing>",
+                        undefined,
+                        LiteralKind.Number,
+                        "",
+                        "0xab_cd_ef"
+                    )
                 );
 
                 return factory.makeIndexAccess(
                     "string",
+                    undefined,
                     factory.makeIdentifierFor(v),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "1")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "1")
                 );
             },
             true,
@@ -1666,15 +2137,23 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
                     Mutability.Constant,
                     "bytes3",
                     undefined,
-                    factory.makeElementaryTypeName("bytes3", "bytes3"),
                     undefined,
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "0xab_cd_ef")
+                    factory.makeElementaryTypeName("bytes3", undefined, "bytes3"),
+                    undefined,
+                    factory.makeLiteral(
+                        "<missing>",
+                        undefined,
+                        LiteralKind.Number,
+                        "",
+                        "0xab_cd_ef"
+                    )
                 );
 
                 return factory.makeIndexAccess(
                     "string",
+                    undefined,
                     factory.makeIdentifierFor(v),
-                    factory.makeLiteral("<missing>", LiteralKind.Number, "", "3")
+                    factory.makeLiteral("<missing>", undefined, LiteralKind.Number, "", "3")
                 );
             },
             true,

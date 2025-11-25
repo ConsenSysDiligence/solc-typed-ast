@@ -9,7 +9,7 @@ export class LegacyIndexRangeAccessProcessor extends LegacyExpressionProcessor<I
         config: ASTReaderConfiguration,
         raw: any
     ): ConstructorParameters<typeof IndexRangeAccess> {
-        const [id, src, typeString] = super.process(reader, config, raw);
+        const [id, src, typeString, typeIdentifier] = super.process(reader, config, raw);
         const attributes = raw.attributes;
         const children = reader.convertArray(raw.children, config) as Expression[];
 
@@ -17,6 +17,15 @@ export class LegacyIndexRangeAccessProcessor extends LegacyExpressionProcessor<I
         const startExpression = attributes.startExpression === null ? undefined : children.shift();
         const endExpression = attributes.endExpression === null ? undefined : children.shift();
 
-        return [id, src, typeString, baseExpression, startExpression, endExpression, raw];
+        return [
+            id,
+            src,
+            typeString,
+            typeIdentifier,
+            baseExpression,
+            startExpression,
+            endExpression,
+            raw
+        ];
     }
 }

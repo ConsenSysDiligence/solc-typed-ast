@@ -10,13 +10,13 @@ export class LegacyArrayTypeNameProcessor extends LegacyTypeNameProcessor<ArrayT
         config: ASTReaderConfiguration,
         raw: any
     ): ConstructorParameters<typeof ArrayTypeName> {
-        const [id, src, typeString] = super.process(reader, config, raw);
+        const [id, src, typeString, typeIdentifier] = super.process(reader, config, raw);
 
         const [baseType, length] = reader.convertArray(raw.children, config) as [
             TypeName,
             Expression?
         ];
 
-        return [id, src, typeString, baseType, length, raw];
+        return [id, src, typeString, typeIdentifier, baseType, length, raw];
     }
 }

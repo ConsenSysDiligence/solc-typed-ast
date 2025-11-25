@@ -9,7 +9,7 @@ export class ModernLiteralProcessor extends ModernExpressionProcessor<Literal> {
         config: ASTReaderConfiguration,
         raw: any
     ): ConstructorParameters<typeof Literal> {
-        const [id, src, typeString] = super.process(reader, config, raw);
+        const [id, src, typeString, typeIdentifier] = super.process(reader, config, raw);
 
         const kind: LiteralKind = raw.kind;
         const hexValue: string = raw.hexValue;
@@ -18,6 +18,6 @@ export class ModernLiteralProcessor extends ModernExpressionProcessor<Literal> {
             ? raw.subdenomination
             : undefined;
 
-        return [id, src, typeString, kind, hexValue, value, subdenomination, raw];
+        return [id, src, typeString, typeIdentifier, kind, hexValue, value, subdenomination, raw];
     }
 }

@@ -22,6 +22,7 @@ export class ModernVariableDeclarationProcessor extends ModernNodeProcessor<Vari
         const stateVariable: boolean = raw.stateVariable;
         const visibility: StateVariableVisibility = raw.visibility;
         const typeString: string = raw.typeDescriptions.typeString;
+        const typeIdentifier: string = raw.typeDescriptions.typeIdentifier;
         const nameLocation: string | undefined = raw.nameLocation;
 
         const storageLocation: DataLocation =
@@ -61,6 +62,7 @@ export class ModernVariableDeclarationProcessor extends ModernNodeProcessor<Vari
             visibility,
             mutability,
             typeString,
+            typeIdentifier,
             documentation,
             typeName,
             overrideSpecifier,

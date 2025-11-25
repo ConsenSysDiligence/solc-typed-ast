@@ -124,6 +124,7 @@ SourceUnit #34
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "address"
+                typeIdentifier: "t_address"
                 documentation: undefined
                 nameLocation: "57:1:0"
                 vType: ElementaryTypeName #25
@@ -145,6 +146,7 @@ SourceUnit #34
                     id: 25
                     src: "0:0:0"
                     typeString: "address"
+                    typeIdentifier: "t_address"
                     name: "address"
                     stateMutability: "nonpayable"
                     context: ASTContext #1000
@@ -170,6 +172,7 @@ SourceUnit #34
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "bool"
+                typeIdentifier: "t_bool"
                 documentation: undefined
                 nameLocation: "67:1:0"
                 vType: ElementaryTypeName #27
@@ -191,6 +194,7 @@ SourceUnit #34
                     id: 27
                     src: "0:0:0"
                     typeString: "bool"
+                    typeIdentifier: "t_bool"
                     name: "bool"
                     stateMutability: "nonpayable"
                     context: ASTContext #1000
@@ -216,6 +220,7 @@ SourceUnit #34
             visibility: "public"
             mutability: "mutable"
             typeString: "struct B.Sb"
+            typeIdentifier: "t_struct$_Sb_$6_storage"
             documentation: undefined
             nameLocation: "85:1:0"
             vType: UserDefinedTypeName #31
@@ -237,6 +242,7 @@ SourceUnit #34
                 id: 31
                 src: "0:0:0"
                 typeString: "struct B.Sb"
+                typeIdentifier: "t_struct$_Sb_$6_storage_ptr"
                 name: undefined
                 referencedDeclaration: 29
                 path: IdentifierPath #30
@@ -451,6 +457,7 @@ SourceUnit #46
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "uint256"
+                typeIdentifier: "t_uint256"
                 documentation: undefined
                 nameLocation: "79:1:1"
                 vType: ElementaryTypeName #39
@@ -472,6 +479,7 @@ SourceUnit #46
                     id: 39
                     src: "0:0:0"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     name: "uint"
                     stateMutability: "nonpayable"
                     context: ASTContext #1000
@@ -497,6 +505,7 @@ SourceUnit #46
             visibility: "public"
             mutability: "mutable"
             typeString: "struct A.Sa"
+            typeIdentifier: "t_struct$_Sa_$18_storage"
             documentation: undefined
             nameLocation: "97:1:1"
             vType: UserDefinedTypeName #43
@@ -518,6 +527,7 @@ SourceUnit #46
                 id: 43
                 src: "0:0:0"
                 typeString: "struct A.Sa"
+                typeIdentifier: "t_struct$_Sa_$18_storage_ptr"
                 name: undefined
                 referencedDeclaration: 41
                 path: IdentifierPath #42

@@ -11,6 +11,6 @@ export class LegacyExpressionProcessor<T extends Expression> extends LegacyNodeP
         const [id, src] = super.process(reader, config, raw);
         const typeString: string = raw.attributes.type;
 
-        return [id, src, typeString, raw];
+        return [id, src, typeString, undefined, raw];
     }
 }

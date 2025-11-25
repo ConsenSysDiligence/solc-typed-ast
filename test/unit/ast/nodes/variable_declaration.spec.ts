@@ -28,6 +28,7 @@ describe("VariableDeclaration", () => {
             StateVariableVisibility.Default,
             Mutability.Constant,
             type.typeString,
+            "t_uint256",
             undefined,
             type
         );

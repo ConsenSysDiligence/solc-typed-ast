@@ -33,13 +33,14 @@ export class UnaryOperation extends Expression {
         id: number,
         src: string,
         typeString: string,
+        typeIdentifier: string | undefined,
         prefix: boolean,
         operator: string,
         subExpression: Expression,
         userFunction?: number,
         raw?: any
     ) {
-        super(id, src, typeString, raw);
+        super(id, src, typeString, typeIdentifier, raw);
 
         this.prefix = prefix;
         this.operator = operator;

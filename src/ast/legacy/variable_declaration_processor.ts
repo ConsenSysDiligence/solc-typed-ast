@@ -49,6 +49,7 @@ export class LegacyVariableDeclarationProcessor extends LegacyNodeProcessor<Vari
             visibility,
             mutability,
             typeString,
+            undefined,
             documentation,
             typeName,
             overrideSpecifier,

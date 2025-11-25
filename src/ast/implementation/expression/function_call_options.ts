@@ -20,11 +20,12 @@ export class FunctionCallOptions extends Expression {
         id: number,
         src: string,
         typeString: string,
+        typeIdentifier: string | undefined,
         expression: Expression,
         options: Map<string, Expression>,
         raw?: any
     ) {
-        super(id, src, typeString, raw);
+        super(id, src, typeString, typeIdentifier, raw);
 
         this.vExpression = expression;
         this.vOptionsMap = options;

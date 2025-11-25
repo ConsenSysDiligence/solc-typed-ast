@@ -8,8 +8,15 @@ export class NewExpression extends Expression {
      */
     vTypeName: TypeName;
 
-    constructor(id: number, src: string, typeString: string, typeName: TypeName, raw?: any) {
-        super(id, src, typeString, raw);
+    constructor(
+        id: number,
+        src: string,
+        typeString: string,
+        typeIdentifier: string | undefined,
+        typeName: TypeName,
+        raw?: any
+    ) {
+        super(id, src, typeString, typeIdentifier, raw);
 
         this.vTypeName = typeName;
 

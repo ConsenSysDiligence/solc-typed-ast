@@ -10,7 +10,7 @@ export class LegacyFunctionTypeNameProcessor extends LegacyTypeNameProcessor<Fun
         config: ASTReaderConfiguration,
         raw: any
     ): ConstructorParameters<typeof FunctionTypeName> {
-        const [id, src, typeString] = super.process(reader, config, raw);
+        const [id, src, typeString, typeIdentifier] = super.process(reader, config, raw);
         const attributes = raw.attributes;
 
         const visibility: FunctionVisibility = attributes.visibility;
@@ -25,6 +25,7 @@ export class LegacyFunctionTypeNameProcessor extends LegacyTypeNameProcessor<Fun
             id,
             src,
             typeString,
+            typeIdentifier,
             visibility,
             stateMutability,
             parameterTypes,

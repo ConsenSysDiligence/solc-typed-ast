@@ -134,7 +134,8 @@ describe("ASTNodeFactory.makeIdentifierFor()", () => {
                     DataLocation.Default,
                     StateVariableVisibility.Default,
                     Mutability.Mutable,
-                    "uint256"
+                    "uint256",
+                    undefined
                 )
             ]),
             factory.makeParameterList([
@@ -147,7 +148,8 @@ describe("ASTNodeFactory.makeIdentifierFor()", () => {
                     DataLocation.Default,
                     StateVariableVisibility.Default,
                     Mutability.Mutable,
-                    "uint256"
+                    "uint256",
+                    undefined
                 )
             ]),
             []
@@ -184,7 +186,8 @@ describe("ASTNodeFactory.makeIdentifierFor()", () => {
                     DataLocation.Default,
                     StateVariableVisibility.Default,
                     Mutability.Mutable,
-                    "uint256"
+                    "uint256",
+                    undefined
                 )
             ])
         );
@@ -219,7 +222,8 @@ describe("ASTNodeFactory.makeIdentifierFor()", () => {
                     DataLocation.Default,
                     StateVariableVisibility.Default,
                     Mutability.Mutable,
-                    "uint256"
+                    "uint256",
+                    undefined
                 )
             ])
         );

@@ -32,13 +32,29 @@ describe("MemberAccess", () => {
             StateVariableVisibility.Default,
             Mutability.Constant,
             arrayType.typeString,
+            "<missing>",
             undefined,
             arrayType
         );
 
-        const identifier = new Identifier(4, "0:0:0", arrayBaseType.typeString, "myArr", 0);
+        const identifier = new Identifier(
+            4,
+            "0:0:0",
+            arrayBaseType.typeString,
+            "t_uint256",
+            "myArr",
+            0
+        );
 
-        const memberAccess = new MemberAccess(5, "0:0:0", "uint256", identifier, "length", -1);
+        const memberAccess = new MemberAccess(
+            5,
+            "0:0:0",
+            "uint256",
+            "t_uint256",
+            identifier,
+            "length",
+            -1
+        );
 
         const other = new ASTNode(6, "0:0:0", "Custom");
 

@@ -23,12 +23,13 @@ export class IndexRangeAccess extends Expression {
         id: number,
         src: string,
         typeString: string,
+        typeIdentifier: string | undefined,
         baseExpression: Expression,
         startExpression?: Expression,
         endExpression?: Expression,
         raw?: any
     ) {
-        super(id, src, typeString, raw);
+        super(id, src, typeString, typeIdentifier, raw);
 
         this.vBaseExpression = baseExpression;
         this.vStartExpression = startExpression;

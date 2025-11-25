@@ -100,6 +100,7 @@ SourceUnit #56
             visibility: "public"
             mutability: "mutable"
             typeString: "int8"
+            typeIdentifier: "t_int8"
             documentation: undefined
             nameLocation: undefined
             vType: ElementaryTypeName #30
@@ -121,6 +122,7 @@ SourceUnit #56
                 id: 30
                 src: "0:0:0"
                 typeString: "int8"
+                typeIdentifier: "t_int8"
                 name: "int8"
                 stateMutability: "nonpayable"
                 context: ASTContext #1000
@@ -360,6 +362,7 @@ SourceUnit #56
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: undefined
                     vType: ElementaryTypeName #41
@@ -381,6 +384,7 @@ SourceUnit #56
                         id: 41
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -421,6 +425,7 @@ SourceUnit #56
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: undefined
                     vType: ElementaryTypeName #44
@@ -442,6 +447,7 @@ SourceUnit #56
                         id: 44
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000

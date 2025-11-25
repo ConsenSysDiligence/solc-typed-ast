@@ -137,6 +137,7 @@ SourceUnit #1839
             visibility: "internal"
             mutability: "mutable"
             typeString: "uint256"
+            typeIdentifier: "t_uint256"
             documentation: undefined
             nameLocation: "134:1:0"
             vType: ElementaryTypeName #960
@@ -158,6 +159,7 @@ SourceUnit #1839
                 id: 960
                 src: "0:0:0"
                 typeString: "uint256"
+                typeIdentifier: "t_uint256"
                 name: "uint"
                 stateMutability: "nonpayable"
                 context: ASTContext #1000
@@ -370,6 +372,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "-1:-1:-1"
                     vType: ElementaryTypeName #970
@@ -391,6 +394,7 @@ SourceUnit #1839
                         id: 970
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -452,6 +456,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         documentation: undefined
                         nameLocation: "407:1:0"
                         vType: ElementaryTypeName #973
@@ -473,6 +478,7 @@ SourceUnit #1839
                             id: 973
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             name: "uint"
                             stateMutability: "nonpayable"
                             context: ASTContext #1000
@@ -728,6 +734,7 @@ SourceUnit #1839
                 id: 990
                 src: "0:0:0"
                 typeString: "struct SomeContract.SomeStruct"
+                typeIdentifier: "t_struct$_SomeStruct_$893_storage_ptr"
                 name: undefined
                 referencedDeclaration: 893
                 path: IdentifierPath #989
@@ -981,6 +988,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "struct SomeContract.SomeStruct"
+                        typeIdentifier: "t_struct$_SomeStruct_$893_memory_ptr"
                         documentation: undefined
                         nameLocation: "705:1:0"
                         vType: UserDefinedTypeName #1001
@@ -1002,6 +1010,7 @@ SourceUnit #1839
                             id: 1001
                             src: "0:0:0"
                             typeString: "struct SomeContract.SomeStruct"
+                            typeIdentifier: "t_struct$_SomeStruct_$893_storage_ptr"
                             name: undefined
                             referencedDeclaration: 893
                             path: IdentifierPath #1000
@@ -1239,6 +1248,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "-1:-1:-1"
                     vType: ElementaryTypeName #1012
@@ -1260,6 +1270,7 @@ SourceUnit #1839
                         id: 1012
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -1478,6 +1489,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "bytes"
+                        typeIdentifier: "t_bytes_memory_ptr"
                         documentation: undefined
                         nameLocation: "927:4:0"
                         vType: ElementaryTypeName #1024
@@ -1499,6 +1511,7 @@ SourceUnit #1839
                             id: 1024
                             src: "0:0:0"
                             typeString: "bytes"
+                            typeIdentifier: "t_bytes_storage_ptr"
                             name: "bytes"
                             stateMutability: "nonpayable"
                             context: ASTContext #1000
@@ -1576,6 +1589,7 @@ SourceUnit #1839
                                     id: 1026
                                     src: "0:0:0"
                                     typeString: undefined
+                                    typeIdentifier: undefined
                                     name: "address"
                                     stateMutability: "nonpayable"
                                     context: ASTContext #1000
@@ -1638,6 +1652,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "bytes32"
+                        typeIdentifier: "t_bytes32"
                         documentation: undefined
                         nameLocation: "967:8:0"
                         vType: ElementaryTypeName #1032
@@ -1659,6 +1674,7 @@ SourceUnit #1839
                             id: 1032
                             src: "0:0:0"
                             typeString: "bytes32"
+                            typeIdentifier: "t_bytes32"
                             name: "bytes32"
                             stateMutability: "nonpayable"
                             context: ASTContext #1000
@@ -1736,6 +1752,7 @@ SourceUnit #1839
                                     id: 1034
                                     src: "0:0:0"
                                     typeString: undefined
+                                    typeIdentifier: undefined
                                     name: "address"
                                     stateMutability: "nonpayable"
                                     context: ASTContext #1000
@@ -1918,6 +1935,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "contract UsesNewAddressMembers"
+                        typeIdentifier: "t_contract$_UsesNewAddressMembers_$89"
                         documentation: undefined
                         nameLocation: "1089:1:0"
                         vType: UserDefinedTypeName #1046
@@ -1939,6 +1957,7 @@ SourceUnit #1839
                             id: 1046
                             src: "0:0:0"
                             typeString: "contract UsesNewAddressMembers"
+                            typeIdentifier: "t_contract$_UsesNewAddressMembers_$89"
                             name: undefined
                             referencedDeclaration: 1042
                             path: IdentifierPath #1045
@@ -2016,6 +2035,7 @@ SourceUnit #1839
                                 id: 1049
                                 src: "0:0:0"
                                 typeString: "contract UsesNewAddressMembers"
+                                typeIdentifier: "t_contract$_UsesNewAddressMembers_$89"
                                 name: undefined
                                 referencedDeclaration: 1042
                                 path: IdentifierPath #1048
@@ -2209,6 +2229,7 @@ SourceUnit #1839
                                 visibility: "internal"
                                 mutability: "mutable"
                                 typeString: "string"
+                                typeIdentifier: "t_string_memory_ptr"
                                 documentation: undefined
                                 nameLocation: "1195:6:0"
                                 vType: ElementaryTypeName #1063
@@ -2230,6 +2251,7 @@ SourceUnit #1839
                                     id: 1063
                                     src: "0:0:0"
                                     typeString: "string"
+                                    typeIdentifier: "t_string_storage_ptr"
                                     name: "string"
                                     stateMutability: "nonpayable"
                                     context: ASTContext #1000
@@ -2385,6 +2407,7 @@ SourceUnit #1839
                                 visibility: "internal"
                                 mutability: "mutable"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 documentation: undefined
                                 nameLocation: "1260:5:0"
                                 vType: ElementaryTypeName #1086
@@ -2406,6 +2429,7 @@ SourceUnit #1839
                                     id: 1086
                                     src: "0:0:0"
                                     typeString: "uint256"
+                                    typeIdentifier: "t_uint256"
                                     name: "uint"
                                     stateMutability: "nonpayable"
                                     context: ASTContext #1000
@@ -2987,6 +3011,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "1562:1:0"
                     vType: ElementaryTypeName #1100
@@ -3008,6 +3033,7 @@ SourceUnit #1839
                         id: 1100
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -3305,6 +3331,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         documentation: undefined
                         nameLocation: "1821:1:0"
                         vType: ElementaryTypeName #1116
@@ -3326,6 +3353,7 @@ SourceUnit #1839
                             id: 1116
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             name: "uint"
                             stateMutability: "nonpayable"
                             context: ASTContext #1000
@@ -3696,6 +3724,7 @@ SourceUnit #1839
                             visibility: "internal"
                             mutability: "mutable"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             documentation: undefined
                             nameLocation: "2455:1:0"
                             vType: ElementaryTypeName #1137
@@ -3717,6 +3746,7 @@ SourceUnit #1839
                                 id: 1137
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 name: "uint"
                                 stateMutability: "nonpayable"
                                 context: ASTContext #1000
@@ -4002,6 +4032,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "contract CatchPanic"
+                        typeIdentifier: "t_contract$_CatchPanic_$146"
                         documentation: undefined
                         nameLocation: "2834:2:0"
                         vType: UserDefinedTypeName #1154
@@ -4023,6 +4054,7 @@ SourceUnit #1839
                             id: 1154
                             src: "0:0:0"
                             typeString: "contract CatchPanic"
+                            typeIdentifier: "t_contract$_CatchPanic_$146"
                             name: undefined
                             referencedDeclaration: 1099
                             path: IdentifierPath #1153
@@ -4100,6 +4132,7 @@ SourceUnit #1839
                                 id: 1157
                                 src: "0:0:0"
                                 typeString: "contract CatchPanic"
+                                typeIdentifier: "t_contract$_CatchPanic_$146"
                                 name: undefined
                                 referencedDeclaration: 1099
                                 path: IdentifierPath #1156
@@ -4293,6 +4326,7 @@ SourceUnit #1839
                                 visibility: "internal"
                                 mutability: "mutable"
                                 typeString: "string"
+                                typeIdentifier: "t_string_memory_ptr"
                                 documentation: undefined
                                 nameLocation: "3051:6:0"
                                 vType: ElementaryTypeName #1167
@@ -4314,6 +4348,7 @@ SourceUnit #1839
                                     id: 1167
                                     src: "0:0:0"
                                     typeString: "string"
+                                    typeIdentifier: "t_string_storage_ptr"
                                     name: "string"
                                     stateMutability: "nonpayable"
                                     context: ASTContext #1000
@@ -4390,6 +4425,7 @@ SourceUnit #1839
                                 visibility: "internal"
                                 mutability: "mutable"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 documentation: undefined
                                 nameLocation: "3187:5:0"
                                 vType: ElementaryTypeName #1172
@@ -4411,6 +4447,7 @@ SourceUnit #1839
                                     id: 1172
                                     src: "0:0:0"
                                     typeString: "uint256"
+                                    typeIdentifier: "t_uint256"
                                     name: "uint"
                                     stateMutability: "nonpayable"
                                     context: ASTContext #1000
@@ -4595,6 +4632,7 @@ SourceUnit #1839
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "uint256"
+                typeIdentifier: "t_uint256"
                 documentation: undefined
                 nameLocation: "3613:4:0"
                 vType: ElementaryTypeName #1185
@@ -4616,6 +4654,7 @@ SourceUnit #1839
                     id: 1185
                     src: "0:0:0"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     name: "uint"
                     stateMutability: "nonpayable"
                     context: ASTContext #1000
@@ -4732,6 +4771,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "bytes"
+                    typeIdentifier: "t_bytes_memory_ptr"
                     documentation: undefined
                     nameLocation: "3705:1:0"
                     vType: ElementaryTypeName #1190
@@ -4753,6 +4793,7 @@ SourceUnit #1839
                         id: 1190
                         src: "0:0:0"
                         typeString: "bytes"
+                        typeIdentifier: "t_bytes_storage_ptr"
                         name: "bytes"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -5012,6 +5053,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "bytes"
+                    typeIdentifier: "t_bytes_memory_ptr"
                     documentation: undefined
                     nameLocation: "4164:1:0"
                     vType: ElementaryTypeName #1204
@@ -5033,6 +5075,7 @@ SourceUnit #1839
                         id: 1204
                         src: "0:0:0"
                         typeString: "bytes"
+                        typeIdentifier: "t_bytes_storage_ptr"
                         name: "bytes"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -5058,6 +5101,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "bytes"
+                    typeIdentifier: "t_bytes_memory_ptr"
                     documentation: undefined
                     nameLocation: "4180:1:0"
                     vType: ElementaryTypeName #1206
@@ -5079,6 +5123,7 @@ SourceUnit #1839
                         id: 1206
                         src: "0:0:0"
                         typeString: "bytes"
+                        typeIdentifier: "t_bytes_storage_ptr"
                         name: "bytes"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -5119,6 +5164,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "bytes"
+                    typeIdentifier: "t_bytes_memory_ptr"
                     documentation: undefined
                     nameLocation: "4217:1:0"
                     vType: ElementaryTypeName #1209
@@ -5140,6 +5186,7 @@ SourceUnit #1839
                         id: 1209
                         src: "0:0:0"
                         typeString: "bytes"
+                        typeIdentifier: "t_bytes_storage_ptr"
                         name: "bytes"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -5253,6 +5300,7 @@ SourceUnit #1839
                                     id: 1212
                                     src: "0:0:0"
                                     typeString: undefined
+                                    typeIdentifier: undefined
                                     name: "bytes"
                                     stateMutability: "nonpayable"
                                     context: ASTContext #1000
@@ -5412,6 +5460,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         documentation: undefined
                         nameLocation: "4394:1:0"
                         vType: ElementaryTypeName #1223
@@ -5433,6 +5482,7 @@ SourceUnit #1839
                             id: 1223
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             name: "uint"
                             stateMutability: "nonpayable"
                             context: ASTContext #1000
@@ -6050,6 +6100,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "-1:-1:-1"
                     vType: ElementaryTypeName #1255
@@ -6071,6 +6122,7 @@ SourceUnit #1839
                         id: 1255
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -6230,6 +6282,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "4885:3:0"
                     vType: ElementaryTypeName #1264
@@ -6251,6 +6304,7 @@ SourceUnit #1839
                         id: 1264
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -6325,6 +6379,7 @@ SourceUnit #1839
             id: 1271
             src: "0:0:0"
             typeString: "uint128"
+            typeIdentifier: "t_uint128"
             name: "uint128"
             stateMutability: "nonpayable"
             context: ASTContext #1000
@@ -6361,6 +6416,7 @@ SourceUnit #1839
             id: 1273
             src: "0:0:0"
             typeString: "uint128"
+            typeIdentifier: "t_uint128"
             name: "uint128"
             stateMutability: "nonpayable"
             context: ASTContext #1000
@@ -6439,6 +6495,7 @@ SourceUnit #1839
                 id: 1275
                 src: "0:0:0"
                 typeString: "uint256"
+                typeIdentifier: "t_uint256"
                 name: "uint256"
                 stateMutability: "nonpayable"
                 context: ASTContext #1000
@@ -6464,6 +6521,7 @@ SourceUnit #1839
             visibility: "internal"
             mutability: "constant"
             typeString: "uint256"
+            typeIdentifier: "t_uint256"
             documentation: undefined
             nameLocation: "5082:10:0"
             vType: ElementaryTypeName #1277
@@ -6485,6 +6543,7 @@ SourceUnit #1839
                 id: 1277
                 src: "0:0:0"
                 typeString: "uint256"
+                typeIdentifier: "t_uint256"
                 name: "uint"
                 stateMutability: "nonpayable"
                 context: ASTContext #1000
@@ -6613,6 +6672,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "LibWithUDVT_088.UFixed"
+                    typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                     documentation: undefined
                     nameLocation: "5128:1:0"
                     vType: UserDefinedTypeName #1283
@@ -6634,6 +6694,7 @@ SourceUnit #1839
                         id: 1283
                         src: "0:0:0"
                         typeString: "LibWithUDVT_088.UFixed"
+                        typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                         name: undefined
                         referencedDeclaration: 1276
                         path: IdentifierPath #1282
@@ -6678,6 +6739,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "LibWithUDVT_088.UFixed"
+                    typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                     documentation: undefined
                     nameLocation: "5138:1:0"
                     vType: UserDefinedTypeName #1286
@@ -6699,6 +6761,7 @@ SourceUnit #1839
                         id: 1286
                         src: "0:0:0"
                         typeString: "LibWithUDVT_088.UFixed"
+                        typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                         name: undefined
                         referencedDeclaration: 1276
                         path: IdentifierPath #1285
@@ -6758,6 +6821,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "LibWithUDVT_088.UFixed"
+                    typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                     documentation: undefined
                     nameLocation: "-1:-1:-1"
                     vType: UserDefinedTypeName #1290
@@ -6779,6 +6843,7 @@ SourceUnit #1839
                         id: 1290
                         src: "0:0:0"
                         typeString: "LibWithUDVT_088.UFixed"
+                        typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                         name: undefined
                         referencedDeclaration: 1276
                         path: IdentifierPath #1289
@@ -7151,6 +7216,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "LibWithUDVT_088.UFixed"
+                    typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                     documentation: undefined
                     nameLocation: "5270:1:0"
                     vType: UserDefinedTypeName #1309
@@ -7172,6 +7238,7 @@ SourceUnit #1839
                         id: 1309
                         src: "0:0:0"
                         typeString: "LibWithUDVT_088.UFixed"
+                        typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                         name: undefined
                         referencedDeclaration: 1276
                         path: IdentifierPath #1308
@@ -7216,6 +7283,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "5281:1:0"
                     vType: ElementaryTypeName #1311
@@ -7237,6 +7305,7 @@ SourceUnit #1839
                         id: 1311
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint256"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -7277,6 +7346,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "LibWithUDVT_088.UFixed"
+                    typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                     documentation: undefined
                     nameLocation: "-1:-1:-1"
                     vType: UserDefinedTypeName #1315
@@ -7298,6 +7368,7 @@ SourceUnit #1839
                         id: 1315
                         src: "0:0:0"
                         typeString: "LibWithUDVT_088.UFixed"
+                        typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                         name: undefined
                         referencedDeclaration: 1276
                         path: IdentifierPath #1314
@@ -7607,6 +7678,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "LibWithUDVT_088.UFixed"
+                    typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                     documentation: undefined
                     nameLocation: "5400:1:0"
                     vType: UserDefinedTypeName #1331
@@ -7628,6 +7700,7 @@ SourceUnit #1839
                         id: 1331
                         src: "0:0:0"
                         typeString: "LibWithUDVT_088.UFixed"
+                        typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                         name: undefined
                         referencedDeclaration: 1276
                         path: IdentifierPath #1330
@@ -7687,6 +7760,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "-1:-1:-1"
                     vType: ElementaryTypeName #1334
@@ -7708,6 +7782,7 @@ SourceUnit #1839
                         id: 1334
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint256"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -7935,6 +8010,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "5520:1:0"
                     vType: ElementaryTypeName #1346
@@ -7956,6 +8032,7 @@ SourceUnit #1839
                         id: 1346
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint256"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -7996,6 +8073,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "LibWithUDVT_088.UFixed"
+                    typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                     documentation: undefined
                     nameLocation: "-1:-1:-1"
                     vType: UserDefinedTypeName #1350
@@ -8017,6 +8095,7 @@ SourceUnit #1839
                         id: 1350
                         src: "0:0:0"
                         typeString: "LibWithUDVT_088.UFixed"
+                        typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                         name: undefined
                         referencedDeclaration: 1276
                         path: IdentifierPath #1349
@@ -8271,6 +8350,7 @@ SourceUnit #1839
                 id: 1363
                 src: "0:0:0"
                 typeString: "address payable"
+                typeIdentifier: "t_address_payable"
                 name: "address"
                 stateMutability: "payable"
                 context: ASTContext #1000
@@ -8341,6 +8421,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "InterfaceWithUDTV_088.EntityReference"
+                    typeIdentifier: "t_userDefinedValueType$_EntityReference_$413"
                     documentation: undefined
                     nameLocation: "5782:2:0"
                     vType: UserDefinedTypeName #1366
@@ -8362,6 +8443,7 @@ SourceUnit #1839
                         id: 1366
                         src: "0:0:0"
                         typeString: "InterfaceWithUDTV_088.EntityReference"
+                        typeIdentifier: "t_userDefinedValueType$_EntityReference_$413"
                         name: undefined
                         referencedDeclaration: 1364
                         path: IdentifierPath #1365
@@ -8421,6 +8503,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "-1:-1:-1"
                     vType: ElementaryTypeName #1369
@@ -8442,6 +8525,7 @@ SourceUnit #1839
                         id: 1369
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -9152,6 +9236,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "address"
+                    typeIdentifier: "t_address"
                     documentation: undefined
                     nameLocation: "6109:10:0"
                     vType: ElementaryTypeName #1403
@@ -9173,6 +9258,7 @@ SourceUnit #1839
                         id: 1403
                         src: "0:0:0"
                         typeString: "address"
+                        typeIdentifier: "t_address"
                         name: "address"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -9198,6 +9284,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint32"
+                    typeIdentifier: "t_uint32"
                     documentation: undefined
                     nameLocation: "6128:11:0"
                     vType: ElementaryTypeName #1405
@@ -9219,6 +9306,7 @@ SourceUnit #1839
                         id: 1405
                         src: "0:0:0"
                         typeString: "uint32"
+                        typeIdentifier: "t_uint32"
                         name: "uint32"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -9259,6 +9347,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "address"
+                    typeIdentifier: "t_address"
                     documentation: undefined
                     nameLocation: "6170:3:0"
                     vType: ElementaryTypeName #1408
@@ -9280,6 +9369,7 @@ SourceUnit #1839
                         id: 1408
                         src: "0:0:0"
                         typeString: "address"
+                        typeIdentifier: "t_address"
                         name: "address"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -9305,6 +9395,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "bytes4"
+                    typeIdentifier: "t_bytes4"
                     documentation: undefined
                     nameLocation: "6182:3:0"
                     vType: ElementaryTypeName #1410
@@ -9326,6 +9417,7 @@ SourceUnit #1839
                         id: 1410
                         src: "0:0:0"
                         typeString: "bytes4"
+                        typeIdentifier: "t_bytes4"
                         name: "bytes4"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -9387,6 +9479,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "function () external"
+                        typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                         documentation: undefined
                         nameLocation: "6217:2:0"
                         vType: FunctionTypeName #1415
@@ -9408,6 +9501,7 @@ SourceUnit #1839
                             id: 1415
                             src: "0:0:0"
                             typeString: "function () external"
+                            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                             visibility: "external"
                             stateMutability: "nonpayable"
                             vParameterTypes: ParameterList #1413
@@ -9723,6 +9817,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "6513:1:0"
                     vType: ElementaryTypeName #1430
@@ -9744,6 +9839,7 @@ SourceUnit #1839
                         id: 1430
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -9769,6 +9865,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "int256"
+                    typeIdentifier: "t_int256"
                     documentation: undefined
                     nameLocation: "6520:1:0"
                     vType: ElementaryTypeName #1432
@@ -9790,6 +9887,7 @@ SourceUnit #1839
                         id: 1432
                         src: "0:0:0"
                         typeString: "int256"
+                        typeIdentifier: "t_int256"
                         name: "int"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -9815,6 +9913,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "bytes2"
+                    typeIdentifier: "t_bytes2"
                     documentation: undefined
                     nameLocation: "6530:1:0"
                     vType: ElementaryTypeName #1434
@@ -9836,6 +9935,7 @@ SourceUnit #1839
                         id: 1434
                         src: "0:0:0"
                         typeString: "bytes2"
+                        typeIdentifier: "t_bytes2"
                         name: "bytes2"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -9876,6 +9976,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "bytes2"
+                    typeIdentifier: "t_bytes2"
                     documentation: undefined
                     nameLocation: "6562:1:0"
                     vType: ElementaryTypeName #1437
@@ -9897,6 +9998,7 @@ SourceUnit #1839
                         id: 1437
                         src: "0:0:0"
                         typeString: "bytes2"
+                        typeIdentifier: "t_bytes2"
                         name: "bytes2"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -9922,6 +10024,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "int256"
+                    typeIdentifier: "t_int256"
                     documentation: undefined
                     nameLocation: "6569:1:0"
                     vType: ElementaryTypeName #1439
@@ -9943,6 +10046,7 @@ SourceUnit #1839
                         id: 1439
                         src: "0:0:0"
                         typeString: "int256"
+                        typeIdentifier: "t_int256"
                         name: "int"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -9968,6 +10072,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "6577:1:0"
                     vType: ElementaryTypeName #1441
@@ -9989,6 +10094,7 @@ SourceUnit #1839
                         id: 1441
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -10222,6 +10328,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "bytes"
+                        typeIdentifier: "t_bytes_memory_ptr"
                         documentation: undefined
                         nameLocation: "6670:7:0"
                         vType: ElementaryTypeName #1453
@@ -10243,6 +10350,7 @@ SourceUnit #1839
                             id: 1453
                             src: "0:0:0"
                             typeString: "bytes"
+                            typeIdentifier: "t_bytes_storage_ptr"
                             name: "bytes"
                             stateMutability: "nonpayable"
                             context: ASTContext #1000
@@ -10507,6 +10615,7 @@ SourceUnit #1839
             visibility: "internal"
             mutability: "mutable"
             typeString: "function () external"
+            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
             documentation: undefined
             nameLocation: "6783:15:0"
             vType: FunctionTypeName #1471
@@ -10528,6 +10637,7 @@ SourceUnit #1839
                 id: 1471
                 src: "0:0:0"
                 typeString: "function () external"
+                typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                 visibility: "external"
                 stateMutability: "nonpayable"
                 vParameterTypes: ParameterList #1469
@@ -10681,6 +10791,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "function () external"
+                        typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                         documentation: undefined
                         nameLocation: "6865:14:0"
                         vType: FunctionTypeName #1477
@@ -10702,6 +10813,7 @@ SourceUnit #1839
                             id: 1477
                             src: "0:0:0"
                             typeString: "function () external"
+                            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                             visibility: "external"
                             stateMutability: "nonpayable"
                             vParameterTypes: ParameterList #1475
@@ -10777,6 +10889,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "function () external"
+                        typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                         documentation: undefined
                         nameLocation: "6910:14:0"
                         vType: FunctionTypeName #1482
@@ -10798,6 +10911,7 @@ SourceUnit #1839
                             id: 1482
                             src: "0:0:0"
                             typeString: "function () external"
+                            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                             visibility: "external"
                             stateMutability: "nonpayable"
                             vParameterTypes: ParameterList #1480
@@ -11382,6 +11496,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "string"
+                        typeIdentifier: "t_string_memory_ptr"
                         documentation: undefined
                         nameLocation: "7183:1:0"
                         vType: ElementaryTypeName #1512
@@ -11403,6 +11518,7 @@ SourceUnit #1839
                             id: 1512
                             src: "0:0:0"
                             typeString: "string"
+                            typeIdentifier: "t_string_storage_ptr"
                             name: "string"
                             stateMutability: "nonpayable"
                             context: ASTContext #1000
@@ -11465,6 +11581,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "string"
+                        typeIdentifier: "t_string_memory_ptr"
                         documentation: undefined
                         nameLocation: "7216:1:0"
                         vType: ElementaryTypeName #1516
@@ -11486,6 +11603,7 @@ SourceUnit #1839
                             id: 1516
                             src: "0:0:0"
                             typeString: "string"
+                            typeIdentifier: "t_string_storage_ptr"
                             name: "string"
                             stateMutability: "nonpayable"
                             context: ASTContext #1000
@@ -11548,6 +11666,7 @@ SourceUnit #1839
                         visibility: "internal"
                         mutability: "mutable"
                         typeString: "string"
+                        typeIdentifier: "t_string_memory_ptr"
                         documentation: undefined
                         nameLocation: "7249:1:0"
                         vType: ElementaryTypeName #1520
@@ -11569,6 +11688,7 @@ SourceUnit #1839
                             id: 1520
                             src: "0:0:0"
                             typeString: "string"
+                            typeIdentifier: "t_string_storage_ptr"
                             name: "string"
                             stateMutability: "nonpayable"
                             context: ASTContext #1000
@@ -11646,6 +11766,7 @@ SourceUnit #1839
                                     id: 1522
                                     src: "0:0:0"
                                     typeString: undefined
+                                    typeIdentifier: undefined
                                     name: "string"
                                     stateMutability: "nonpayable"
                                     context: ASTContext #1000
@@ -11720,6 +11841,7 @@ SourceUnit #1839
             id: 1532
             src: "0:0:0"
             typeString: "int256"
+            typeIdentifier: "t_int256"
             name: "int256"
             stateMutability: "nonpayable"
             context: ASTContext #1000
@@ -11771,6 +11893,7 @@ SourceUnit #1839
             id: 1536
             src: "0:0:0"
             typeString: "RestrictedNumber_0813"
+            typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
             name: undefined
             referencedDeclaration: 1533
             path: IdentifierPath #1535
@@ -11875,6 +11998,7 @@ SourceUnit #1839
             id: 1542
             src: "0:0:0"
             typeString: "RestrictedNumber_0813"
+            typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
             name: undefined
             referencedDeclaration: 1533
             path: IdentifierPath #1541
@@ -11964,6 +12088,7 @@ SourceUnit #1839
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "RestrictedNumber_0813"
+                typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                 documentation: undefined
                 nameLocation: "7476:1:0"
                 vType: UserDefinedTypeName #1545
@@ -11985,6 +12110,7 @@ SourceUnit #1839
                     id: 1545
                     src: "0:0:0"
                     typeString: "RestrictedNumber_0813"
+                    typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                     name: undefined
                     referencedDeclaration: 1533
                     path: IdentifierPath #1544
@@ -12044,6 +12170,7 @@ SourceUnit #1839
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "RestrictedNumber_0813"
+                typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                 documentation: undefined
                 nameLocation: "-1:-1:-1"
                 vType: UserDefinedTypeName #1549
@@ -12065,6 +12192,7 @@ SourceUnit #1839
                     id: 1549
                     src: "0:0:0"
                     typeString: "RestrictedNumber_0813"
+                    typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                     name: undefined
                     referencedDeclaration: 1533
                     path: IdentifierPath #1548
@@ -12392,6 +12520,7 @@ SourceUnit #1839
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "RestrictedNumber_0813"
+                typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                 documentation: undefined
                 nameLocation: "7663:1:0"
                 vType: UserDefinedTypeName #1566
@@ -12413,6 +12542,7 @@ SourceUnit #1839
                     id: 1566
                     src: "0:0:0"
                     typeString: "RestrictedNumber_0813"
+                    typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                     name: undefined
                     referencedDeclaration: 1533
                     path: IdentifierPath #1565
@@ -12472,6 +12602,7 @@ SourceUnit #1839
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "RestrictedNumber_0813"
+                typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                 documentation: undefined
                 nameLocation: "-1:-1:-1"
                 vType: UserDefinedTypeName #1570
@@ -12493,6 +12624,7 @@ SourceUnit #1839
                     id: 1570
                     src: "0:0:0"
                     typeString: "RestrictedNumber_0813"
+                    typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                     name: undefined
                     referencedDeclaration: 1533
                     path: IdentifierPath #1569
@@ -12820,6 +12952,7 @@ SourceUnit #1839
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "int256"
+                typeIdentifier: "t_int256"
                 documentation: undefined
                 nameLocation: "7854:5:0"
                 vType: ElementaryTypeName #1586
@@ -12841,6 +12974,7 @@ SourceUnit #1839
                     id: 1586
                     src: "0:0:0"
                     typeString: "int256"
+                    typeIdentifier: "t_int256"
                     name: "int256"
                     stateMutability: "nonpayable"
                     context: ASTContext #1000
@@ -12881,6 +13015,7 @@ SourceUnit #1839
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "RestrictedNumber_0813"
+                typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                 documentation: undefined
                 nameLocation: "-1:-1:-1"
                 vType: UserDefinedTypeName #1590
@@ -12902,6 +13037,7 @@ SourceUnit #1839
                     id: 1590
                     src: "0:0:0"
                     typeString: "RestrictedNumber_0813"
+                    typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                     name: undefined
                     referencedDeclaration: 1533
                     path: IdentifierPath #1589
@@ -13424,6 +13560,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "RestrictedNumber_0813"
+                    typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                     documentation: undefined
                     nameLocation: "8055:1:0"
                     vType: UserDefinedTypeName #1615
@@ -13445,6 +13582,7 @@ SourceUnit #1839
                         id: 1615
                         src: "0:0:0"
                         typeString: "RestrictedNumber_0813"
+                        typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                         name: undefined
                         referencedDeclaration: 1533
                         path: IdentifierPath #1614
@@ -13489,6 +13627,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "RestrictedNumber_0813"
+                    typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                     documentation: undefined
                     nameLocation: "8080:1:0"
                     vType: UserDefinedTypeName #1618
@@ -13510,6 +13649,7 @@ SourceUnit #1839
                         id: 1618
                         src: "0:0:0"
                         typeString: "RestrictedNumber_0813"
+                        typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                         name: undefined
                         referencedDeclaration: 1533
                         path: IdentifierPath #1617
@@ -13569,6 +13709,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "RestrictedNumber_0813"
+                    typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                     documentation: undefined
                     nameLocation: "8123:1:0"
                     vType: UserDefinedTypeName #1622
@@ -13590,6 +13731,7 @@ SourceUnit #1839
                         id: 1622
                         src: "0:0:0"
                         typeString: "RestrictedNumber_0813"
+                        typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                         name: undefined
                         referencedDeclaration: 1533
                         path: IdentifierPath #1621
@@ -14189,6 +14331,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "address"
+                    typeIdentifier: "t_address"
                     documentation: undefined
                     nameLocation: "8476:4:0"
                     vType: ElementaryTypeName #1650
@@ -14210,6 +14353,7 @@ SourceUnit #1839
                         id: 1650
                         src: "0:0:0"
                         typeString: "address"
+                        typeIdentifier: "t_address"
                         name: "address"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -14235,6 +14379,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "8495:1:0"
                     vType: ElementaryTypeName #1652
@@ -14256,6 +14401,7 @@ SourceUnit #1839
                         id: 1652
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -14315,6 +14461,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "address"
+                    typeIdentifier: "t_address"
                     documentation: undefined
                     nameLocation: "8527:4:0"
                     vType: ElementaryTypeName #1656
@@ -14336,6 +14483,7 @@ SourceUnit #1839
                         id: 1656
                         src: "0:0:0"
                         typeString: "address"
+                        typeIdentifier: "t_address"
                         name: "address"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -14361,6 +14509,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "8538:1:0"
                     vType: ElementaryTypeName #1658
@@ -14382,6 +14531,7 @@ SourceUnit #1839
                         id: 1658
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -14452,6 +14602,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "8573:1:0"
                     vType: ElementaryTypeName #1662
@@ -14473,6 +14624,7 @@ SourceUnit #1839
                         id: 1662
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -14513,6 +14665,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "8603:1:0"
                     vType: ElementaryTypeName #1665
@@ -14534,6 +14687,7 @@ SourceUnit #1839
                         id: 1665
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -14637,6 +14791,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "bytes32"
+                    typeIdentifier: "t_bytes32"
                     documentation: undefined
                     nameLocation: "8669:2:0"
                     vType: ElementaryTypeName #1671
@@ -14658,6 +14813,7 @@ SourceUnit #1839
                         id: 1671
                         src: "0:0:0"
                         typeString: "bytes32"
+                        typeIdentifier: "t_bytes32"
                         name: "bytes32"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -14683,6 +14839,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "bytes4"
+                    typeIdentifier: "t_bytes4"
                     documentation: undefined
                     nameLocation: "8680:2:0"
                     vType: ElementaryTypeName #1673
@@ -14704,6 +14861,7 @@ SourceUnit #1839
                         id: 1673
                         src: "0:0:0"
                         typeString: "bytes4"
+                        typeIdentifier: "t_bytes4"
                         name: "bytes4"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -15331,6 +15489,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "Int"
+                    typeIdentifier: "t_userDefinedValueType$_Int_$905"
                     documentation: undefined
                     nameLocation: "8961:1:0"
                     vType: UserDefinedTypeName #1706
@@ -15352,6 +15511,7 @@ SourceUnit #1839
                         id: 1706
                         src: "0:0:0"
                         typeString: "Int"
+                        typeIdentifier: "t_userDefinedValueType$_Int_$905"
                         name: undefined
                         referencedDeclaration: 905
                         path: IdentifierPath #1705
@@ -15396,6 +15556,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "Int"
+                    typeIdentifier: "t_userDefinedValueType$_Int_$905"
                     documentation: undefined
                     nameLocation: "8971:1:0"
                     vType: UserDefinedTypeName #1709
@@ -15417,6 +15578,7 @@ SourceUnit #1839
                         id: 1709
                         src: "0:0:0"
                         typeString: "Int"
+                        typeIdentifier: "t_userDefinedValueType$_Int_$905"
                         name: undefined
                         referencedDeclaration: 905
                         path: IdentifierPath #1708
@@ -15476,6 +15638,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "Int"
+                    typeIdentifier: "t_userDefinedValueType$_Int_$905"
                     documentation: undefined
                     nameLocation: "-1:-1:-1"
                     vType: UserDefinedTypeName #1713
@@ -15497,6 +15660,7 @@ SourceUnit #1839
                         id: 1713
                         src: "0:0:0"
                         typeString: "Int"
+                        typeIdentifier: "t_userDefinedValueType$_Int_$905"
                         name: undefined
                         referencedDeclaration: 905
                         path: IdentifierPath #1712
@@ -15767,6 +15931,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "9088:1:0"
                     vType: ElementaryTypeName #1726
@@ -15788,6 +15953,7 @@ SourceUnit #1839
                         id: 1726
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -15890,6 +16056,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "9132:1:0"
                     vType: ElementaryTypeName #1731
@@ -15911,6 +16078,7 @@ SourceUnit #1839
                         id: 1731
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -15971,6 +16139,7 @@ SourceUnit #1839
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "uint256"
+                typeIdentifier: "t_uint256"
                 documentation: undefined
                 nameLocation: "9152:1:0"
                 vType: ElementaryTypeName #1736
@@ -15992,6 +16161,7 @@ SourceUnit #1839
                     id: 1736
                     src: "0:0:0"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     name: "uint"
                     stateMutability: "nonpayable"
                     context: ASTContext #1000
@@ -16052,6 +16222,7 @@ SourceUnit #1839
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "uint256"
+                typeIdentifier: "t_uint256"
                 documentation: undefined
                 nameLocation: "9169:1:0"
                 vType: ElementaryTypeName #1740
@@ -16073,6 +16244,7 @@ SourceUnit #1839
                     id: 1740
                     src: "0:0:0"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     name: "uint"
                     stateMutability: "nonpayable"
                     context: ASTContext #1000
@@ -16175,6 +16347,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "9226:1:0"
                     vType: ElementaryTypeName #1744
@@ -16196,6 +16369,7 @@ SourceUnit #1839
                         id: 1744
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -16800,6 +16974,7 @@ SourceUnit #1839
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "uint256"
+                typeIdentifier: "t_uint256"
                 documentation: undefined
                 nameLocation: "9757:9:0"
                 vType: ElementaryTypeName #1776
@@ -16821,6 +16996,7 @@ SourceUnit #1839
                     id: 1776
                     src: "0:0:0"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     name: "uint256"
                     stateMutability: "nonpayable"
                     context: ASTContext #1000
@@ -16846,6 +17022,7 @@ SourceUnit #1839
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "uint256"
+                typeIdentifier: "t_uint256"
                 documentation: undefined
                 nameLocation: "9776:8:0"
                 vType: ElementaryTypeName #1778
@@ -16867,6 +17044,7 @@ SourceUnit #1839
                     id: 1778
                     src: "0:0:0"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     name: "uint256"
                     stateMutability: "nonpayable"
                     context: ASTContext #1000
@@ -16934,6 +17112,7 @@ SourceUnit #1839
             visibility: "internal"
             mutability: "mutable"
             typeString: "mapping(address => uint256)"
+            typeIdentifier: "t_mapping$_t_address_$_t_uint256_$"
             documentation: undefined
             nameLocation: "9875:7:0"
             vType: Mapping #1785
@@ -16955,6 +17134,7 @@ SourceUnit #1839
                 id: 1785
                 src: "0:0:0"
                 typeString: "mapping(address => uint256)"
+                typeIdentifier: "t_mapping$_t_address_$_t_uint256_$"
                 vKeyType: ElementaryTypeName #1783
                 vValueType: ElementaryTypeName #1784
                 context: ASTContext #1000
@@ -16972,6 +17152,7 @@ SourceUnit #1839
                     id: 1783
                     src: "0:0:0"
                     typeString: "address"
+                    typeIdentifier: "t_address"
                     name: "address"
                     stateMutability: "nonpayable"
                     context: ASTContext #1000
@@ -16989,6 +17170,7 @@ SourceUnit #1839
                     id: 1784
                     src: "0:0:0"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     name: "uint"
                     stateMutability: "nonpayable"
                     context: ASTContext #1000
@@ -17059,6 +17241,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "address"
+                    typeIdentifier: "t_address"
                     documentation: undefined
                     nameLocation: "9930:2:0"
                     vType: ElementaryTypeName #1787
@@ -17080,6 +17263,7 @@ SourceUnit #1839
                         id: 1787
                         src: "0:0:0"
                         typeString: "address"
+                        typeIdentifier: "t_address"
                         name: "address"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -17105,6 +17289,7 @@ SourceUnit #1839
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "9942:6:0"
                     vType: ElementaryTypeName #1789
@@ -17126,6 +17311,7 @@ SourceUnit #1839
                         id: 1789
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint256"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -17771,6 +17957,7 @@ SourceUnit #1839
             visibility: "internal"
             mutability: "mutable"
             typeString: "uint256"
+            typeIdentifier: "t_uint256"
             documentation: undefined
             nameLocation: "10225:3:0"
             vType: ElementaryTypeName #1825
@@ -17792,6 +17979,7 @@ SourceUnit #1839
                 id: 1825
                 src: "0:0:0"
                 typeString: "uint256"
+                typeIdentifier: "t_uint256"
                 name: "uint"
                 stateMutability: "nonpayable"
                 context: ASTContext #1000
@@ -18087,6 +18275,7 @@ SourceUnit #1907
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "uint256"
+                typeIdentifier: "t_uint256"
                 documentation: undefined
                 nameLocation: "106:1:1"
                 vType: ElementaryTypeName #1842
@@ -18108,6 +18297,7 @@ SourceUnit #1907
                     id: 1842
                     src: "0:0:0"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     name: "uint"
                     stateMutability: "nonpayable"
                     context: ASTContext #1000
@@ -18193,6 +18383,7 @@ SourceUnit #1907
                     visibility: "internal"
                     mutability: "mutable"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     documentation: undefined
                     nameLocation: "-1:-1:-1"
                     vType: ElementaryTypeName #1846
@@ -18214,6 +18405,7 @@ SourceUnit #1907
                         id: 1846
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "uint"
                         stateMutability: "nonpayable"
                         context: ASTContext #1000
@@ -18347,6 +18539,7 @@ SourceUnit #1907
             id: 1855
             src: "0:0:0"
             typeString: "int256"
+            typeIdentifier: "t_int256"
             name: "int"
             stateMutability: "nonpayable"
             context: ASTContext #1000
@@ -18415,6 +18608,7 @@ SourceUnit #1907
             id: 1860
             src: "0:0:0"
             typeString: "Int"
+            typeIdentifier: "t_userDefinedValueType$_Int_$905"
             name: undefined
             referencedDeclaration: 1856
             path: IdentifierPath #1859
@@ -18504,6 +18698,7 @@ SourceUnit #1907
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "Int"
+                typeIdentifier: "t_userDefinedValueType$_Int_$905"
                 documentation: undefined
                 nameLocation: "293:1:1"
                 vType: UserDefinedTypeName #1863
@@ -18525,6 +18720,7 @@ SourceUnit #1907
                     id: 1863
                     src: "0:0:0"
                     typeString: "Int"
+                    typeIdentifier: "t_userDefinedValueType$_Int_$905"
                     name: undefined
                     referencedDeclaration: 1856
                     path: IdentifierPath #1862
@@ -18584,6 +18780,7 @@ SourceUnit #1907
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "Int"
+                typeIdentifier: "t_userDefinedValueType$_Int_$905"
                 documentation: undefined
                 nameLocation: "-1:-1:-1"
                 vType: UserDefinedTypeName #1867
@@ -18605,6 +18802,7 @@ SourceUnit #1907
                     id: 1867
                     src: "0:0:0"
                     typeString: "Int"
+                    typeIdentifier: "t_userDefinedValueType$_Int_$905"
                     name: undefined
                     referencedDeclaration: 1856
                     path: IdentifierPath #1866
@@ -18895,6 +19093,7 @@ SourceUnit #1907
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "Int"
+                typeIdentifier: "t_userDefinedValueType$_Int_$905"
                 documentation: undefined
                 nameLocation: "374:1:1"
                 vType: UserDefinedTypeName #1882
@@ -18916,6 +19115,7 @@ SourceUnit #1907
                     id: 1882
                     src: "0:0:0"
                     typeString: "Int"
+                    typeIdentifier: "t_userDefinedValueType$_Int_$905"
                     name: undefined
                     referencedDeclaration: 1856
                     path: IdentifierPath #1881
@@ -18960,6 +19160,7 @@ SourceUnit #1907
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "Int"
+                typeIdentifier: "t_userDefinedValueType$_Int_$905"
                 documentation: undefined
                 nameLocation: "381:1:1"
                 vType: UserDefinedTypeName #1885
@@ -18981,6 +19182,7 @@ SourceUnit #1907
                     id: 1885
                     src: "0:0:0"
                     typeString: "Int"
+                    typeIdentifier: "t_userDefinedValueType$_Int_$905"
                     name: undefined
                     referencedDeclaration: 1856
                     path: IdentifierPath #1884
@@ -19040,6 +19242,7 @@ SourceUnit #1907
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "Int"
+                typeIdentifier: "t_userDefinedValueType$_Int_$905"
                 documentation: undefined
                 nameLocation: "-1:-1:-1"
                 vType: UserDefinedTypeName #1889
@@ -19061,6 +19264,7 @@ SourceUnit #1907
                     id: 1889
                     src: "0:0:0"
                     typeString: "Int"
+                    typeIdentifier: "t_userDefinedValueType$_Int_$905"
                     name: undefined
                     referencedDeclaration: 1856
                     path: IdentifierPath #1888

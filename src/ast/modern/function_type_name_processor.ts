@@ -10,7 +10,7 @@ export class ModernFunctionTypeNameProcessor extends ModernTypeNameProcessor<Fun
         config: ASTReaderConfiguration,
         raw: any
     ): ConstructorParameters<typeof FunctionTypeName> {
-        const [id, src, typeString] = super.process(reader, config, raw);
+        const [id, src, typeString, typeIdentifier] = super.process(reader, config, raw);
 
         const visibility: FunctionVisibility = raw.visibility;
         const stateMutability: FunctionStateMutability = raw.stateMutability;
@@ -25,6 +25,7 @@ export class ModernFunctionTypeNameProcessor extends ModernTypeNameProcessor<Fun
             id,
             src,
             typeString,
+            typeIdentifier,
             visibility,
             stateMutability,
             parameterTypes,

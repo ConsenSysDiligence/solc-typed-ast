@@ -27,6 +27,7 @@ describe("Identifier", () => {
             StateVariableVisibility.Default,
             Mutability.Constant,
             myType.typeString,
+            "t_uint256",
             undefined,
             myType
         );
@@ -45,11 +46,12 @@ describe("Identifier", () => {
             StateVariableVisibility.Default,
             Mutability.Constant,
             otherType.typeString,
+            "t_uint256",
             undefined,
             otherType
         );
 
-        const identifier = new Identifier(5, "0:0:0", myType.typeString, "myVar", 0);
+        const identifier = new Identifier(5, "0:0:0", myType.typeString, "t_uint256", "myVar", 0);
 
         context.register(myVar, myType, identifier);
 

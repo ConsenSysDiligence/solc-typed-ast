@@ -298,7 +298,7 @@ describe("ASTNodeFactory.copy()", () => {
             docs
         );
 
-        const memberType = factory.makeElementaryTypeName("uint8", "uint8");
+        const memberType = factory.makeElementaryTypeName("uint8", undefined, "uint8");
         const member = factory.makeVariableDeclaration(
             false,
             false,
@@ -309,6 +309,7 @@ describe("ASTNodeFactory.copy()", () => {
             StateVariableVisibility.Default,
             Mutability.Mutable,
             memberType.typeString,
+            undefined,
             undefined,
             memberType
         );
@@ -464,6 +465,7 @@ describe("ASTNodeFactory.copy()", () => {
 
         const literal = factory.makeLiteral(
             "uint8",
+            undefined,
             LiteralKind.Number,
             "01",
             "1",
@@ -492,8 +494,15 @@ describe("ASTNodeFactory.copy()", () => {
     it("UnaryOperation", () => {
         const factory = new ASTNodeFactory();
 
-        const expr = factory.makeLiteral("uint8", LiteralKind.Number, "01", "1", TimeUnit.Seconds);
-        const operation = factory.makeUnaryOperation(expr.typeString, true, "-", expr);
+        const expr = factory.makeLiteral(
+            "uint8",
+            undefined,
+            LiteralKind.Number,
+            "01",
+            "1",
+            TimeUnit.Seconds
+        );
+        const operation = factory.makeUnaryOperation(expr.typeString, undefined, true, "-", expr);
 
         const operationClone = factory.copy(operation);
         const exprClone = operationClone.vSubExpression;
@@ -535,10 +544,16 @@ describe("ASTNodeFactory.copy()", () => {
     it("BinaryOperation", () => {
         const factory = new ASTNodeFactory();
 
-        const right = factory.makeLiteral("uint8", LiteralKind.Number, "01", "1");
-        const left = factory.makeLiteral("uint8", LiteralKind.Number, "02", "2");
+        const right = factory.makeLiteral("uint8", undefined, LiteralKind.Number, "01", "1");
+        const left = factory.makeLiteral("uint8", undefined, LiteralKind.Number, "02", "2");
 
-        const operation = factory.makeBinaryOperation(right.typeString, "+", right, left);
+        const operation = factory.makeBinaryOperation(
+            right.typeString,
+            undefined,
+            "+",
+            right,
+            left
+        );
 
         const operationClone = factory.copy(operation);
         const leftClone = operationClone.vLeftExpression;
