@@ -15,7 +15,7 @@ describe("VariableDeclaration", () => {
         const unit = new SourceUnit(1, "0:0:0", "entry.sol", 0, "entry.sol", new Map());
         const otherUnit = new SourceUnit(2, "0:0:0", "other.sol", 1, "other.sol", new Map());
 
-        const type = new ElementaryTypeName(3, "0:0:0", "uint256", "uint256");
+        const type = new ElementaryTypeName(3, "0:0:0", "uint256", undefined, "uint256");
         const variable = new VariableDeclaration(
             4,
             "0:0:0",

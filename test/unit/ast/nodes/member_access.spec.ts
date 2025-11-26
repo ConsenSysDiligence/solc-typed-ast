@@ -16,9 +16,9 @@ describe("MemberAccess", () => {
     it("set vReferencedDeclaration", () => {
         const context = new ASTContext();
 
-        const arrayBaseType = new ElementaryTypeName(1, "0:0:0", "uint256", "uint256");
+        const arrayBaseType = new ElementaryTypeName(1, "0:0:0", "uint256", undefined, "uint256");
 
-        const arrayType = new ArrayTypeName(2, "0:0:0", "uint256[] memory", arrayBaseType);
+        const arrayType = new ArrayTypeName(2, "0:0:0", "uint256[] memory", undefined, arrayBaseType);
 
         const variable = new VariableDeclaration(
             3,

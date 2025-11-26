@@ -309,7 +309,7 @@ describe("ASTNodeFactory.make*()", () => {
             "doc string"
         );
 
-        const type = factory.makeElementaryTypeName("uint8", "uint8");
+        const type = factory.makeElementaryTypeName("uint8", undefined, "uint8");
         const value = factory.makeLiteral(
             type.typeString,
             undefined,
@@ -360,7 +360,7 @@ describe("ASTNodeFactory.make*()", () => {
 
     it("makeElementaryTypeNameExpression()", () => {
         const factory = new ASTNodeFactory();
-        const type = factory.makeElementaryTypeName("uint32", "uint32");
+        const type = factory.makeElementaryTypeName("uint32", undefined, "uint32");
         const node = factory.makeElementaryTypeNameExpression("uint32", undefined, type);
 
         verify(node, ElementaryTypeNameExpression, {
@@ -378,7 +378,7 @@ describe("ASTNodeFactory.make*()", () => {
     it("makeReturn()", () => {
         const factory = new ASTNodeFactory();
 
-        const type = factory.makeElementaryTypeName("uint32", "uint32");
+        const type = factory.makeElementaryTypeName("uint32", undefined, "uint32");
         const variable = factory.makeVariableDeclaration(
             false,
             false,
@@ -469,7 +469,7 @@ describe("ASTNodeFactory.make*()", () => {
     it("makeIdentifier()", () => {
         const factory = new ASTNodeFactory();
 
-        const type = factory.makeElementaryTypeName("uint32", "uint32");
+        const type = factory.makeElementaryTypeName("uint32", undefined, "uint32");
         const variable = factory.makeVariableDeclaration(
             false,
             false,
@@ -536,7 +536,7 @@ describe("ASTNodeFactory.make*()", () => {
     it("makeUserDefinedValueTypeDefinition()", () => {
         const factory = new ASTNodeFactory();
 
-        const type = factory.makeElementaryTypeName("uint256", "uint256");
+        const type = factory.makeElementaryTypeName("uint256", undefined, "uint256");
         const node = factory.makeUserDefinedValueTypeDefinition("MyCustomValeType", type);
 
         verify(node, UserDefinedValueTypeDefinition, {

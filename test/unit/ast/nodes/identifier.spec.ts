@@ -13,7 +13,7 @@ describe("Identifier", () => {
     it("set vReferencedDeclaration", () => {
         const context = new ASTContext();
 
-        const myType = new ElementaryTypeName(1, "0:0:0", "uint256", "uint256");
+        const myType = new ElementaryTypeName(1, "0:0:0", "uint256", undefined, "uint256");
 
         const myVar = new VariableDeclaration(
             2,
@@ -32,7 +32,7 @@ describe("Identifier", () => {
             myType
         );
 
-        const otherType = new ElementaryTypeName(3, "0:0:0", "uint256", "uint256");
+        const otherType = new ElementaryTypeName(3, "0:0:0", "uint256", undefined, "uint256");
 
         const otherVar = new VariableDeclaration(
             4,

@@ -86,7 +86,7 @@ describe("ASTNodeFactory.makeIdentifierFor()", () => {
         const factory = new ASTNodeFactory();
         const target = factory.makeUserDefinedValueTypeDefinition(
             "Some",
-            factory.makeElementaryTypeName("uint256", "uint256")
+            factory.makeElementaryTypeName("uint256", undefined, "uint256")
         );
 
         const id = factory.makeIdentifierFor(target);

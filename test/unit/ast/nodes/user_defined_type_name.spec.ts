@@ -8,7 +8,7 @@ describe("UserDefinedTypeName", () => {
         const struct = new StructDefinition(1, "0:0:0", "MyStruct", 0, "internal", []);
         const otherStruct = new StructDefinition(2, "0:0:0", "OtherStruct", 0, "internal", []);
 
-        const type = new UserDefinedTypeName(3, "0:0:0", "struct MyStruct", "MyStruct", 0);
+        const type = new UserDefinedTypeName(3, "0:0:0", "struct MyStruct", undefined, "MyStruct", 0);
 
         context.register(struct, type);
 
