@@ -33,6 +33,8 @@
         "src/ast/comments/comments_parser_header.ts",
         "src/ast/comments/comments_parser.ts",
         "test/utils/typeStrings/typeString_parser_header.ts",
-        "test/utils/typeStrings/typeString_parser.ts"
+        "test/utils/typeStrings/typeString_parser.ts",
+	"src/typeIdentifiers/typeIdentifier_parser_header.ts",
+	"src/typeIdentifiers/typeIdentifier_parser_gen.ts"
     ]
 }

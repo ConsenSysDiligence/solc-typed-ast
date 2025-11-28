@@ -26,4 +26,4 @@ export * from "./tuple";
 export * from "./type_identifier";
 export * from "./type_type";
 export * from "./user_defined_value_type";
-export * from "./bool"
+export * from "./bool";

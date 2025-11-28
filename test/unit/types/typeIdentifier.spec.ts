@@ -4,14 +4,14 @@ import { DataLocation } from "../../../src";
 
 const bytesT = new ast.BytesTypeId();
 const stringT = new ast.StringTypeId();
-const memStringPtrT = new ast.PointerTypeId(stringT, DataLocation.Memory, true)
+const memStringPtrT = new ast.PointerTypeId(stringT, DataLocation.Memory, true);
 const uint256T = new ast.IntTypeId(256, false);
 const int256T = new ast.IntTypeId(256, true);
 const int8T = new ast.IntTypeId(8, true);
 const bytes2T = new ast.FixedBytesTypeId(2);
 const bytes4T = new ast.FixedBytesTypeId(4);
 const boolT = new ast.BoolTypeId();
-const addressT = new ast.AddressTypeId(false)
+const addressT = new ast.AddressTypeId(false);
 
 const samples: Array<[string, ast.TypeIdentifier]> = [
     ["t_address", addressT],
@@ -87,15 +87,7 @@ const samples: Array<[string, ast.TypeIdentifier]> = [
     ],
     [
         "t_function_require_pure$_t_bool_$returns$__$",
-        new ast.FunctionTypeId(
-            "require",
-            "pure",
-            [boolT],
-            [],
-            false,
-            false,
-            false
-        )
+        new ast.FunctionTypeId("require", "pure", [boolT], [], false, false, false)
     ],
     [
         "t_function_unwrap_pure$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$returns$_t_int256_$",
@@ -133,22 +125,13 @@ const samples: Array<[string, ast.TypeIdentifier]> = [
             false
         )
     ],
-    [
-        "t_mapping$_t_address_$_t_uint256_$",
-        new ast.MappingTypeId(addressT, uint256T)
-    ],
+    ["t_mapping$_t_address_$_t_uint256_$", new ast.MappingTypeId(addressT, uint256T)],
     [
         "t_magic_meta_type_t_enum$_EnumABC_$12",
         new ast.MetaTypeTypeId(new ast.EnumTypeId("EnumABC", 12))
     ],
-    [
-        "t_modifier$_t_string_memory_ptr_$",
-        new ast.ModifierTypeId([memStringPtrT])
-    ],
-    [
-        "t_module_42",
-        new ast.ModuleTypeId(42)
-    ],
+    ["t_modifier$_t_string_memory_ptr_$", new ast.ModifierTypeId([memStringPtrT])],
+    ["t_module_42", new ast.ModuleTypeId(42)],
     [
         "t_struct$_GlobalStruct_$25_memory_ptr",
         new ast.PointerTypeId(new ast.StructTypeId("GlobalStruct", 25), DataLocation.Memory, true)
@@ -157,26 +140,18 @@ const samples: Array<[string, ast.TypeIdentifier]> = [
         "t_struct$_GlobalStruct_$25_storage_ptr",
         new ast.PointerTypeId(new ast.StructTypeId("GlobalStruct", 25), DataLocation.Storage, true)
     ],
-    [
-        "t_super$_B_$208",
-        new ast.SuperTypeId("B", 208)
-    ],
-    [
-        "t_tuple$__$",
-        new ast.TupleTypeId([])
-    ],
-    [
-        "t_tuple$_t_address_$_t_bytes4_$",
-        new ast.TupleTypeId([addressT, bytes4T])
-    ],
+    ["t_super$_B_$208", new ast.SuperTypeId("B", 208)],
+    ["t_tuple$__$", new ast.TupleTypeId([])],
+    ["t_tuple$_t_address_$_t_bytes4_$", new ast.TupleTypeId([addressT, bytes4T])],
     [
         "t_tuple$_t_rational_1_by_1_$_t_rational_minus_1_by_1_$_t_rational_65536_by_1_$",
-        new ast.TupleTypeId([new ast.RationalNumTypeId(1n, 1n), new ast.RationalNumTypeId(-1n, 1n), new ast.RationalNumTypeId(65536n, 1n)])
+        new ast.TupleTypeId([
+            new ast.RationalNumTypeId(1n, 1n),
+            new ast.RationalNumTypeId(-1n, 1n),
+            new ast.RationalNumTypeId(65536n, 1n)
+        ])
     ],
-    [
-        "t_type$_t_address_$",
-        new ast.TypeTypeId(addressT)
-    ],
+    ["t_type$_t_address_$", new ast.TypeTypeId(addressT)],
     [
         "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_uint256_$_$",
         new ast.MappingTypeId(addressT, new ast.MappingTypeId(uint256T, uint256T))
