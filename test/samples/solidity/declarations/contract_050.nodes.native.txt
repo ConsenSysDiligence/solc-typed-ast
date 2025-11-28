@@ -313,6 +313,7 @@ SourceUnit #146
                         id: 86
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         operator: "="
                         vLeftHandSide: Identifier #82
                         vRightHandSide: BinaryOperation #85
@@ -331,6 +332,7 @@ SourceUnit #146
                             id: 82
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             name: "c"
                             referencedDeclaration: 80
                             context: ASTContext #1000
@@ -350,6 +352,7 @@ SourceUnit #146
                             id: 85
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             operator: "+"
                             vLeftExpression: Identifier #83
                             vRightExpression: Identifier #84
@@ -370,6 +373,7 @@ SourceUnit #146
                                 id: 83
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 name: "a"
                                 referencedDeclaration: 75
                                 context: ASTContext #1000
@@ -389,6 +393,7 @@ SourceUnit #146
                                 id: 84
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 name: "b"
                                 referencedDeclaration: 77
                                 context: ASTContext #1000
@@ -1154,6 +1159,7 @@ SourceUnit #146
                         id: 126
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         operator: "="
                         vLeftHandSide: Identifier #121
                         vRightHandSide: FunctionCall #125
@@ -1172,6 +1178,7 @@ SourceUnit #146
                             id: 121
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             name: "val"
                             referencedDeclaration: 118
                             context: ASTContext #1000
@@ -1191,6 +1198,7 @@ SourceUnit #146
                             id: 125
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             kind: "functionCall"
                             fieldNames: undefined
                             vExpression: Identifier #122
@@ -1216,6 +1224,7 @@ SourceUnit #146
                                 id: 122
                                 src: "0:0:0"
                                 typeString: "function (uint256,uint256) returns (uint256)"
+                                typeIdentifier: "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$returns$_t_uint256_$"
                                 name: "some"
                                 referencedDeclaration: 144
                                 context: ASTContext #1000
@@ -1235,6 +1244,7 @@ SourceUnit #146
                                 id: 123
                                 src: "0:0:0"
                                 typeString: "int_const 1"
+                                typeIdentifier: "t_rational_1_by_1"
                                 kind: "number"
                                 hexValue: "31"
                                 value: "1"
@@ -1254,6 +1264,7 @@ SourceUnit #146
                                 id: 124
                                 src: "0:0:0"
                                 typeString: "int_const 2"
+                                typeIdentifier: "t_rational_2_by_1"
                                 kind: "number"
                                 hexValue: "32"
                                 value: "2"
@@ -1513,6 +1524,7 @@ SourceUnit #146
                         id: 141
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #139
@@ -1538,6 +1550,7 @@ SourceUnit #146
                             id: 139
                             src: "0:0:0"
                             typeString: "function (uint256,uint256) returns (uint256)"
+                            typeIdentifier: "t_function_delegatecall_nonpayable$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$"
                             vExpression: Identifier #138
                             memberName: "add"
                             referencedDeclaration: 89
@@ -1557,6 +1570,7 @@ SourceUnit #146
                                 id: 138
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 name: "a"
                                 referencedDeclaration: 131
                                 context: ASTContext #1000
@@ -1576,6 +1590,7 @@ SourceUnit #146
                             id: 140
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             name: "b"
                             referencedDeclaration: 133
                             context: ASTContext #1000

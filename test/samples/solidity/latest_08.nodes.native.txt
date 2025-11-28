@@ -496,6 +496,7 @@ SourceUnit #1839
                         id: 975
                         src: "0:0:0"
                         typeString: "int_const 0"
+                        typeIdentifier: "t_rational_0_by_1"
                         kind: "number"
                         hexValue: "30"
                         value: "0"
@@ -549,6 +550,7 @@ SourceUnit #1839
                             id: 978
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             prefix: false
                             operator: "--"
                             userFunction: undefined
@@ -569,6 +571,7 @@ SourceUnit #1839
                                 id: 977
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 name: "x"
                                 referencedDeclaration: 974
                                 context: ASTContext #1000
@@ -606,6 +609,7 @@ SourceUnit #1839
                         id: 981
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "x"
                         referencedDeclaration: 974
                         context: ASTContext #1000
@@ -1047,6 +1051,7 @@ SourceUnit #1839
                         id: 1007
                         src: "0:0:0"
                         typeString: "struct SomeContract.SomeStruct memory"
+                        typeIdentifier: "t_struct$_SomeStruct_$893_memory_ptr"
                         kind: "structConstructorCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1005
@@ -1072,6 +1077,7 @@ SourceUnit #1839
                             id: 1005
                             src: "0:0:0"
                             typeString: "type(struct SomeContract.SomeStruct storage pointer)"
+                            typeIdentifier: "t_type$_t_struct$_SomeStruct_$893_storage_ptr_$"
                             vExpression: MemberAccess #1004
                             memberName: "SomeStruct"
                             referencedDeclaration: 893
@@ -1091,6 +1097,7 @@ SourceUnit #1839
                                 id: 1004
                                 src: "0:0:0"
                                 typeString: "type(contract SomeContract)"
+                                typeIdentifier: "t_type$_t_contract$_SomeContract_$902_$"
                                 vExpression: Identifier #1003
                                 memberName: "SomeContract"
                                 referencedDeclaration: 902
@@ -1110,6 +1117,7 @@ SourceUnit #1839
                                     id: 1003
                                     src: "0:0:0"
                                     typeString: "module \"./test/samples/solidity/latest_imports_08.sol\""
+                                    typeIdentifier: "t_module_956"
                                     name: "LI"
                                     referencedDeclaration: 959
                                     context: ASTContext #1000
@@ -1129,6 +1137,7 @@ SourceUnit #1839
                             id: 1006
                             src: "0:0:0"
                             typeString: "int_const 10"
+                            typeIdentifier: "t_rational_10_by_1"
                             kind: "number"
                             hexValue: "3130"
                             value: "10"
@@ -1324,6 +1333,7 @@ SourceUnit #1839
                         id: 1017
                         src: "0:0:0"
                         typeString: "int_const 2"
+                        typeIdentifier: "t_rational_2_by_1"
                         kind: "number"
                         hexValue: "32"
                         value: "2"
@@ -1529,6 +1539,7 @@ SourceUnit #1839
                         id: 1030
                         src: "0:0:0"
                         typeString: "bytes memory"
+                        typeIdentifier: "t_bytes_memory_ptr"
                         vExpression: FunctionCall #1029
                         memberName: "code"
                         referencedDeclaration: undefined
@@ -1548,6 +1559,7 @@ SourceUnit #1839
                             id: 1029
                             src: "0:0:0"
                             typeString: "address"
+                            typeIdentifier: "t_address"
                             kind: "typeConversion"
                             fieldNames: undefined
                             vExpression: ElementaryTypeNameExpression #1027
@@ -1573,6 +1585,7 @@ SourceUnit #1839
                                 id: 1027
                                 src: "0:0:0"
                                 typeString: "type(address)"
+                                typeIdentifier: "t_type$_t_address_$"
                                 typeName: ElementaryTypeName #1026
                                 context: ASTContext #1000
                                 parent: FunctionCall #1029
@@ -1589,7 +1602,7 @@ SourceUnit #1839
                                     id: 1026
                                     src: "0:0:0"
                                     typeString: undefined
-                                    typeIdentifier: undefined
+                                    typeIdentifier: "t_address"
                                     name: "address"
                                     stateMutability: "nonpayable"
                                     context: ASTContext #1000
@@ -1607,6 +1620,7 @@ SourceUnit #1839
                                 id: 1028
                                 src: "0:0:0"
                                 typeString: "int_const 0"
+                                typeIdentifier: "t_rational_0_by_1"
                                 kind: "number"
                                 hexValue: "30"
                                 value: "0"
@@ -1692,6 +1706,7 @@ SourceUnit #1839
                         id: 1038
                         src: "0:0:0"
                         typeString: "bytes32"
+                        typeIdentifier: "t_bytes32"
                         vExpression: FunctionCall #1037
                         memberName: "codehash"
                         referencedDeclaration: undefined
@@ -1711,6 +1726,7 @@ SourceUnit #1839
                             id: 1037
                             src: "0:0:0"
                             typeString: "address"
+                            typeIdentifier: "t_address"
                             kind: "typeConversion"
                             fieldNames: undefined
                             vExpression: ElementaryTypeNameExpression #1035
@@ -1736,6 +1752,7 @@ SourceUnit #1839
                                 id: 1035
                                 src: "0:0:0"
                                 typeString: "type(address)"
+                                typeIdentifier: "t_type$_t_address_$"
                                 typeName: ElementaryTypeName #1034
                                 context: ASTContext #1000
                                 parent: FunctionCall #1037
@@ -1752,7 +1769,7 @@ SourceUnit #1839
                                     id: 1034
                                     src: "0:0:0"
                                     typeString: undefined
-                                    typeIdentifier: undefined
+                                    typeIdentifier: "t_address"
                                     name: "address"
                                     stateMutability: "nonpayable"
                                     context: ASTContext #1000
@@ -1770,6 +1787,7 @@ SourceUnit #1839
                                 id: 1036
                                 src: "0:0:0"
                                 typeString: "int_const 0"
+                                typeIdentifier: "t_rational_0_by_1"
                                 kind: "number"
                                 hexValue: "30"
                                 value: "0"
@@ -1994,6 +2012,7 @@ SourceUnit #1839
                         id: 1051
                         src: "0:0:0"
                         typeString: "contract UsesNewAddressMembers"
+                        typeIdentifier: "t_contract$_UsesNewAddressMembers_$89"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: NewExpression #1050
@@ -2019,6 +2038,7 @@ SourceUnit #1839
                             id: 1050
                             src: "0:0:0"
                             typeString: "function () returns (contract UsesNewAddressMembers)"
+                            typeIdentifier: "t_function_creation_nonpayable$__$returns$_t_contract$_UsesNewAddressMembers_$89_$"
                             vTypeName: UserDefinedTypeName #1049
                             context: ASTContext #1000
                             parent: FunctionCall #1051
@@ -2089,6 +2109,7 @@ SourceUnit #1839
                         id: 1055
                         src: "0:0:0"
                         typeString: "tuple()"
+                        typeIdentifier: "t_tuple$__$"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1054
@@ -2114,6 +2135,7 @@ SourceUnit #1839
                             id: 1054
                             src: "0:0:0"
                             typeString: "function () external"
+                            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                             vExpression: Identifier #1053
                             memberName: "test"
                             referencedDeclaration: 1041
@@ -2133,6 +2155,7 @@ SourceUnit #1839
                                 id: 1053
                                 src: "0:0:0"
                                 typeString: "contract UsesNewAddressMembers"
+                                typeIdentifier: "t_contract$_UsesNewAddressMembers_$89"
                                 name: "c"
                                 referencedDeclaration: 1047
                                 context: ASTContext #1000
@@ -2303,6 +2326,7 @@ SourceUnit #1839
                                     id: 1060
                                     src: "0:0:0"
                                     typeString: "tuple()"
+                                    typeIdentifier: "t_tuple$__$"
                                     kind: "functionCall"
                                     fieldNames: undefined
                                     vExpression: Identifier #1058
@@ -2328,6 +2352,7 @@ SourceUnit #1839
                                         id: 1058
                                         src: "0:0:0"
                                         typeString: "function (string memory) pure"
+                                        typeIdentifier: "t_function_revert_pure$_t_string_memory_ptr_$returns$__$"
                                         name: "revert"
                                         referencedDeclaration: -19
                                         context: ASTContext #1000
@@ -2347,6 +2372,7 @@ SourceUnit #1839
                                         id: 1059
                                         src: "0:0:0"
                                         typeString: "string memory"
+                                        typeIdentifier: "t_string_memory_ptr"
                                         name: "reason"
                                         referencedDeclaration: 1064
                                         context: ASTContext #1000
@@ -2483,6 +2509,7 @@ SourceUnit #1839
                                     id: 1069
                                     src: "0:0:0"
                                     typeString: "bool"
+                                    typeIdentifier: "t_bool"
                                     operator: "=="
                                     vLeftExpression: Identifier #1067
                                     vRightExpression: Literal #1068
@@ -2503,6 +2530,7 @@ SourceUnit #1839
                                         id: 1067
                                         src: "0:0:0"
                                         typeString: "uint256"
+                                        typeIdentifier: "t_uint256"
                                         name: "_code"
                                         referencedDeclaration: 1087
                                         context: ASTContext #1000
@@ -2522,6 +2550,7 @@ SourceUnit #1839
                                         id: 1068
                                         src: "0:0:0"
                                         typeString: "int_const 1"
+                                        typeIdentifier: "t_rational_1_by_1"
                                         kind: "number"
                                         hexValue: "30783031"
                                         value: "0x01"
@@ -2575,6 +2604,7 @@ SourceUnit #1839
                                             id: 1072
                                             src: "0:0:0"
                                             typeString: "tuple()"
+                                            typeIdentifier: "t_tuple$__$"
                                             kind: "functionCall"
                                             fieldNames: undefined
                                             vExpression: Identifier #1070
@@ -2600,6 +2630,7 @@ SourceUnit #1839
                                                 id: 1070
                                                 src: "0:0:0"
                                                 typeString: "function (string memory) pure"
+                                                typeIdentifier: "t_function_revert_pure$_t_string_memory_ptr_$returns$__$"
                                                 name: "revert"
                                                 referencedDeclaration: -19
                                                 context: ASTContext #1000
@@ -2619,6 +2650,7 @@ SourceUnit #1839
                                                 id: 1071
                                                 src: "0:0:0"
                                                 typeString: "literal_string \"Assertion failed\""
+                                                typeIdentifier: "t_stringliteral_ede1f90ce497dfbddc2cf77d840cc7d29246a1b516a68ce6ebf2ce12d4a6e2e3"
                                                 kind: "string"
                                                 hexValue: "417373657274696f6e206661696c6564"
                                                 value: "Assertion failed"
@@ -2656,6 +2688,7 @@ SourceUnit #1839
                                         id: 1077
                                         src: "0:0:0"
                                         typeString: "bool"
+                                        typeIdentifier: "t_bool"
                                         operator: "=="
                                         vLeftExpression: Identifier #1075
                                         vRightExpression: Literal #1076
@@ -2676,6 +2709,7 @@ SourceUnit #1839
                                             id: 1075
                                             src: "0:0:0"
                                             typeString: "uint256"
+                                            typeIdentifier: "t_uint256"
                                             name: "_code"
                                             referencedDeclaration: 1087
                                             context: ASTContext #1000
@@ -2695,6 +2729,7 @@ SourceUnit #1839
                                             id: 1076
                                             src: "0:0:0"
                                             typeString: "int_const 17"
+                                            typeIdentifier: "t_rational_17_by_1"
                                             kind: "number"
                                             hexValue: "30783131"
                                             value: "0x11"
@@ -2748,6 +2783,7 @@ SourceUnit #1839
                                                 id: 1080
                                                 src: "0:0:0"
                                                 typeString: "tuple()"
+                                                typeIdentifier: "t_tuple$__$"
                                                 kind: "functionCall"
                                                 fieldNames: undefined
                                                 vExpression: Identifier #1078
@@ -2773,6 +2809,7 @@ SourceUnit #1839
                                                     id: 1078
                                                     src: "0:0:0"
                                                     typeString: "function (string memory) pure"
+                                                    typeIdentifier: "t_function_revert_pure$_t_string_memory_ptr_$returns$__$"
                                                     name: "revert"
                                                     referencedDeclaration: -19
                                                     context: ASTContext #1000
@@ -2792,6 +2829,7 @@ SourceUnit #1839
                                                     id: 1079
                                                     src: "0:0:0"
                                                     typeString: "literal_string \"Underflow/overflow\""
+                                                    typeIdentifier: "t_stringliteral_335d53a33459c1f9ebbdaac8f595d26b467ffd50f5b13973358195ebe27db7a4"
                                                     kind: "string"
                                                     hexValue: "556e646572666c6f772f6f766572666c6f77"
                                                     value: "Underflow/overflow"
@@ -2863,6 +2901,7 @@ SourceUnit #1839
                                     id: 1092
                                     src: "0:0:0"
                                     typeString: "tuple()"
+                                    typeIdentifier: "t_tuple$__$"
                                     kind: "functionCall"
                                     fieldNames: undefined
                                     vExpression: Identifier #1090
@@ -2888,6 +2927,7 @@ SourceUnit #1839
                                         id: 1090
                                         src: "0:0:0"
                                         typeString: "function (string memory) pure"
+                                        typeIdentifier: "t_function_revert_pure$_t_string_memory_ptr_$returns$__$"
                                         name: "revert"
                                         referencedDeclaration: -19
                                         context: ASTContext #1000
@@ -2907,6 +2947,7 @@ SourceUnit #1839
                                         id: 1091
                                         src: "0:0:0"
                                         typeString: "literal_string \"Internal error\""
+                                        typeIdentifier: "t_stringliteral_bac28b94dc21b1cbe5f383c936c307f196be78abc3f284961cfc792d5c36324a"
                                         kind: "string"
                                         hexValue: "496e7465726e616c206572726f72"
                                         value: "Internal error"
@@ -3371,6 +3412,7 @@ SourceUnit #1839
                         id: 1119
                         src: "0:0:0"
                         typeString: "int_const 1"
+                        typeIdentifier: "t_rational_1_by_1"
                         isInlineArray: false
                         vOriginalComponents: Array(1) [ Literal #1118 ]
                         context: ASTContext #1000
@@ -3390,6 +3432,7 @@ SourceUnit #1839
                             id: 1118
                             src: "0:0:0"
                             typeString: "int_const 1"
+                            typeIdentifier: "t_rational_1_by_1"
                             kind: "number"
                             hexValue: "31"
                             value: "1"
@@ -3425,6 +3468,7 @@ SourceUnit #1839
                         id: 1121
                         src: "0:0:0"
                         typeString: "int_const 1"
+                        typeIdentifier: "t_rational_1_by_1"
                         kind: "number"
                         hexValue: "31"
                         value: "1"
@@ -3478,6 +3522,7 @@ SourceUnit #1839
                         id: 1126
                         src: "0:0:0"
                         typeString: "tuple()"
+                        typeIdentifier: "t_tuple$__$"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: Identifier #1124
@@ -3503,6 +3548,7 @@ SourceUnit #1839
                             id: 1124
                             src: "0:0:0"
                             typeString: "function (uint256)"
+                            typeIdentifier: "t_function_event_nonpayable$_t_uint256_$returns$__$"
                             name: "Ev"
                             referencedDeclaration: 1103
                             context: ASTContext #1000
@@ -3522,6 +3568,7 @@ SourceUnit #1839
                             id: 1125
                             src: "0:0:0"
                             typeString: "int_const 1"
+                            typeIdentifier: "t_rational_1_by_1"
                             kind: "number"
                             hexValue: "31"
                             value: "1"
@@ -3558,6 +3605,7 @@ SourceUnit #1839
                         id: 1128
                         src: "0:0:0"
                         typeString: "bool"
+                        typeIdentifier: "t_bool"
                         kind: "bool"
                         hexValue: "66616c7365"
                         value: "false"
@@ -3627,6 +3675,7 @@ SourceUnit #1839
                         id: 1132
                         src: "0:0:0"
                         typeString: "bool"
+                        typeIdentifier: "t_bool"
                         kind: "bool"
                         hexValue: "74727565"
                         value: "true"
@@ -3764,6 +3813,7 @@ SourceUnit #1839
                             id: 1140
                             src: "0:0:0"
                             typeString: "int_const 1"
+                            typeIdentifier: "t_rational_1_by_1"
                             isInlineArray: false
                             vOriginalComponents: Array(1) [ Literal #1139 ]
                             context: ASTContext #1000
@@ -3783,6 +3833,7 @@ SourceUnit #1839
                                 id: 1139
                                 src: "0:0:0"
                                 typeString: "int_const 1"
+                                typeIdentifier: "t_rational_1_by_1"
                                 kind: "number"
                                 hexValue: "31"
                                 value: "1"
@@ -3802,6 +3853,7 @@ SourceUnit #1839
                         id: 1144
                         src: "0:0:0"
                         typeString: "bool"
+                        typeIdentifier: "t_bool"
                         operator: "<"
                         vLeftExpression: Identifier #1142
                         vRightExpression: Literal #1143
@@ -3822,6 +3874,7 @@ SourceUnit #1839
                             id: 1142
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             name: "n"
                             referencedDeclaration: 1138
                             context: ASTContext #1000
@@ -3841,6 +3894,7 @@ SourceUnit #1839
                             id: 1143
                             src: "0:0:0"
                             typeString: "int_const 1"
+                            typeIdentifier: "t_rational_1_by_1"
                             kind: "number"
                             hexValue: "31"
                             value: "1"
@@ -3876,6 +3930,7 @@ SourceUnit #1839
                             id: 1146
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             prefix: false
                             operator: "++"
                             userFunction: undefined
@@ -3896,6 +3951,7 @@ SourceUnit #1839
                                 id: 1145
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 name: "n"
                                 referencedDeclaration: 1138
                                 context: ASTContext #1000
@@ -3951,6 +4007,7 @@ SourceUnit #1839
                         id: 1149
                         src: "0:0:0"
                         typeString: "bool"
+                        typeIdentifier: "t_bool"
                         kind: "bool"
                         hexValue: "66616c7365"
                         value: "false"
@@ -4091,6 +4148,7 @@ SourceUnit #1839
                         id: 1159
                         src: "0:0:0"
                         typeString: "contract CatchPanic"
+                        typeIdentifier: "t_contract$_CatchPanic_$146"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: NewExpression #1158
@@ -4116,6 +4174,7 @@ SourceUnit #1839
                             id: 1158
                             src: "0:0:0"
                             typeString: "function () returns (contract CatchPanic)"
+                            typeIdentifier: "t_function_creation_nonpayable$__$returns$_t_contract$_CatchPanic_$146_$"
                             vTypeName: UserDefinedTypeName #1157
                             context: ASTContext #1000
                             parent: FunctionCall #1159
@@ -4186,6 +4245,7 @@ SourceUnit #1839
                         id: 1163
                         src: "0:0:0"
                         typeString: "tuple()"
+                        typeIdentifier: "t_tuple$__$"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1162
@@ -4211,6 +4271,7 @@ SourceUnit #1839
                             id: 1162
                             src: "0:0:0"
                             typeString: "function () external"
+                            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                             vExpression: Identifier #1161
                             memberName: "test"
                             referencedDeclaration: 1098
@@ -4230,6 +4291,7 @@ SourceUnit #1839
                                 id: 1161
                                 src: "0:0:0"
                                 typeString: "contract CatchPanic"
+                                typeIdentifier: "t_contract$_CatchPanic_$146"
                                 name: "cp"
                                 referencedDeclaration: 1155
                                 context: ASTContext #1000
@@ -5240,6 +5302,7 @@ SourceUnit #1839
                         id: 1217
                         src: "0:0:0"
                         typeString: "bytes memory"
+                        typeIdentifier: "t_bytes_memory_ptr"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1214
@@ -5265,6 +5328,7 @@ SourceUnit #1839
                             id: 1214
                             src: "0:0:0"
                             typeString: "function () pure returns (bytes memory)"
+                            typeIdentifier: "t_function_bytesconcat_pure$__$returns$_t_bytes_memory_ptr_$"
                             vExpression: ElementaryTypeNameExpression #1213
                             memberName: "concat"
                             referencedDeclaration: undefined
@@ -5284,6 +5348,7 @@ SourceUnit #1839
                                 id: 1213
                                 src: "0:0:0"
                                 typeString: "type(bytes storage pointer)"
+                                typeIdentifier: "t_type$_t_bytes_storage_ptr_$"
                                 typeName: ElementaryTypeName #1212
                                 context: ASTContext #1000
                                 parent: MemberAccess #1214
@@ -5300,7 +5365,7 @@ SourceUnit #1839
                                     id: 1212
                                     src: "0:0:0"
                                     typeString: undefined
-                                    typeIdentifier: undefined
+                                    typeIdentifier: "t_bytes_storage_ptr"
                                     name: "bytes"
                                     stateMutability: "nonpayable"
                                     context: ASTContext #1000
@@ -5318,6 +5383,7 @@ SourceUnit #1839
                             id: 1215
                             src: "0:0:0"
                             typeString: "bytes memory"
+                            typeIdentifier: "t_bytes_memory_ptr"
                             name: "a"
                             referencedDeclaration: 1205
                             context: ASTContext #1000
@@ -5337,6 +5403,7 @@ SourceUnit #1839
                             id: 1216
                             src: "0:0:0"
                             typeString: "bytes memory"
+                            typeIdentifier: "t_bytes_memory_ptr"
                             name: "b"
                             referencedDeclaration: 1207
                             context: ASTContext #1000
@@ -5500,6 +5567,7 @@ SourceUnit #1839
                         id: 1225
                         src: "0:0:0"
                         typeString: "int_const 10"
+                        typeIdentifier: "t_rational_10_by_1"
                         kind: "number"
                         hexValue: "3130"
                         value: "10"
@@ -5613,6 +5681,7 @@ SourceUnit #1839
                         id: 1234
                         src: "0:0:0"
                         typeString: "error"
+                        typeIdentifier: "t_error"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1232
@@ -5638,6 +5707,7 @@ SourceUnit #1839
                             id: 1232
                             src: "0:0:0"
                             typeString: "function (bytes memory) pure returns (error)"
+                            typeIdentifier: "t_function_error_pure$_t_bytes_memory_ptr_$returns$_t_error_$"
                             vExpression: Identifier #1231
                             memberName: "Lib"
                             referencedDeclaration: 1194
@@ -5657,6 +5727,7 @@ SourceUnit #1839
                                 id: 1231
                                 src: "0:0:0"
                                 typeString: "type(library LibErrors084)"
+                                typeIdentifier: "t_type$_t_contract$_LibErrors084_$242_$"
                                 name: "LibErrors084"
                                 referencedDeclaration: 1195
                                 context: ASTContext #1000
@@ -5676,6 +5747,7 @@ SourceUnit #1839
                             id: 1233
                             src: "0:0:0"
                             typeString: "literal_string hex\"001122\""
+                            typeIdentifier: "t_stringliteral_1795c1c1c05a13159c83f5f346d9af61b25e15eb07b203ea65a65e9a53615640"
                             kind: "hexString"
                             hexValue: "001122"
                             value: "\u0000\u0011\""
@@ -5789,6 +5861,7 @@ SourceUnit #1839
                         id: 1241
                         src: "0:0:0"
                         typeString: "error"
+                        typeIdentifier: "t_error"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: Identifier #1240
@@ -5814,6 +5887,7 @@ SourceUnit #1839
                             id: 1240
                             src: "0:0:0"
                             typeString: "function () pure returns (error)"
+                            typeIdentifier: "t_function_error_pure$__$returns$_t_error_$"
                             name: "Own"
                             referencedDeclaration: 1198
                             context: ASTContext #1000
@@ -5927,6 +6001,7 @@ SourceUnit #1839
                         id: 1249
                         src: "0:0:0"
                         typeString: "error"
+                        typeIdentifier: "t_error"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: Identifier #1247
@@ -5952,6 +6027,7 @@ SourceUnit #1839
                             id: 1247
                             src: "0:0:0"
                             typeString: "function (uint256) pure returns (error)"
+                            typeIdentifier: "t_function_error_pure$_t_uint256_$returns$_t_error_$"
                             name: "UnitLevelError084"
                             referencedDeclaration: 1189
                             context: ASTContext #1000
@@ -5971,6 +6047,7 @@ SourceUnit #1839
                             id: 1248
                             src: "0:0:0"
                             typeString: "int_const 1"
+                            typeIdentifier: "t_rational_1_by_1"
                             kind: "number"
                             hexValue: "31"
                             value: "1"
@@ -6176,6 +6253,7 @@ SourceUnit #1839
                         id: 1259
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         vExpression: Identifier #1258
                         memberName: "basefee"
                         referencedDeclaration: undefined
@@ -6195,6 +6273,7 @@ SourceUnit #1839
                             id: 1258
                             src: "0:0:0"
                             typeString: "block"
+                            typeIdentifier: "t_magic_block"
                             name: "block"
                             referencedDeclaration: -4
                             context: ASTContext #1000
@@ -6561,6 +6640,7 @@ SourceUnit #1839
                 id: 1280
                 src: "0:0:0"
                 typeString: "int_const 1000000000000000000"
+                typeIdentifier: "t_rational_1000000000000000000_by_1"
                 operator: "**"
                 vLeftExpression: Literal #1278
                 vRightExpression: Literal #1279
@@ -6581,6 +6661,7 @@ SourceUnit #1839
                     id: 1278
                     src: "0:0:0"
                     typeString: "int_const 10"
+                    typeIdentifier: "t_rational_10_by_1"
                     kind: "number"
                     hexValue: "3130"
                     value: "10"
@@ -6600,6 +6681,7 @@ SourceUnit #1839
                     id: 1279
                     src: "0:0:0"
                     typeString: "int_const 18"
+                    typeIdentifier: "t_rational_18_by_1"
                     kind: "number"
                     hexValue: "3138"
                     value: "18"
@@ -6916,6 +6998,7 @@ SourceUnit #1839
                         id: 1304
                         src: "0:0:0"
                         typeString: "LibWithUDVT_088.UFixed"
+                        typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1294
@@ -6941,6 +7024,7 @@ SourceUnit #1839
                             id: 1294
                             src: "0:0:0"
                             typeString: "function (uint256) pure returns (LibWithUDVT_088.UFixed)"
+                            typeIdentifier: "t_function_wrap_pure$_t_uint256_$returns$_t_userDefinedValueType$_UFixed_$325_$"
                             vExpression: Identifier #1293
                             memberName: "wrap"
                             referencedDeclaration: undefined
@@ -6960,6 +7044,7 @@ SourceUnit #1839
                                 id: 1293
                                 src: "0:0:0"
                                 typeString: "type(LibWithUDVT_088.UFixed)"
+                                typeIdentifier: "t_type$_t_userDefinedValueType$_UFixed_$325_$"
                                 name: "UFixed"
                                 referencedDeclaration: 1276
                                 context: ASTContext #1000
@@ -6979,6 +7064,7 @@ SourceUnit #1839
                             id: 1303
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             operator: "+"
                             vLeftExpression: FunctionCall #1298
                             vRightExpression: FunctionCall #1302
@@ -6999,6 +7085,7 @@ SourceUnit #1839
                                 id: 1298
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 kind: "functionCall"
                                 fieldNames: undefined
                                 vExpression: MemberAccess #1296
@@ -7024,6 +7111,7 @@ SourceUnit #1839
                                     id: 1296
                                     src: "0:0:0"
                                     typeString: "function (LibWithUDVT_088.UFixed) pure returns (uint256)"
+                                    typeIdentifier: "t_function_unwrap_pure$_t_userDefinedValueType$_UFixed_$325_$returns$_t_uint256_$"
                                     vExpression: Identifier #1295
                                     memberName: "unwrap"
                                     referencedDeclaration: undefined
@@ -7043,6 +7131,7 @@ SourceUnit #1839
                                         id: 1295
                                         src: "0:0:0"
                                         typeString: "type(LibWithUDVT_088.UFixed)"
+                                        typeIdentifier: "t_type$_t_userDefinedValueType$_UFixed_$325_$"
                                         name: "UFixed"
                                         referencedDeclaration: 1276
                                         context: ASTContext #1000
@@ -7062,6 +7151,7 @@ SourceUnit #1839
                                     id: 1297
                                     src: "0:0:0"
                                     typeString: "LibWithUDVT_088.UFixed"
+                                    typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                                     name: "a"
                                     referencedDeclaration: 1284
                                     context: ASTContext #1000
@@ -7081,6 +7171,7 @@ SourceUnit #1839
                                 id: 1302
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 kind: "functionCall"
                                 fieldNames: undefined
                                 vExpression: MemberAccess #1300
@@ -7106,6 +7197,7 @@ SourceUnit #1839
                                     id: 1300
                                     src: "0:0:0"
                                     typeString: "function (LibWithUDVT_088.UFixed) pure returns (uint256)"
+                                    typeIdentifier: "t_function_unwrap_pure$_t_userDefinedValueType$_UFixed_$325_$returns$_t_uint256_$"
                                     vExpression: Identifier #1299
                                     memberName: "unwrap"
                                     referencedDeclaration: undefined
@@ -7125,6 +7217,7 @@ SourceUnit #1839
                                         id: 1299
                                         src: "0:0:0"
                                         typeString: "type(LibWithUDVT_088.UFixed)"
+                                        typeIdentifier: "t_type$_t_userDefinedValueType$_UFixed_$325_$"
                                         name: "UFixed"
                                         referencedDeclaration: 1276
                                         context: ASTContext #1000
@@ -7144,6 +7237,7 @@ SourceUnit #1839
                                     id: 1301
                                     src: "0:0:0"
                                     typeString: "LibWithUDVT_088.UFixed"
+                                    typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                                     name: "b"
                                     referencedDeclaration: 1287
                                     context: ASTContext #1000
@@ -7441,6 +7535,7 @@ SourceUnit #1839
                         id: 1326
                         src: "0:0:0"
                         typeString: "LibWithUDVT_088.UFixed"
+                        typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1319
@@ -7466,6 +7561,7 @@ SourceUnit #1839
                             id: 1319
                             src: "0:0:0"
                             typeString: "function (uint256) pure returns (LibWithUDVT_088.UFixed)"
+                            typeIdentifier: "t_function_wrap_pure$_t_uint256_$returns$_t_userDefinedValueType$_UFixed_$325_$"
                             vExpression: Identifier #1318
                             memberName: "wrap"
                             referencedDeclaration: undefined
@@ -7485,6 +7581,7 @@ SourceUnit #1839
                                 id: 1318
                                 src: "0:0:0"
                                 typeString: "type(LibWithUDVT_088.UFixed)"
+                                typeIdentifier: "t_type$_t_userDefinedValueType$_UFixed_$325_$"
                                 name: "UFixed"
                                 referencedDeclaration: 1276
                                 context: ASTContext #1000
@@ -7504,6 +7601,7 @@ SourceUnit #1839
                             id: 1325
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             operator: "*"
                             vLeftExpression: FunctionCall #1323
                             vRightExpression: Identifier #1324
@@ -7524,6 +7622,7 @@ SourceUnit #1839
                                 id: 1323
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 kind: "functionCall"
                                 fieldNames: undefined
                                 vExpression: MemberAccess #1321
@@ -7549,6 +7648,7 @@ SourceUnit #1839
                                     id: 1321
                                     src: "0:0:0"
                                     typeString: "function (LibWithUDVT_088.UFixed) pure returns (uint256)"
+                                    typeIdentifier: "t_function_unwrap_pure$_t_userDefinedValueType$_UFixed_$325_$returns$_t_uint256_$"
                                     vExpression: Identifier #1320
                                     memberName: "unwrap"
                                     referencedDeclaration: undefined
@@ -7568,6 +7668,7 @@ SourceUnit #1839
                                         id: 1320
                                         src: "0:0:0"
                                         typeString: "type(LibWithUDVT_088.UFixed)"
+                                        typeIdentifier: "t_type$_t_userDefinedValueType$_UFixed_$325_$"
                                         name: "UFixed"
                                         referencedDeclaration: 1276
                                         context: ASTContext #1000
@@ -7587,6 +7688,7 @@ SourceUnit #1839
                                     id: 1322
                                     src: "0:0:0"
                                     typeString: "LibWithUDVT_088.UFixed"
+                                    typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                                     name: "a"
                                     referencedDeclaration: 1310
                                     context: ASTContext #1000
@@ -7606,6 +7708,7 @@ SourceUnit #1839
                                 id: 1324
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 name: "b"
                                 referencedDeclaration: 1312
                                 context: ASTContext #1000
@@ -7836,6 +7939,7 @@ SourceUnit #1839
                         id: 1342
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         operator: "/"
                         vLeftExpression: FunctionCall #1340
                         vRightExpression: Identifier #1341
@@ -7856,6 +7960,7 @@ SourceUnit #1839
                             id: 1340
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             kind: "functionCall"
                             fieldNames: undefined
                             vExpression: MemberAccess #1338
@@ -7881,6 +7986,7 @@ SourceUnit #1839
                                 id: 1338
                                 src: "0:0:0"
                                 typeString: "function (LibWithUDVT_088.UFixed) pure returns (uint256)"
+                                typeIdentifier: "t_function_unwrap_pure$_t_userDefinedValueType$_UFixed_$325_$returns$_t_uint256_$"
                                 vExpression: Identifier #1337
                                 memberName: "unwrap"
                                 referencedDeclaration: undefined
@@ -7900,6 +8006,7 @@ SourceUnit #1839
                                     id: 1337
                                     src: "0:0:0"
                                     typeString: "type(LibWithUDVT_088.UFixed)"
+                                    typeIdentifier: "t_type$_t_userDefinedValueType$_UFixed_$325_$"
                                     name: "UFixed"
                                     referencedDeclaration: 1276
                                     context: ASTContext #1000
@@ -7919,6 +8026,7 @@ SourceUnit #1839
                                 id: 1339
                                 src: "0:0:0"
                                 typeString: "LibWithUDVT_088.UFixed"
+                                typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                                 name: "a"
                                 referencedDeclaration: 1332
                                 context: ASTContext #1000
@@ -7938,6 +8046,7 @@ SourceUnit #1839
                             id: 1341
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             name: "multiplier"
                             referencedDeclaration: 1281
                             context: ASTContext #1000
@@ -8168,6 +8277,7 @@ SourceUnit #1839
                         id: 1358
                         src: "0:0:0"
                         typeString: "LibWithUDVT_088.UFixed"
+                        typeIdentifier: "t_userDefinedValueType$_UFixed_$325"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1354
@@ -8193,6 +8303,7 @@ SourceUnit #1839
                             id: 1354
                             src: "0:0:0"
                             typeString: "function (uint256) pure returns (LibWithUDVT_088.UFixed)"
+                            typeIdentifier: "t_function_wrap_pure$_t_uint256_$returns$_t_userDefinedValueType$_UFixed_$325_$"
                             vExpression: Identifier #1353
                             memberName: "wrap"
                             referencedDeclaration: undefined
@@ -8212,6 +8323,7 @@ SourceUnit #1839
                                 id: 1353
                                 src: "0:0:0"
                                 typeString: "type(LibWithUDVT_088.UFixed)"
+                                typeIdentifier: "t_type$_t_userDefinedValueType$_UFixed_$325_$"
                                 name: "UFixed"
                                 referencedDeclaration: 1276
                                 context: ASTContext #1000
@@ -8231,6 +8343,7 @@ SourceUnit #1839
                             id: 1357
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             operator: "*"
                             vLeftExpression: Identifier #1355
                             vRightExpression: Identifier #1356
@@ -8251,6 +8364,7 @@ SourceUnit #1839
                                 id: 1355
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 name: "a"
                                 referencedDeclaration: 1347
                                 context: ASTContext #1000
@@ -8270,6 +8384,7 @@ SourceUnit #1839
                                 id: 1356
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 name: "multiplier"
                                 referencedDeclaration: 1281
                                 context: ASTContext #1000
@@ -8679,6 +8794,7 @@ SourceUnit #1839
                         id: 1384
                         src: "0:0:0"
                         typeString: "tuple()"
+                        typeIdentifier: "t_tuple$__$"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: Identifier #1376
@@ -8704,6 +8820,7 @@ SourceUnit #1839
                             id: 1376
                             src: "0:0:0"
                             typeString: "function (bool) pure"
+                            typeIdentifier: "t_function_assert_pure$_t_bool_$returns$__$"
                             name: "assert"
                             referencedDeclaration: -3
                             context: ASTContext #1000
@@ -8723,6 +8840,7 @@ SourceUnit #1839
                             id: 1383
                             src: "0:0:0"
                             typeString: "bool"
+                            typeIdentifier: "t_bool"
                             operator: "=="
                             vLeftExpression: MemberAccess #1380
                             vRightExpression: MemberAccess #1382
@@ -8743,6 +8861,7 @@ SourceUnit #1839
                                 id: 1380
                                 src: "0:0:0"
                                 typeString: "enum EnumABC"
+                                typeIdentifier: "t_enum$_EnumABC_$12"
                                 vExpression: FunctionCall #1379
                                 memberName: "min"
                                 referencedDeclaration: undefined
@@ -8762,6 +8881,7 @@ SourceUnit #1839
                                     id: 1379
                                     src: "0:0:0"
                                     typeString: "type(enum EnumABC)"
+                                    typeIdentifier: "t_magic_meta_type_t_enum$_EnumABC_$12"
                                     kind: "functionCall"
                                     fieldNames: undefined
                                     vExpression: Identifier #1377
@@ -8787,6 +8907,7 @@ SourceUnit #1839
                                         id: 1377
                                         src: "0:0:0"
                                         typeString: "function () pure"
+                                        typeIdentifier: "t_function_metatype_pure$__$returns$__$"
                                         name: "type"
                                         referencedDeclaration: -27
                                         context: ASTContext #1000
@@ -8806,6 +8927,7 @@ SourceUnit #1839
                                         id: 1378
                                         src: "0:0:0"
                                         typeString: "type(enum EnumABC)"
+                                        typeIdentifier: "t_type$_t_enum$_EnumABC_$12_$"
                                         name: "EnumABC"
                                         referencedDeclaration: 968
                                         context: ASTContext #1000
@@ -8825,6 +8947,7 @@ SourceUnit #1839
                                 id: 1382
                                 src: "0:0:0"
                                 typeString: "enum EnumABC"
+                                typeIdentifier: "t_enum$_EnumABC_$12"
                                 vExpression: Identifier #1381
                                 memberName: "A"
                                 referencedDeclaration: 964
@@ -8844,6 +8967,7 @@ SourceUnit #1839
                                     id: 1381
                                     src: "0:0:0"
                                     typeString: "type(enum EnumABC)"
+                                    typeIdentifier: "t_type$_t_enum$_EnumABC_$12_$"
                                     name: "EnumABC"
                                     referencedDeclaration: 968
                                     context: ASTContext #1000
@@ -8879,6 +9003,7 @@ SourceUnit #1839
                         id: 1394
                         src: "0:0:0"
                         typeString: "tuple()"
+                        typeIdentifier: "t_tuple$__$"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: Identifier #1386
@@ -8904,6 +9029,7 @@ SourceUnit #1839
                             id: 1386
                             src: "0:0:0"
                             typeString: "function (bool) pure"
+                            typeIdentifier: "t_function_assert_pure$_t_bool_$returns$__$"
                             name: "assert"
                             referencedDeclaration: -3
                             context: ASTContext #1000
@@ -8923,6 +9049,7 @@ SourceUnit #1839
                             id: 1393
                             src: "0:0:0"
                             typeString: "bool"
+                            typeIdentifier: "t_bool"
                             operator: "=="
                             vLeftExpression: MemberAccess #1390
                             vRightExpression: MemberAccess #1392
@@ -8943,6 +9070,7 @@ SourceUnit #1839
                                 id: 1390
                                 src: "0:0:0"
                                 typeString: "enum EnumABC"
+                                typeIdentifier: "t_enum$_EnumABC_$12"
                                 vExpression: FunctionCall #1389
                                 memberName: "max"
                                 referencedDeclaration: undefined
@@ -8962,6 +9090,7 @@ SourceUnit #1839
                                     id: 1389
                                     src: "0:0:0"
                                     typeString: "type(enum EnumABC)"
+                                    typeIdentifier: "t_magic_meta_type_t_enum$_EnumABC_$12"
                                     kind: "functionCall"
                                     fieldNames: undefined
                                     vExpression: Identifier #1387
@@ -8987,6 +9116,7 @@ SourceUnit #1839
                                         id: 1387
                                         src: "0:0:0"
                                         typeString: "function () pure"
+                                        typeIdentifier: "t_function_metatype_pure$__$returns$__$"
                                         name: "type"
                                         referencedDeclaration: -27
                                         context: ASTContext #1000
@@ -9006,6 +9136,7 @@ SourceUnit #1839
                                         id: 1388
                                         src: "0:0:0"
                                         typeString: "type(enum EnumABC)"
+                                        typeIdentifier: "t_type$_t_enum$_EnumABC_$12_$"
                                         name: "EnumABC"
                                         referencedDeclaration: 968
                                         context: ASTContext #1000
@@ -9025,6 +9156,7 @@ SourceUnit #1839
                                 id: 1392
                                 src: "0:0:0"
                                 typeString: "enum EnumABC"
+                                typeIdentifier: "t_enum$_EnumABC_$12"
                                 vExpression: Identifier #1391
                                 memberName: "C"
                                 referencedDeclaration: 966
@@ -9044,6 +9176,7 @@ SourceUnit #1839
                                     id: 1391
                                     src: "0:0:0"
                                     typeString: "type(enum EnumABC)"
+                                    typeIdentifier: "t_type$_t_enum$_EnumABC_$12_$"
                                     name: "EnumABC"
                                     referencedDeclaration: 968
                                     context: ASTContext #1000
@@ -9551,6 +9684,7 @@ SourceUnit #1839
                         id: 1418
                         src: "0:0:0"
                         typeString: "function () external"
+                        typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                         vExpression: Identifier #1417
                         memberName: "testFunction"
                         referencedDeclaration: 1402
@@ -9570,6 +9704,7 @@ SourceUnit #1839
                             id: 1417
                             src: "0:0:0"
                             typeString: "contract ExternalFnSelectorAndAddress_0810"
+                            typeIdentifier: "t_contract$_ExternalFnSelectorAndAddress_0810_$478"
                             name: "this"
                             referencedDeclaration: -28
                             context: ASTContext #1000
@@ -9627,6 +9762,7 @@ SourceUnit #1839
                         id: 1425
                         src: "0:0:0"
                         typeString: "tuple(address,bytes4)"
+                        typeIdentifier: "t_tuple$_t_address_$_t_bytes4_$"
                         isInlineArray: false
                         vOriginalComponents: Array(2) [ MemberAccess #1422, MemberAccess #1424 ]
                         context: ASTContext #1000
@@ -9646,6 +9782,7 @@ SourceUnit #1839
                             id: 1422
                             src: "0:0:0"
                             typeString: "address"
+                            typeIdentifier: "t_address"
                             vExpression: Identifier #1421
                             memberName: "address"
                             referencedDeclaration: undefined
@@ -9665,6 +9802,7 @@ SourceUnit #1839
                                 id: 1421
                                 src: "0:0:0"
                                 typeString: "function () external"
+                                typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                                 name: "fp"
                                 referencedDeclaration: 1416
                                 context: ASTContext #1000
@@ -9684,6 +9822,7 @@ SourceUnit #1839
                             id: 1424
                             src: "0:0:0"
                             typeString: "bytes4"
+                            typeIdentifier: "t_bytes4"
                             vExpression: Identifier #1423
                             memberName: "selector"
                             referencedDeclaration: undefined
@@ -9703,6 +9842,7 @@ SourceUnit #1839
                                 id: 1423
                                 src: "0:0:0"
                                 typeString: "function () external"
+                                typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                                 name: "fp"
                                 referencedDeclaration: 1416
                                 context: ASTContext #1000
@@ -10148,6 +10288,7 @@ SourceUnit #1839
                         id: 1447
                         src: "0:0:0"
                         typeString: "tuple(bytes2,int256,uint256)"
+                        typeIdentifier: "t_tuple$_t_bytes2_$_t_int256_$_t_uint256_$"
                         isInlineArray: false
                         vOriginalComponents: Array(3) [ Identifier #1444, Identifier #1445, Identifier #1446 ]
                         context: ASTContext #1000
@@ -10167,6 +10308,7 @@ SourceUnit #1839
                             id: 1444
                             src: "0:0:0"
                             typeString: "bytes2"
+                            typeIdentifier: "t_bytes2"
                             name: "c"
                             referencedDeclaration: 1435
                             context: ASTContext #1000
@@ -10186,6 +10328,7 @@ SourceUnit #1839
                             id: 1445
                             src: "0:0:0"
                             typeString: "int256"
+                            typeIdentifier: "t_int256"
                             name: "b"
                             referencedDeclaration: 1433
                             context: ASTContext #1000
@@ -10205,6 +10348,7 @@ SourceUnit #1839
                             id: 1446
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             name: "a"
                             referencedDeclaration: 1431
                             context: ASTContext #1000
@@ -10368,6 +10512,7 @@ SourceUnit #1839
                         id: 1464
                         src: "0:0:0"
                         typeString: "bytes memory"
+                        typeIdentifier: "t_bytes_memory_ptr"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1456
@@ -10393,6 +10538,7 @@ SourceUnit #1839
                             id: 1456
                             src: "0:0:0"
                             typeString: "function () pure returns (bytes memory)"
+                            typeIdentifier: "t_function_abiencodecall_pure$__$returns$_t_bytes_memory_ptr_$"
                             vExpression: Identifier #1455
                             memberName: "encodeCall"
                             referencedDeclaration: undefined
@@ -10412,6 +10558,7 @@ SourceUnit #1839
                                 id: 1455
                                 src: "0:0:0"
                                 typeString: "abi"
+                                typeIdentifier: "t_magic_abi"
                                 name: "abi"
                                 referencedDeclaration: -1
                                 context: ASTContext #1000
@@ -10431,6 +10578,7 @@ SourceUnit #1839
                             id: 1458
                             src: "0:0:0"
                             typeString: "function (uint256,int256,bytes2) pure external returns (bytes2,int256,uint256)"
+                            typeIdentifier: "t_function_external_pure$_t_uint256_$_t_int256_$_t_bytes2_$returns$_t_bytes2_$_t_int256_$_t_uint256_$"
                             vExpression: Identifier #1457
                             memberName: "some"
                             referencedDeclaration: 1450
@@ -10450,6 +10598,7 @@ SourceUnit #1839
                                 id: 1457
                                 src: "0:0:0"
                                 typeString: "contract Builtins_0811"
+                                typeIdentifier: "t_contract$_Builtins_0811_$517"
                                 name: "this"
                                 referencedDeclaration: -28
                                 context: ASTContext #1000
@@ -10469,6 +10618,7 @@ SourceUnit #1839
                             id: 1463
                             src: "0:0:0"
                             typeString: "tuple(int_const 1,int_const -1,int_const 65535)"
+                            typeIdentifier: "t_tuple$_t_rational_1_by_1_$_t_rational_minus_1_by_1_$_t_rational_65535_by_1_$"
                             isInlineArray: false
                             vOriginalComponents: Array(3) [ Literal #1459, UnaryOperation #1461, Literal #1462 ]
                             context: ASTContext #1000
@@ -10488,6 +10638,7 @@ SourceUnit #1839
                                 id: 1459
                                 src: "0:0:0"
                                 typeString: "int_const 1"
+                                typeIdentifier: "t_rational_1_by_1"
                                 kind: "number"
                                 hexValue: "31"
                                 value: "1"
@@ -10507,6 +10658,7 @@ SourceUnit #1839
                                 id: 1461
                                 src: "0:0:0"
                                 typeString: "int_const -1"
+                                typeIdentifier: "t_rational_minus_1_by_1"
                                 prefix: true
                                 operator: "-"
                                 userFunction: undefined
@@ -10527,6 +10679,7 @@ SourceUnit #1839
                                     id: 1460
                                     src: "0:0:0"
                                     typeString: "int_const 1"
+                                    typeIdentifier: "t_rational_1_by_1"
                                     kind: "number"
                                     hexValue: "31"
                                     value: "1"
@@ -10546,6 +10699,7 @@ SourceUnit #1839
                                 id: 1462
                                 src: "0:0:0"
                                 typeString: "int_const 65535"
+                                typeIdentifier: "t_rational_65535_by_1"
                                 kind: "number"
                                 hexValue: "307846464646"
                                 value: "0xFFFF"
@@ -10977,6 +11131,7 @@ SourceUnit #1839
                         id: 1487
                         src: "0:0:0"
                         typeString: "bool"
+                        typeIdentifier: "t_bool"
                         operator: "=="
                         vLeftExpression: Identifier #1485
                         vRightExpression: Identifier #1486
@@ -10997,6 +11152,7 @@ SourceUnit #1839
                             id: 1485
                             src: "0:0:0"
                             typeString: "function () external"
+                            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                             name: "externalLocal1"
                             referencedDeclaration: 1478
                             context: ASTContext #1000
@@ -11016,6 +11172,7 @@ SourceUnit #1839
                             id: 1486
                             src: "0:0:0"
                             typeString: "function () external"
+                            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                             name: "externalLocal2"
                             referencedDeclaration: 1483
                             context: ASTContext #1000
@@ -11051,6 +11208,7 @@ SourceUnit #1839
                         id: 1491
                         src: "0:0:0"
                         typeString: "bool"
+                        typeIdentifier: "t_bool"
                         operator: "!="
                         vLeftExpression: Identifier #1489
                         vRightExpression: Identifier #1490
@@ -11071,6 +11229,7 @@ SourceUnit #1839
                             id: 1489
                             src: "0:0:0"
                             typeString: "function () external"
+                            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                             name: "externalLocal1"
                             referencedDeclaration: 1478
                             context: ASTContext #1000
@@ -11090,6 +11249,7 @@ SourceUnit #1839
                             id: 1490
                             src: "0:0:0"
                             typeString: "function () external"
+                            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                             name: "externalLocal2"
                             referencedDeclaration: 1483
                             context: ASTContext #1000
@@ -11125,6 +11285,7 @@ SourceUnit #1839
                         id: 1495
                         src: "0:0:0"
                         typeString: "bool"
+                        typeIdentifier: "t_bool"
                         operator: "=="
                         vLeftExpression: Identifier #1493
                         vRightExpression: Identifier #1494
@@ -11145,6 +11306,7 @@ SourceUnit #1839
                             id: 1493
                             src: "0:0:0"
                             typeString: "function () external"
+                            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                             name: "externalLocal1"
                             referencedDeclaration: 1478
                             context: ASTContext #1000
@@ -11164,6 +11326,7 @@ SourceUnit #1839
                             id: 1494
                             src: "0:0:0"
                             typeString: "function () external"
+                            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                             name: "externalStorage"
                             referencedDeclaration: 1472
                             context: ASTContext #1000
@@ -11199,6 +11362,7 @@ SourceUnit #1839
                         id: 1499
                         src: "0:0:0"
                         typeString: "bool"
+                        typeIdentifier: "t_bool"
                         operator: "!="
                         vLeftExpression: Identifier #1497
                         vRightExpression: Identifier #1498
@@ -11219,6 +11383,7 @@ SourceUnit #1839
                             id: 1497
                             src: "0:0:0"
                             typeString: "function () external"
+                            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                             name: "externalStorage"
                             referencedDeclaration: 1472
                             context: ASTContext #1000
@@ -11238,6 +11403,7 @@ SourceUnit #1839
                             id: 1498
                             src: "0:0:0"
                             typeString: "function () external"
+                            typeIdentifier: "t_function_external_nonpayable$__$returns$__$"
                             name: "externalLocal2"
                             referencedDeclaration: 1483
                             context: ASTContext #1000
@@ -11273,6 +11439,7 @@ SourceUnit #1839
                         id: 1510
                         src: "0:0:0"
                         typeString: "bytes memory"
+                        typeIdentifier: "t_bytes_memory_ptr"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1502
@@ -11298,6 +11465,7 @@ SourceUnit #1839
                             id: 1502
                             src: "0:0:0"
                             typeString: "function () pure returns (bytes memory)"
+                            typeIdentifier: "t_function_abiencodecall_pure$__$returns$_t_bytes_memory_ptr_$"
                             vExpression: Identifier #1501
                             memberName: "encodeCall"
                             referencedDeclaration: undefined
@@ -11317,6 +11485,7 @@ SourceUnit #1839
                                 id: 1501
                                 src: "0:0:0"
                                 typeString: "abi"
+                                typeIdentifier: "t_magic_abi"
                                 name: "abi"
                                 referencedDeclaration: -1
                                 context: ASTContext #1000
@@ -11336,6 +11505,7 @@ SourceUnit #1839
                             id: 1504
                             src: "0:0:0"
                             typeString: "function Builtins_0811.some(uint256,int256,bytes2) pure returns (bytes2,int256,uint256)"
+                            typeIdentifier: "t_function_declaration_pure$_t_uint256_$_t_int256_$_t_bytes2_$returns$_t_bytes2_$_t_int256_$_t_uint256_$"
                             vExpression: Identifier #1503
                             memberName: "some"
                             referencedDeclaration: 1450
@@ -11355,6 +11525,7 @@ SourceUnit #1839
                                 id: 1503
                                 src: "0:0:0"
                                 typeString: "type(contract Builtins_0811)"
+                                typeIdentifier: "t_type$_t_contract$_Builtins_0811_$517_$"
                                 name: "Builtins_0811"
                                 referencedDeclaration: 1468
                                 context: ASTContext #1000
@@ -11374,6 +11545,7 @@ SourceUnit #1839
                             id: 1509
                             src: "0:0:0"
                             typeString: "tuple(int_const 1,int_const -1,int_const 258)"
+                            typeIdentifier: "t_tuple$_t_rational_1_by_1_$_t_rational_minus_1_by_1_$_t_rational_258_by_1_$"
                             isInlineArray: false
                             vOriginalComponents: Array(3) [ Literal #1505, UnaryOperation #1507, Literal #1508 ]
                             context: ASTContext #1000
@@ -11393,6 +11565,7 @@ SourceUnit #1839
                                 id: 1505
                                 src: "0:0:0"
                                 typeString: "int_const 1"
+                                typeIdentifier: "t_rational_1_by_1"
                                 kind: "number"
                                 hexValue: "31"
                                 value: "1"
@@ -11412,6 +11585,7 @@ SourceUnit #1839
                                 id: 1507
                                 src: "0:0:0"
                                 typeString: "int_const -1"
+                                typeIdentifier: "t_rational_minus_1_by_1"
                                 prefix: true
                                 operator: "-"
                                 userFunction: undefined
@@ -11432,6 +11606,7 @@ SourceUnit #1839
                                     id: 1506
                                     src: "0:0:0"
                                     typeString: "int_const 1"
+                                    typeIdentifier: "t_rational_1_by_1"
                                     kind: "number"
                                     hexValue: "31"
                                     value: "1"
@@ -11451,6 +11626,7 @@ SourceUnit #1839
                                 id: 1508
                                 src: "0:0:0"
                                 typeString: "int_const 258"
+                                typeIdentifier: "t_rational_258_by_1"
                                 kind: "number"
                                 hexValue: "307830313032"
                                 value: "0x0102"
@@ -11536,6 +11712,7 @@ SourceUnit #1839
                         id: 1514
                         src: "0:0:0"
                         typeString: "literal_string \"abc\""
+                        typeIdentifier: "t_stringliteral_4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45"
                         kind: "string"
                         hexValue: "616263"
                         value: "abc"
@@ -11621,6 +11798,7 @@ SourceUnit #1839
                         id: 1518
                         src: "0:0:0"
                         typeString: "literal_string \"def\""
+                        typeIdentifier: "t_stringliteral_34607c9bbfeb9c23509680f04363f298fdb0b5f9abe327304ecd1daca08cda9c"
                         kind: "string"
                         hexValue: "646566"
                         value: "def"
@@ -11706,6 +11884,7 @@ SourceUnit #1839
                         id: 1527
                         src: "0:0:0"
                         typeString: "string memory"
+                        typeIdentifier: "t_string_memory_ptr"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1524
@@ -11731,6 +11910,7 @@ SourceUnit #1839
                             id: 1524
                             src: "0:0:0"
                             typeString: "function () pure returns (string memory)"
+                            typeIdentifier: "t_function_stringconcat_pure$__$returns$_t_string_memory_ptr_$"
                             vExpression: ElementaryTypeNameExpression #1523
                             memberName: "concat"
                             referencedDeclaration: undefined
@@ -11750,6 +11930,7 @@ SourceUnit #1839
                                 id: 1523
                                 src: "0:0:0"
                                 typeString: "type(string storage pointer)"
+                                typeIdentifier: "t_type$_t_string_storage_ptr_$"
                                 typeName: ElementaryTypeName #1522
                                 context: ASTContext #1000
                                 parent: MemberAccess #1524
@@ -11766,7 +11947,7 @@ SourceUnit #1839
                                     id: 1522
                                     src: "0:0:0"
                                     typeString: undefined
-                                    typeIdentifier: undefined
+                                    typeIdentifier: "t_string_storage_ptr"
                                     name: "string"
                                     stateMutability: "nonpayable"
                                     context: ASTContext #1000
@@ -11784,6 +11965,7 @@ SourceUnit #1839
                             id: 1525
                             src: "0:0:0"
                             typeString: "string memory"
+                            typeIdentifier: "t_string_memory_ptr"
                             name: "a"
                             referencedDeclaration: 1513
                             context: ASTContext #1000
@@ -11803,6 +11985,7 @@ SourceUnit #1839
                             id: 1526
                             src: "0:0:0"
                             typeString: "string memory"
+                            typeIdentifier: "t_string_memory_ptr"
                             name: "b"
                             referencedDeclaration: 1517
                             context: ASTContext #1000
@@ -12283,6 +12466,7 @@ SourceUnit #1839
                         id: 1560
                         src: "0:0:0"
                         typeString: "RestrictedNumber_0813"
+                        typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1553
@@ -12308,6 +12492,7 @@ SourceUnit #1839
                             id: 1553
                             src: "0:0:0"
                             typeString: "function (int256) pure returns (RestrictedNumber_0813)"
+                            typeIdentifier: "t_function_wrap_pure$_t_int256_$returns$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$"
                             vExpression: Identifier #1552
                             memberName: "wrap"
                             referencedDeclaration: undefined
@@ -12327,6 +12512,7 @@ SourceUnit #1839
                                 id: 1552
                                 src: "0:0:0"
                                 typeString: "type(RestrictedNumber_0813)"
+                                typeIdentifier: "t_type$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$"
                                 name: "RestrictedNumber_0813"
                                 referencedDeclaration: 1533
                                 context: ASTContext #1000
@@ -12346,6 +12532,7 @@ SourceUnit #1839
                             id: 1559
                             src: "0:0:0"
                             typeString: "int256"
+                            typeIdentifier: "t_int256"
                             operator: "+"
                             vLeftExpression: FunctionCall #1557
                             vRightExpression: Literal #1558
@@ -12366,6 +12553,7 @@ SourceUnit #1839
                                 id: 1557
                                 src: "0:0:0"
                                 typeString: "int256"
+                                typeIdentifier: "t_int256"
                                 kind: "functionCall"
                                 fieldNames: undefined
                                 vExpression: MemberAccess #1555
@@ -12391,6 +12579,7 @@ SourceUnit #1839
                                     id: 1555
                                     src: "0:0:0"
                                     typeString: "function (RestrictedNumber_0813) pure returns (int256)"
+                                    typeIdentifier: "t_function_unwrap_pure$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$returns$_t_int256_$"
                                     vExpression: Identifier #1554
                                     memberName: "unwrap"
                                     referencedDeclaration: undefined
@@ -12410,6 +12599,7 @@ SourceUnit #1839
                                         id: 1554
                                         src: "0:0:0"
                                         typeString: "type(RestrictedNumber_0813)"
+                                        typeIdentifier: "t_type$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$"
                                         name: "RestrictedNumber_0813"
                                         referencedDeclaration: 1533
                                         context: ASTContext #1000
@@ -12429,6 +12619,7 @@ SourceUnit #1839
                                     id: 1556
                                     src: "0:0:0"
                                     typeString: "RestrictedNumber_0813"
+                                    typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                                     name: "x"
                                     referencedDeclaration: 1546
                                     context: ASTContext #1000
@@ -12448,6 +12639,7 @@ SourceUnit #1839
                                 id: 1558
                                 src: "0:0:0"
                                 typeString: "int_const 1"
+                                typeIdentifier: "t_rational_1_by_1"
                                 kind: "number"
                                 hexValue: "31"
                                 value: "1"
@@ -12715,6 +12907,7 @@ SourceUnit #1839
                         id: 1581
                         src: "0:0:0"
                         typeString: "RestrictedNumber_0813"
+                        typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1574
@@ -12740,6 +12933,7 @@ SourceUnit #1839
                             id: 1574
                             src: "0:0:0"
                             typeString: "function (int256) pure returns (RestrictedNumber_0813)"
+                            typeIdentifier: "t_function_wrap_pure$_t_int256_$returns$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$"
                             vExpression: Identifier #1573
                             memberName: "wrap"
                             referencedDeclaration: undefined
@@ -12759,6 +12953,7 @@ SourceUnit #1839
                                 id: 1573
                                 src: "0:0:0"
                                 typeString: "type(RestrictedNumber_0813)"
+                                typeIdentifier: "t_type$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$"
                                 name: "RestrictedNumber_0813"
                                 referencedDeclaration: 1533
                                 context: ASTContext #1000
@@ -12778,6 +12973,7 @@ SourceUnit #1839
                             id: 1580
                             src: "0:0:0"
                             typeString: "int256"
+                            typeIdentifier: "t_int256"
                             operator: "-"
                             vLeftExpression: FunctionCall #1578
                             vRightExpression: Literal #1579
@@ -12798,6 +12994,7 @@ SourceUnit #1839
                                 id: 1578
                                 src: "0:0:0"
                                 typeString: "int256"
+                                typeIdentifier: "t_int256"
                                 kind: "functionCall"
                                 fieldNames: undefined
                                 vExpression: MemberAccess #1576
@@ -12823,6 +13020,7 @@ SourceUnit #1839
                                     id: 1576
                                     src: "0:0:0"
                                     typeString: "function (RestrictedNumber_0813) pure returns (int256)"
+                                    typeIdentifier: "t_function_unwrap_pure$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$returns$_t_int256_$"
                                     vExpression: Identifier #1575
                                     memberName: "unwrap"
                                     referencedDeclaration: undefined
@@ -12842,6 +13040,7 @@ SourceUnit #1839
                                         id: 1575
                                         src: "0:0:0"
                                         typeString: "type(RestrictedNumber_0813)"
+                                        typeIdentifier: "t_type$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$"
                                         name: "RestrictedNumber_0813"
                                         referencedDeclaration: 1533
                                         context: ASTContext #1000
@@ -12861,6 +13060,7 @@ SourceUnit #1839
                                     id: 1577
                                     src: "0:0:0"
                                     typeString: "RestrictedNumber_0813"
+                                    typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                                     name: "x"
                                     referencedDeclaration: 1567
                                     context: ASTContext #1000
@@ -12880,6 +13080,7 @@ SourceUnit #1839
                                 id: 1579
                                 src: "0:0:0"
                                 typeString: "int_const 1"
+                                typeIdentifier: "t_rational_1_by_1"
                                 kind: "number"
                                 hexValue: "31"
                                 value: "1"
@@ -13108,6 +13309,7 @@ SourceUnit #1839
                     id: 1605
                     src: "0:0:0"
                     typeString: "tuple()"
+                    typeIdentifier: "t_tuple$__$"
                     kind: "functionCall"
                     fieldNames: undefined
                     vExpression: Identifier #1593
@@ -13133,6 +13335,7 @@ SourceUnit #1839
                         id: 1593
                         src: "0:0:0"
                         typeString: "function (bool) pure"
+                        typeIdentifier: "t_function_require_pure$_t_bool_$returns$__$"
                         name: "require"
                         referencedDeclaration: -18
                         context: ASTContext #1000
@@ -13152,6 +13355,7 @@ SourceUnit #1839
                         id: 1604
                         src: "0:0:0"
                         typeString: "bool"
+                        typeIdentifier: "t_bool"
                         operator: "&&"
                         vLeftExpression: TupleExpression #1597
                         vRightExpression: TupleExpression #1603
@@ -13172,6 +13376,7 @@ SourceUnit #1839
                             id: 1597
                             src: "0:0:0"
                             typeString: "bool"
+                            typeIdentifier: "t_bool"
                             isInlineArray: false
                             vOriginalComponents: Array(1) [ BinaryOperation #1596 ]
                             context: ASTContext #1000
@@ -13191,6 +13396,7 @@ SourceUnit #1839
                                 id: 1596
                                 src: "0:0:0"
                                 typeString: "bool"
+                                typeIdentifier: "t_bool"
                                 operator: "<="
                                 vLeftExpression: Identifier #1594
                                 vRightExpression: Literal #1595
@@ -13211,6 +13417,7 @@ SourceUnit #1839
                                     id: 1594
                                     src: "0:0:0"
                                     typeString: "int256"
+                                    typeIdentifier: "t_int256"
                                     name: "value"
                                     referencedDeclaration: 1587
                                     context: ASTContext #1000
@@ -13230,6 +13437,7 @@ SourceUnit #1839
                                     id: 1595
                                     src: "0:0:0"
                                     typeString: "int_const 100"
+                                    typeIdentifier: "t_rational_100_by_1"
                                     kind: "number"
                                     hexValue: "313030"
                                     value: "100"
@@ -13249,6 +13457,7 @@ SourceUnit #1839
                             id: 1603
                             src: "0:0:0"
                             typeString: "bool"
+                            typeIdentifier: "t_bool"
                             isInlineArray: false
                             vOriginalComponents: Array(1) [ BinaryOperation #1602 ]
                             context: ASTContext #1000
@@ -13268,6 +13477,7 @@ SourceUnit #1839
                                 id: 1602
                                 src: "0:0:0"
                                 typeString: "bool"
+                                typeIdentifier: "t_bool"
                                 operator: "<="
                                 vLeftExpression: TupleExpression #1600
                                 vRightExpression: Literal #1601
@@ -13288,6 +13498,7 @@ SourceUnit #1839
                                     id: 1600
                                     src: "0:0:0"
                                     typeString: "int256"
+                                    typeIdentifier: "t_int256"
                                     isInlineArray: false
                                     vOriginalComponents: Array(1) [ UnaryOperation #1599 ]
                                     context: ASTContext #1000
@@ -13307,6 +13518,7 @@ SourceUnit #1839
                                         id: 1599
                                         src: "0:0:0"
                                         typeString: "int256"
+                                        typeIdentifier: "t_int256"
                                         prefix: true
                                         operator: "-"
                                         userFunction: undefined
@@ -13327,6 +13539,7 @@ SourceUnit #1839
                                             id: 1598
                                             src: "0:0:0"
                                             typeString: "int256"
+                                            typeIdentifier: "t_int256"
                                             name: "value"
                                             referencedDeclaration: 1587
                                             context: ASTContext #1000
@@ -13346,6 +13559,7 @@ SourceUnit #1839
                                     id: 1601
                                     src: "0:0:0"
                                     typeString: "int_const 100"
+                                    typeIdentifier: "t_rational_100_by_1"
                                     kind: "number"
                                     hexValue: "313030"
                                     value: "100"
@@ -13383,6 +13597,7 @@ SourceUnit #1839
                     id: 1610
                     src: "0:0:0"
                     typeString: "RestrictedNumber_0813"
+                    typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                     kind: "functionCall"
                     fieldNames: undefined
                     vExpression: MemberAccess #1608
@@ -13408,6 +13623,7 @@ SourceUnit #1839
                         id: 1608
                         src: "0:0:0"
                         typeString: "function (int256) pure returns (RestrictedNumber_0813)"
+                        typeIdentifier: "t_function_wrap_pure$_t_int256_$returns$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$"
                         vExpression: Identifier #1607
                         memberName: "wrap"
                         referencedDeclaration: undefined
@@ -13427,6 +13643,7 @@ SourceUnit #1839
                             id: 1607
                             src: "0:0:0"
                             typeString: "type(RestrictedNumber_0813)"
+                            typeIdentifier: "t_type$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$"
                             name: "RestrictedNumber_0813"
                             referencedDeclaration: 1533
                             context: ASTContext #1000
@@ -13446,6 +13663,7 @@ SourceUnit #1839
                         id: 1609
                         src: "0:0:0"
                         typeString: "int256"
+                        typeIdentifier: "t_int256"
                         name: "value"
                         referencedDeclaration: 1587
                         context: ASTContext #1000
@@ -13802,6 +14020,7 @@ SourceUnit #1839
                         id: 1638
                         src: "0:0:0"
                         typeString: "RestrictedNumber_0813"
+                        typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                         operator: "="
                         vLeftHandSide: Identifier #1625
                         vRightHandSide: FunctionCall #1637
@@ -13820,6 +14039,7 @@ SourceUnit #1839
                             id: 1625
                             src: "0:0:0"
                             typeString: "RestrictedNumber_0813"
+                            typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                             name: "c"
                             referencedDeclaration: 1623
                             context: ASTContext #1000
@@ -13839,6 +14059,7 @@ SourceUnit #1839
                             id: 1637
                             src: "0:0:0"
                             typeString: "RestrictedNumber_0813"
+                            typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                             kind: "functionCall"
                             fieldNames: undefined
                             vExpression: MemberAccess #1627
@@ -13864,6 +14085,7 @@ SourceUnit #1839
                                 id: 1627
                                 src: "0:0:0"
                                 typeString: "function (int256) pure returns (RestrictedNumber_0813)"
+                                typeIdentifier: "t_function_wrap_pure$_t_int256_$returns$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$"
                                 vExpression: Identifier #1626
                                 memberName: "wrap"
                                 referencedDeclaration: undefined
@@ -13883,6 +14105,7 @@ SourceUnit #1839
                                     id: 1626
                                     src: "0:0:0"
                                     typeString: "type(RestrictedNumber_0813)"
+                                    typeIdentifier: "t_type$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$"
                                     name: "RestrictedNumber_0813"
                                     referencedDeclaration: 1533
                                     context: ASTContext #1000
@@ -13902,6 +14125,7 @@ SourceUnit #1839
                                 id: 1636
                                 src: "0:0:0"
                                 typeString: "int256"
+                                typeIdentifier: "t_int256"
                                 operator: "+"
                                 vLeftExpression: FunctionCall #1631
                                 vRightExpression: FunctionCall #1635
@@ -13922,6 +14146,7 @@ SourceUnit #1839
                                     id: 1631
                                     src: "0:0:0"
                                     typeString: "int256"
+                                    typeIdentifier: "t_int256"
                                     kind: "functionCall"
                                     fieldNames: undefined
                                     vExpression: MemberAccess #1629
@@ -13947,6 +14172,7 @@ SourceUnit #1839
                                         id: 1629
                                         src: "0:0:0"
                                         typeString: "function (RestrictedNumber_0813) pure returns (int256)"
+                                        typeIdentifier: "t_function_unwrap_pure$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$returns$_t_int256_$"
                                         vExpression: Identifier #1628
                                         memberName: "unwrap"
                                         referencedDeclaration: undefined
@@ -13966,6 +14192,7 @@ SourceUnit #1839
                                             id: 1628
                                             src: "0:0:0"
                                             typeString: "type(RestrictedNumber_0813)"
+                                            typeIdentifier: "t_type$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$"
                                             name: "RestrictedNumber_0813"
                                             referencedDeclaration: 1533
                                             context: ASTContext #1000
@@ -13985,6 +14212,7 @@ SourceUnit #1839
                                         id: 1630
                                         src: "0:0:0"
                                         typeString: "RestrictedNumber_0813"
+                                        typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                                         name: "a"
                                         referencedDeclaration: 1616
                                         context: ASTContext #1000
@@ -14004,6 +14232,7 @@ SourceUnit #1839
                                     id: 1635
                                     src: "0:0:0"
                                     typeString: "int256"
+                                    typeIdentifier: "t_int256"
                                     kind: "functionCall"
                                     fieldNames: undefined
                                     vExpression: MemberAccess #1633
@@ -14029,6 +14258,7 @@ SourceUnit #1839
                                         id: 1633
                                         src: "0:0:0"
                                         typeString: "function (RestrictedNumber_0813) pure returns (int256)"
+                                        typeIdentifier: "t_function_unwrap_pure$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$returns$_t_int256_$"
                                         vExpression: Identifier #1632
                                         memberName: "unwrap"
                                         referencedDeclaration: undefined
@@ -14048,6 +14278,7 @@ SourceUnit #1839
                                             id: 1632
                                             src: "0:0:0"
                                             typeString: "type(RestrictedNumber_0813)"
+                                            typeIdentifier: "t_type$_t_userDefinedValueType$_RestrictedNumber_0813_$583_$"
                                             name: "RestrictedNumber_0813"
                                             referencedDeclaration: 1533
                                             context: ASTContext #1000
@@ -14067,6 +14298,7 @@ SourceUnit #1839
                                         id: 1634
                                         src: "0:0:0"
                                         typeString: "RestrictedNumber_0813"
+                                        typeIdentifier: "t_userDefinedValueType$_RestrictedNumber_0813_$583"
                                         name: "b"
                                         referencedDeclaration: 1619
                                         context: ASTContext #1000
@@ -14913,6 +15145,7 @@ SourceUnit #1839
                         id: 1679
                         src: "0:0:0"
                         typeString: "bytes32"
+                        typeIdentifier: "t_bytes32"
                         operator: "="
                         vLeftHandSide: Identifier #1676
                         vRightHandSide: MemberAccess #1678
@@ -14931,6 +15164,7 @@ SourceUnit #1839
                             id: 1676
                             src: "0:0:0"
                             typeString: "bytes32"
+                            typeIdentifier: "t_bytes32"
                             name: "ev"
                             referencedDeclaration: 1672
                             context: ASTContext #1000
@@ -14950,6 +15184,7 @@ SourceUnit #1839
                             id: 1678
                             src: "0:0:0"
                             typeString: "bytes32"
+                            typeIdentifier: "t_bytes32"
                             vExpression: Identifier #1677
                             memberName: "selector"
                             referencedDeclaration: undefined
@@ -14969,6 +15204,7 @@ SourceUnit #1839
                                 id: 1677
                                 src: "0:0:0"
                                 typeString: "function (address,uint256)"
+                                typeIdentifier: "t_function_event_nonpayable$_t_address_$_t_uint256_$returns$__$"
                                 name: "SomeEvent"
                                 referencedDeclaration: 1655
                                 context: ASTContext #1000
@@ -15004,6 +15240,7 @@ SourceUnit #1839
                         id: 1684
                         src: "0:0:0"
                         typeString: "bytes4"
+                        typeIdentifier: "t_bytes4"
                         operator: "="
                         vLeftHandSide: Identifier #1681
                         vRightHandSide: MemberAccess #1683
@@ -15022,6 +15259,7 @@ SourceUnit #1839
                             id: 1681
                             src: "0:0:0"
                             typeString: "bytes4"
+                            typeIdentifier: "t_bytes4"
                             name: "er"
                             referencedDeclaration: 1674
                             context: ASTContext #1000
@@ -15041,6 +15279,7 @@ SourceUnit #1839
                             id: 1683
                             src: "0:0:0"
                             typeString: "bytes4"
+                            typeIdentifier: "t_bytes4"
                             vExpression: Identifier #1682
                             memberName: "selector"
                             referencedDeclaration: undefined
@@ -15060,6 +15299,7 @@ SourceUnit #1839
                                 id: 1682
                                 src: "0:0:0"
                                 typeString: "function (address,uint256) pure returns (error)"
+                                typeIdentifier: "t_function_error_pure$_t_address_$_t_uint256_$returns$_t_error_$"
                                 name: "SomeError"
                                 referencedDeclaration: 1661
                                 context: ASTContext #1000
@@ -15095,6 +15335,7 @@ SourceUnit #1839
                         id: 1688
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: Identifier #1686
@@ -15120,6 +15361,7 @@ SourceUnit #1839
                             id: 1686
                             src: "0:0:0"
                             typeString: "function (uint256) pure returns (uint256)"
+                            typeIdentifier: "t_function_internal_pure$_t_uint256_$returns$_t_uint256_$"
                             name: "privateFunc"
                             referencedDeclaration: 1669
                             context: ASTContext #1000
@@ -15139,6 +15381,7 @@ SourceUnit #1839
                             id: 1687
                             src: "0:0:0"
                             typeString: "int_const 1"
+                            typeIdentifier: "t_rational_1_by_1"
                             kind: "number"
                             hexValue: "31"
                             value: "1"
@@ -15174,6 +15417,7 @@ SourceUnit #1839
                         id: 1694
                         src: "0:0:0"
                         typeString: "tuple()"
+                        typeIdentifier: "t_tuple$__$"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: Identifier #1690
@@ -15199,6 +15443,7 @@ SourceUnit #1839
                             id: 1690
                             src: "0:0:0"
                             typeString: "function (bool) pure"
+                            typeIdentifier: "t_function_assert_pure$_t_bool_$returns$__$"
                             name: "assert"
                             referencedDeclaration: -3
                             context: ASTContext #1000
@@ -15218,6 +15463,7 @@ SourceUnit #1839
                             id: 1693
                             src: "0:0:0"
                             typeString: "bool"
+                            typeIdentifier: "t_bool"
                             operator: "=="
                             vLeftExpression: Identifier #1691
                             vRightExpression: Literal #1692
@@ -15238,6 +15484,7 @@ SourceUnit #1839
                                 id: 1691
                                 src: "0:0:0"
                                 typeString: "bytes32"
+                                typeIdentifier: "t_bytes32"
                                 name: "ev"
                                 referencedDeclaration: 1672
                                 context: ASTContext #1000
@@ -15257,6 +15504,7 @@ SourceUnit #1839
                                 id: 1692
                                 src: "0:0:0"
                                 typeString: "int_const 1003...(70 digits omitted)...0099"
+                                typeIdentifier: "t_rational_100362994716915225246070201427599535565186867381666230351508044999441833700099_by_1"
                                 kind: "number"
                                 hexValue: "307864646533373132353064636432316333333165646262393635623931363366343839383536366538633630653238383638353333323831656466363661623033"
                                 value: "0xdde371250dcd21c331edbb965b9163f4898566e8c60e28868533281edf66ab03"
@@ -15292,6 +15540,7 @@ SourceUnit #1839
                         id: 1700
                         src: "0:0:0"
                         typeString: "tuple()"
+                        typeIdentifier: "t_tuple$__$"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: Identifier #1696
@@ -15317,6 +15566,7 @@ SourceUnit #1839
                             id: 1696
                             src: "0:0:0"
                             typeString: "function (bool) pure"
+                            typeIdentifier: "t_function_assert_pure$_t_bool_$returns$__$"
                             name: "assert"
                             referencedDeclaration: -3
                             context: ASTContext #1000
@@ -15336,6 +15586,7 @@ SourceUnit #1839
                             id: 1699
                             src: "0:0:0"
                             typeString: "bool"
+                            typeIdentifier: "t_bool"
                             operator: "=="
                             vLeftExpression: Identifier #1697
                             vRightExpression: Literal #1698
@@ -15356,6 +15607,7 @@ SourceUnit #1839
                                 id: 1697
                                 src: "0:0:0"
                                 typeString: "bytes4"
+                                typeIdentifier: "t_bytes4"
                                 name: "er"
                                 referencedDeclaration: 1674
                                 context: ASTContext #1000
@@ -15375,6 +15627,7 @@ SourceUnit #1839
                                 id: 1698
                                 src: "0:0:0"
                                 typeString: "int_const 966263497"
+                                typeIdentifier: "t_rational_966263497_by_1"
                                 kind: "number"
                                 hexValue: "30783339393830326339"
                                 value: "0x399802c9"
@@ -15731,6 +15984,7 @@ SourceUnit #1839
                         id: 1717
                         src: "0:0:0"
                         typeString: "Int"
+                        typeIdentifier: "t_userDefinedValueType$_Int_$905"
                         prefix: true
                         operator: "-"
                         userFunction: 929
@@ -15751,6 +16005,7 @@ SourceUnit #1839
                             id: 1716
                             src: "0:0:0"
                             typeString: "Int"
+                            typeIdentifier: "t_userDefinedValueType$_Int_$905"
                             name: "a"
                             referencedDeclaration: 1707
                             context: ASTContext #1000
@@ -15788,6 +16043,7 @@ SourceUnit #1839
                         id: 1721
                         src: "0:0:0"
                         typeString: "Int"
+                        typeIdentifier: "t_userDefinedValueType$_Int_$905"
                         operator: "+"
                         vLeftExpression: Identifier #1719
                         vRightExpression: Identifier #1720
@@ -15808,6 +16064,7 @@ SourceUnit #1839
                             id: 1719
                             src: "0:0:0"
                             typeString: "Int"
+                            typeIdentifier: "t_userDefinedValueType$_Int_$905"
                             name: "a"
                             referencedDeclaration: 1707
                             context: ASTContext #1000
@@ -15827,6 +16084,7 @@ SourceUnit #1839
                             id: 1720
                             src: "0:0:0"
                             typeString: "Int"
+                            typeIdentifier: "t_userDefinedValueType$_Int_$905"
                             name: "b"
                             referencedDeclaration: 1710
                             context: ASTContext #1000
@@ -16481,6 +16739,7 @@ SourceUnit #1839
                         id: 1753
                         src: "0:0:0"
                         typeString: "tuple()"
+                        typeIdentifier: "t_tuple$__$"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1751
@@ -16506,6 +16765,7 @@ SourceUnit #1839
                             id: 1751
                             src: "0:0:0"
                             typeString: "function (uint256)"
+                            typeIdentifier: "t_function_event_nonpayable$_t_uint256_$returns$__$"
                             vExpression: Identifier #1750
                             memberName: "X"
                             referencedDeclaration: 1729
@@ -16525,6 +16785,7 @@ SourceUnit #1839
                                 id: 1750
                                 src: "0:0:0"
                                 typeString: "type(contract IntEvents)"
+                                typeIdentifier: "t_type$_t_contract$_IntEvents_$780_$"
                                 name: "IntEvents"
                                 referencedDeclaration: 1730
                                 context: ASTContext #1000
@@ -16544,6 +16805,7 @@ SourceUnit #1839
                             id: 1752
                             src: "0:0:0"
                             typeString: "int_const 1"
+                            typeIdentifier: "t_rational_1_by_1"
                             kind: "number"
                             hexValue: "31"
                             value: "1"
@@ -16579,6 +16841,7 @@ SourceUnit #1839
                         id: 1758
                         src: "0:0:0"
                         typeString: "tuple()"
+                        typeIdentifier: "t_tuple$__$"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1756
@@ -16604,6 +16867,7 @@ SourceUnit #1839
                             id: 1756
                             src: "0:0:0"
                             typeString: "function (uint256)"
+                            typeIdentifier: "t_function_event_nonpayable$_t_uint256_$returns$__$"
                             vExpression: Identifier #1755
                             memberName: "X"
                             referencedDeclaration: 1734
@@ -16623,6 +16887,7 @@ SourceUnit #1839
                                 id: 1755
                                 src: "0:0:0"
                                 typeString: "type(library LibEvents)"
+                                typeIdentifier: "t_type$_t_contract$_LibEvents_$785_$"
                                 name: "LibEvents"
                                 referencedDeclaration: 1735
                                 context: ASTContext #1000
@@ -16642,6 +16907,7 @@ SourceUnit #1839
                             id: 1757
                             src: "0:0:0"
                             typeString: "int_const 2"
+                            typeIdentifier: "t_rational_2_by_1"
                             kind: "number"
                             hexValue: "32"
                             value: "2"
@@ -16677,6 +16943,7 @@ SourceUnit #1839
                         id: 1762
                         src: "0:0:0"
                         typeString: "tuple()"
+                        typeIdentifier: "t_tuple$__$"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: Identifier #1760
@@ -16702,6 +16969,7 @@ SourceUnit #1839
                             id: 1760
                             src: "0:0:0"
                             typeString: "function (uint256)"
+                            typeIdentifier: "t_function_event_nonpayable$_t_uint256_$returns$__$"
                             name: "X"
                             referencedDeclaration: 1747
                             context: ASTContext #1000
@@ -16721,6 +16989,7 @@ SourceUnit #1839
                             id: 1761
                             src: "0:0:0"
                             typeString: "int_const 3"
+                            typeIdentifier: "t_rational_3_by_1"
                             kind: "number"
                             hexValue: "33"
                             value: "3"
@@ -16756,6 +17025,7 @@ SourceUnit #1839
                         id: 1767
                         src: "0:0:0"
                         typeString: "tuple()"
+                        typeIdentifier: "t_tuple$__$"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: MemberAccess #1765
@@ -16781,6 +17051,7 @@ SourceUnit #1839
                             id: 1765
                             src: "0:0:0"
                             typeString: "function (uint256)"
+                            typeIdentifier: "t_function_event_nonpayable$_t_uint256_$returns$__$"
                             vExpression: Identifier #1764
                             memberName: "X"
                             referencedDeclaration: 1747
@@ -16800,6 +17071,7 @@ SourceUnit #1839
                                 id: 1764
                                 src: "0:0:0"
                                 typeString: "type(contract Features_0822)"
+                                typeIdentifier: "t_type$_t_contract$_Features_0822_$828_$"
                                 name: "Features_0822"
                                 referencedDeclaration: 1775
                                 context: ASTContext #1000
@@ -16819,6 +17091,7 @@ SourceUnit #1839
                             id: 1766
                             src: "0:0:0"
                             typeString: "int_const 4"
+                            typeIdentifier: "t_rational_4_by_1"
                             kind: "number"
                             hexValue: "34"
                             value: "4"
@@ -16854,6 +17127,7 @@ SourceUnit #1839
                         id: 1771
                         src: "0:0:0"
                         typeString: "tuple()"
+                        typeIdentifier: "t_tuple$__$"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: Identifier #1769
@@ -16879,6 +17153,7 @@ SourceUnit #1839
                             id: 1769
                             src: "0:0:0"
                             typeString: "function (uint256)"
+                            typeIdentifier: "t_function_event_nonpayable$_t_uint256_$returns$__$"
                             name: "Y"
                             referencedDeclaration: 1743
                             context: ASTContext #1000
@@ -16898,6 +17173,7 @@ SourceUnit #1839
                             id: 1770
                             src: "0:0:0"
                             typeString: "int_const 5"
+                            typeIdentifier: "t_rational_5_by_1"
                             kind: "number"
                             hexValue: "35"
                             value: "5"
@@ -17378,6 +17654,7 @@ SourceUnit #1839
                         id: 1807
                         src: "0:0:0"
                         typeString: "tuple()"
+                        typeIdentifier: "t_tuple$__$"
                         kind: "functionCall"
                         fieldNames: undefined
                         vExpression: Identifier #1793
@@ -17403,6 +17680,7 @@ SourceUnit #1839
                             id: 1793
                             src: "0:0:0"
                             typeString: "function (bool,error) pure"
+                            typeIdentifier: "t_function_require_pure$_t_bool_$_t_error_$returns$__$"
                             name: "require"
                             referencedDeclaration: -18
                             context: ASTContext #1000
@@ -17422,6 +17700,7 @@ SourceUnit #1839
                             id: 1799
                             src: "0:0:0"
                             typeString: "bool"
+                            typeIdentifier: "t_bool"
                             operator: ">="
                             vLeftExpression: IndexAccess #1797
                             vRightExpression: Identifier #1798
@@ -17442,6 +17721,7 @@ SourceUnit #1839
                                 id: 1797
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 vBaseExpression: Identifier #1794
                                 vIndexExpression: MemberAccess #1796
                                 context: ASTContext #1000
@@ -17459,6 +17739,7 @@ SourceUnit #1839
                                     id: 1794
                                     src: "0:0:0"
                                     typeString: "mapping(address => uint256)"
+                                    typeIdentifier: "t_mapping$_t_address_$_t_uint256_$"
                                     name: "balance"
                                     referencedDeclaration: 1786
                                     context: ASTContext #1000
@@ -17478,6 +17759,7 @@ SourceUnit #1839
                                     id: 1796
                                     src: "0:0:0"
                                     typeString: "address"
+                                    typeIdentifier: "t_address"
                                     vExpression: Identifier #1795
                                     memberName: "sender"
                                     referencedDeclaration: undefined
@@ -17497,6 +17779,7 @@ SourceUnit #1839
                                         id: 1795
                                         src: "0:0:0"
                                         typeString: "msg"
+                                        typeIdentifier: "t_magic_message"
                                         name: "msg"
                                         referencedDeclaration: -15
                                         context: ASTContext #1000
@@ -17516,6 +17799,7 @@ SourceUnit #1839
                                 id: 1798
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 name: "amount"
                                 referencedDeclaration: 1790
                                 context: ASTContext #1000
@@ -17535,6 +17819,7 @@ SourceUnit #1839
                             id: 1806
                             src: "0:0:0"
                             typeString: "error"
+                            typeIdentifier: "t_error"
                             kind: "functionCall"
                             fieldNames: undefined
                             vExpression: Identifier #1800
@@ -17560,6 +17845,7 @@ SourceUnit #1839
                                 id: 1800
                                 src: "0:0:0"
                                 typeString: "function (uint256,uint256) pure returns (error)"
+                                typeIdentifier: "t_function_error_pure$_t_uint256_$_t_uint256_$returns$_t_error_$"
                                 name: "InsufficientBalance"
                                 referencedDeclaration: 1782
                                 context: ASTContext #1000
@@ -17579,6 +17865,7 @@ SourceUnit #1839
                                 id: 1804
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 vBaseExpression: Identifier #1801
                                 vIndexExpression: MemberAccess #1803
                                 context: ASTContext #1000
@@ -17596,6 +17883,7 @@ SourceUnit #1839
                                     id: 1801
                                     src: "0:0:0"
                                     typeString: "mapping(address => uint256)"
+                                    typeIdentifier: "t_mapping$_t_address_$_t_uint256_$"
                                     name: "balance"
                                     referencedDeclaration: 1786
                                     context: ASTContext #1000
@@ -17615,6 +17903,7 @@ SourceUnit #1839
                                     id: 1803
                                     src: "0:0:0"
                                     typeString: "address"
+                                    typeIdentifier: "t_address"
                                     vExpression: Identifier #1802
                                     memberName: "sender"
                                     referencedDeclaration: undefined
@@ -17634,6 +17923,7 @@ SourceUnit #1839
                                         id: 1802
                                         src: "0:0:0"
                                         typeString: "msg"
+                                        typeIdentifier: "t_magic_message"
                                         name: "msg"
                                         referencedDeclaration: -15
                                         context: ASTContext #1000
@@ -17653,6 +17943,7 @@ SourceUnit #1839
                                 id: 1805
                                 src: "0:0:0"
                                 typeString: "uint256"
+                                typeIdentifier: "t_uint256"
                                 name: "amount"
                                 referencedDeclaration: 1790
                                 context: ASTContext #1000
@@ -17688,6 +17979,7 @@ SourceUnit #1839
                         id: 1814
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         operator: "-="
                         vLeftHandSide: IndexAccess #1812
                         vRightHandSide: Identifier #1813
@@ -17706,6 +17998,7 @@ SourceUnit #1839
                             id: 1812
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             vBaseExpression: Identifier #1809
                             vIndexExpression: MemberAccess #1811
                             context: ASTContext #1000
@@ -17723,6 +18016,7 @@ SourceUnit #1839
                                 id: 1809
                                 src: "0:0:0"
                                 typeString: "mapping(address => uint256)"
+                                typeIdentifier: "t_mapping$_t_address_$_t_uint256_$"
                                 name: "balance"
                                 referencedDeclaration: 1786
                                 context: ASTContext #1000
@@ -17742,6 +18036,7 @@ SourceUnit #1839
                                 id: 1811
                                 src: "0:0:0"
                                 typeString: "address"
+                                typeIdentifier: "t_address"
                                 vExpression: Identifier #1810
                                 memberName: "sender"
                                 referencedDeclaration: undefined
@@ -17761,6 +18056,7 @@ SourceUnit #1839
                                     id: 1810
                                     src: "0:0:0"
                                     typeString: "msg"
+                                    typeIdentifier: "t_magic_message"
                                     name: "msg"
                                     referencedDeclaration: -15
                                     context: ASTContext #1000
@@ -17780,6 +18076,7 @@ SourceUnit #1839
                             id: 1813
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             name: "amount"
                             referencedDeclaration: 1790
                             context: ASTContext #1000
@@ -17815,6 +18112,7 @@ SourceUnit #1839
                         id: 1820
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         operator: "+="
                         vLeftHandSide: IndexAccess #1818
                         vRightHandSide: Identifier #1819
@@ -17833,6 +18131,7 @@ SourceUnit #1839
                             id: 1818
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             vBaseExpression: Identifier #1816
                             vIndexExpression: Identifier #1817
                             context: ASTContext #1000
@@ -17850,6 +18149,7 @@ SourceUnit #1839
                                 id: 1816
                                 src: "0:0:0"
                                 typeString: "mapping(address => uint256)"
+                                typeIdentifier: "t_mapping$_t_address_$_t_uint256_$"
                                 name: "balance"
                                 referencedDeclaration: 1786
                                 context: ASTContext #1000
@@ -17869,6 +18169,7 @@ SourceUnit #1839
                                 id: 1817
                                 src: "0:0:0"
                                 typeString: "address"
+                                typeIdentifier: "t_address"
                                 name: "to"
                                 referencedDeclaration: 1788
                                 context: ASTContext #1000
@@ -17888,6 +18189,7 @@ SourceUnit #1839
                             id: 1819
                             src: "0:0:0"
                             typeString: "uint256"
+                            typeIdentifier: "t_uint256"
                             name: "amount"
                             referencedDeclaration: 1790
                             context: ASTContext #1000
@@ -18039,6 +18341,7 @@ SourceUnit #1839
             id: 1832
             src: "0:0:0"
             typeString: "int_const 5789...(69 digits omitted)...9926"
+            typeIdentifier: "t_rational_57896044618658097711785492504343953926634992332820282019728792003956564819926_by_1"
             operator: "-"
             vLeftExpression: BinaryOperation #1830
             vRightExpression: Literal #1831
@@ -18059,6 +18362,7 @@ SourceUnit #1839
                 id: 1830
                 src: "0:0:0"
                 typeString: "int_const 5789...(69 digits omitted)...9968"
+                typeIdentifier: "t_rational_57896044618658097711785492504343953926634992332820282019728792003956564819968_by_1"
                 operator: "**"
                 vLeftExpression: Literal #1828
                 vRightExpression: Literal #1829
@@ -18079,6 +18383,7 @@ SourceUnit #1839
                     id: 1828
                     src: "0:0:0"
                     typeString: "int_const 2"
+                    typeIdentifier: "t_rational_2_by_1"
                     kind: "number"
                     hexValue: "32"
                     value: "2"
@@ -18098,6 +18403,7 @@ SourceUnit #1839
                     id: 1829
                     src: "0:0:0"
                     typeString: "int_const 255"
+                    typeIdentifier: "t_rational_255_by_1"
                     kind: "number"
                     hexValue: "323535"
                     value: "255"
@@ -18117,6 +18423,7 @@ SourceUnit #1839
                 id: 1831
                 src: "0:0:0"
                 typeString: "int_const 42"
+                typeIdentifier: "t_rational_42_by_1"
                 kind: "number"
                 hexValue: "3432"
                 value: "42"
@@ -18459,6 +18766,7 @@ SourceUnit #1907
                         id: 1849
                         src: "0:0:0"
                         typeString: "int_const 1"
+                        typeIdentifier: "t_rational_1_by_1"
                         kind: "number"
                         hexValue: "31"
                         value: "1"
@@ -18875,6 +19183,7 @@ SourceUnit #1907
                     id: 1877
                     src: "0:0:0"
                     typeString: "Int"
+                    typeIdentifier: "t_userDefinedValueType$_Int_$905"
                     kind: "functionCall"
                     fieldNames: undefined
                     vExpression: MemberAccess #1871
@@ -18900,6 +19209,7 @@ SourceUnit #1907
                         id: 1871
                         src: "0:0:0"
                         typeString: "function (int256) pure returns (Int)"
+                        typeIdentifier: "t_function_wrap_pure$_t_int256_$returns$_t_userDefinedValueType$_Int_$905_$"
                         vExpression: Identifier #1870
                         memberName: "wrap"
                         referencedDeclaration: undefined
@@ -18919,6 +19229,7 @@ SourceUnit #1907
                             id: 1870
                             src: "0:0:0"
                             typeString: "type(Int)"
+                            typeIdentifier: "t_type$_t_userDefinedValueType$_Int_$905_$"
                             name: "Int"
                             referencedDeclaration: 1856
                             context: ASTContext #1000
@@ -18938,6 +19249,7 @@ SourceUnit #1907
                         id: 1876
                         src: "0:0:0"
                         typeString: "int256"
+                        typeIdentifier: "t_int256"
                         prefix: true
                         operator: "-"
                         userFunction: undefined
@@ -18958,6 +19270,7 @@ SourceUnit #1907
                             id: 1875
                             src: "0:0:0"
                             typeString: "int256"
+                            typeIdentifier: "t_int256"
                             kind: "functionCall"
                             fieldNames: undefined
                             vExpression: MemberAccess #1873
@@ -18983,6 +19296,7 @@ SourceUnit #1907
                                 id: 1873
                                 src: "0:0:0"
                                 typeString: "function (Int) pure returns (int256)"
+                                typeIdentifier: "t_function_unwrap_pure$_t_userDefinedValueType$_Int_$905_$returns$_t_int256_$"
                                 vExpression: Identifier #1872
                                 memberName: "unwrap"
                                 referencedDeclaration: undefined
@@ -19002,6 +19316,7 @@ SourceUnit #1907
                                     id: 1872
                                     src: "0:0:0"
                                     typeString: "type(Int)"
+                                    typeIdentifier: "t_type$_t_userDefinedValueType$_Int_$905_$"
                                     name: "Int"
                                     referencedDeclaration: 1856
                                     context: ASTContext #1000
@@ -19021,6 +19336,7 @@ SourceUnit #1907
                                 id: 1874
                                 src: "0:0:0"
                                 typeString: "Int"
+                                typeIdentifier: "t_userDefinedValueType$_Int_$905"
                                 name: "a"
                                 referencedDeclaration: 1864
                                 context: ASTContext #1000
@@ -19337,6 +19653,7 @@ SourceUnit #1907
                     id: 1903
                     src: "0:0:0"
                     typeString: "Int"
+                    typeIdentifier: "t_userDefinedValueType$_Int_$905"
                     kind: "functionCall"
                     fieldNames: undefined
                     vExpression: MemberAccess #1893
@@ -19362,6 +19679,7 @@ SourceUnit #1907
                         id: 1893
                         src: "0:0:0"
                         typeString: "function (int256) pure returns (Int)"
+                        typeIdentifier: "t_function_wrap_pure$_t_int256_$returns$_t_userDefinedValueType$_Int_$905_$"
                         vExpression: Identifier #1892
                         memberName: "wrap"
                         referencedDeclaration: undefined
@@ -19381,6 +19699,7 @@ SourceUnit #1907
                             id: 1892
                             src: "0:0:0"
                             typeString: "type(Int)"
+                            typeIdentifier: "t_type$_t_userDefinedValueType$_Int_$905_$"
                             name: "Int"
                             referencedDeclaration: 1856
                             context: ASTContext #1000
@@ -19400,6 +19719,7 @@ SourceUnit #1907
                         id: 1902
                         src: "0:0:0"
                         typeString: "int256"
+                        typeIdentifier: "t_int256"
                         operator: "+"
                         vLeftExpression: FunctionCall #1897
                         vRightExpression: FunctionCall #1901
@@ -19420,6 +19740,7 @@ SourceUnit #1907
                             id: 1897
                             src: "0:0:0"
                             typeString: "int256"
+                            typeIdentifier: "t_int256"
                             kind: "functionCall"
                             fieldNames: undefined
                             vExpression: MemberAccess #1895
@@ -19445,6 +19766,7 @@ SourceUnit #1907
                                 id: 1895
                                 src: "0:0:0"
                                 typeString: "function (Int) pure returns (int256)"
+                                typeIdentifier: "t_function_unwrap_pure$_t_userDefinedValueType$_Int_$905_$returns$_t_int256_$"
                                 vExpression: Identifier #1894
                                 memberName: "unwrap"
                                 referencedDeclaration: undefined
@@ -19464,6 +19786,7 @@ SourceUnit #1907
                                     id: 1894
                                     src: "0:0:0"
                                     typeString: "type(Int)"
+                                    typeIdentifier: "t_type$_t_userDefinedValueType$_Int_$905_$"
                                     name: "Int"
                                     referencedDeclaration: 1856
                                     context: ASTContext #1000
@@ -19483,6 +19806,7 @@ SourceUnit #1907
                                 id: 1896
                                 src: "0:0:0"
                                 typeString: "Int"
+                                typeIdentifier: "t_userDefinedValueType$_Int_$905"
                                 name: "a"
                                 referencedDeclaration: 1883
                                 context: ASTContext #1000
@@ -19502,6 +19826,7 @@ SourceUnit #1907
                             id: 1901
                             src: "0:0:0"
                             typeString: "int256"
+                            typeIdentifier: "t_int256"
                             kind: "functionCall"
                             fieldNames: undefined
                             vExpression: MemberAccess #1899
@@ -19527,6 +19852,7 @@ SourceUnit #1907
                                 id: 1899
                                 src: "0:0:0"
                                 typeString: "function (Int) pure returns (int256)"
+                                typeIdentifier: "t_function_unwrap_pure$_t_userDefinedValueType$_Int_$905_$returns$_t_int256_$"
                                 vExpression: Identifier #1898
                                 memberName: "unwrap"
                                 referencedDeclaration: undefined
@@ -19546,6 +19872,7 @@ SourceUnit #1907
                                     id: 1898
                                     src: "0:0:0"
                                     typeString: "type(Int)"
+                                    typeIdentifier: "t_type$_t_userDefinedValueType$_Int_$905_$"
                                     name: "Int"
                                     referencedDeclaration: 1856
                                     context: ASTContext #1000
@@ -19565,6 +19892,7 @@ SourceUnit #1907
                                 id: 1900
                                 src: "0:0:0"
                                 typeString: "Int"
+                                typeIdentifier: "t_userDefinedValueType$_Int_$905"
                                 name: "b"
                                 referencedDeclaration: 1886
                                 context: ASTContext #1000

@@ -140,6 +140,7 @@ SourceUnit #56
                 id: 31
                 src: "0:0:0"
                 typeString: "int_const 0"
+                typeIdentifier: "t_rational_0_by_1"
                 kind: "number"
                 hexValue: "30"
                 value: "0"
@@ -253,6 +254,7 @@ SourceUnit #56
                         id: 37
                         src: "0:0:0"
                         typeString: "int8"
+                        typeIdentifier: "t_int8"
                         operator: "="
                         vLeftHandSide: Identifier #35
                         vRightHandSide: Literal #36
@@ -271,6 +273,7 @@ SourceUnit #56
                             id: 35
                             src: "0:0:0"
                             typeString: "int8"
+                            typeIdentifier: "t_int8"
                             name: "lastCall"
                             referencedDeclaration: 32
                             context: ASTContext #1000
@@ -290,6 +293,7 @@ SourceUnit #56
                             id: 36
                             src: "0:0:0"
                             typeString: "int_const 1"
+                            typeIdentifier: "t_rational_1_by_1"
                             kind: "number"
                             hexValue: "31"
                             value: "1"
@@ -499,6 +503,7 @@ SourceUnit #56
                         id: 49
                         src: "0:0:0"
                         typeString: "int8"
+                        typeIdentifier: "t_int8"
                         operator: "="
                         vLeftHandSide: Identifier #47
                         vRightHandSide: Literal #48
@@ -517,6 +522,7 @@ SourceUnit #56
                             id: 47
                             src: "0:0:0"
                             typeString: "int8"
+                            typeIdentifier: "t_int8"
                             name: "lastCall"
                             referencedDeclaration: 32
                             context: ASTContext #1000
@@ -536,6 +542,7 @@ SourceUnit #56
                             id: 48
                             src: "0:0:0"
                             typeString: "int_const 2"
+                            typeIdentifier: "t_rational_2_by_1"
                             kind: "number"
                             hexValue: "32"
                             value: "2"
@@ -573,6 +580,7 @@ SourceUnit #56
                         id: 51
                         src: "0:0:0"
                         typeString: "uint256"
+                        typeIdentifier: "t_uint256"
                         name: "x"
                         referencedDeclaration: 42
                         context: ASTContext #1000
