@@ -17,6 +17,7 @@ export type FunctionTypeKind =
     | "selfdestruct"
     | "revert"
     | "ecrecover"
+    | "sha3"
     | "sha256"
     | "ripemd160"
     | "gasleft"
@@ -43,7 +44,12 @@ export type FunctionTypeKind =
     | "abiencodewithsignature"
     | "abidecode"
     | "blobhash"
-    | "metatype";
+    | "metatype"
+    | "log0"
+    | "log1"
+    | "log2"
+    | "log3"
+    | "log4";
 
 export type FunctionTypeMutability = "pure" | "view" | "nonpayable" | "payable";
 

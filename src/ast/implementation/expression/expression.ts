@@ -22,6 +22,7 @@ export class Expression extends ASTNode {
         super(id, src, raw);
 
         this.typeString = typeString;
+        this.typeIdentifier = typeIdentifier;
     }
 }
 

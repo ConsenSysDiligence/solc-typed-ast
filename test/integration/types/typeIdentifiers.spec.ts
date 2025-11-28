@@ -12,9 +12,12 @@ import {
     compileSol,
     detectCompileErrors,
     Expression,
+    Identifier,
+    ImportDirective,
     SourceUnit,
     StructDefinition,
     TypeName,
+    typeOf,
     VariableDeclaration
 } from "../../../src";
 
@@ -181,11 +184,35 @@ describe("typeIdentifier tests", () => {
                             return;
                         }
 
-                        const raw = node.raw;
-                        expect(raw !== undefined);
-                        expect(raw.typeDescriptions !== undefined);
-                        expect("typeIdentifier" in raw.typeDescriptions);
-                        expect(node.typeIdentifier !== undefined);
+                        if (node instanceof Identifier && node.parent instanceof ImportDirective) {
+                            return;
+                        }
+
+                        expect(node.typeIdentifier !== undefined).toBeTruthy();
+                    });
+                }
+            });
+
+            it("We can parse the typeIdentifier", () => {
+                for (const unit of sourceUnits) {
+                    unit.walk((node) => {
+                        if (
+                            !(
+                                node instanceof Expression ||
+                                node instanceof TypeName ||
+                                (node instanceof VariableDeclaration &&
+                                    !(node.parent instanceof StructDefinition))
+                            )
+                        ) {
+                            return;
+                        }
+
+                        // Identifiers under ImportDirectives don't have typeDescritions
+                        if (node instanceof Identifier && node.parent instanceof ImportDirective) {
+                            return;
+                        }
+
+                        expect(() => typeOf(node)).not.toThrow();
                     });
                 }
             });

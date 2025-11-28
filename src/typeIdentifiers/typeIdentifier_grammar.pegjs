@@ -55,7 +55,7 @@ FixedPointType
     = "t_" signed: (t: "u" ? { return t == null; } ) "fixed" numBits: Nat "x" fractionalDigits: Nat { return new ast.FixedPointTypeId(Number(numBits), Number(fractionalDigits), signed); }
 
 RationalType
-    = "t_rational_" negative: (t: "minus_" ? { return t !== null; })  numerator: BigInt "_by_" denominator: BigInt { return new ast.RationalNumTypeId(negative ? -numerator : numerator, denominator); }
+    = "t_rational_" negative: (t: "minus_" ? { return t !== null; })  negative2: (t1: "-"? {return t1 !== null;}) numerator: BigInt "_by_" denominator: BigInt { return new ast.RationalNumTypeId(negative || negative2 ? -numerator : numerator, denominator); }
 
 StringLiteralType
     = "t_stringliteral_" hash: (HexDigit+ {return text();}) { return new ast.StringLiteralTypeId(hash); }
@@ -123,8 +123,8 @@ FunctionKind
     / "internal"
     / "external"
     / "delegatecall"
-    / "barecall"
     / "barecallcode"
+    / "barecall"
     / "baredelegatecall"
     / "barestaticcall"
     / "creation"
@@ -134,6 +134,7 @@ FunctionKind
     / "selfdestruct"
     / "revert"
     / "ecrecover"
+    / "sha3"
     / "sha256"
     / "ripemd160"
     / "gasleft"
@@ -153,20 +154,26 @@ FunctionKind
     / "objectcreation"
     / "assert"
     / "require"
-    / "abiencode"
     / "abiencodepacked"
     / "abiencodewithselector"
     / "abiencodecall"
     / "abiencodewithsignature"
+    / "abiencode"
     / "abidecode"
     / "blobhash"
-    / "metatype") { return text(); }
+    / "metatype"
+    / "log0"
+    / "log1"
+    / "log2"
+    / "log3"
+    / "log4"
+    ) { return text(); }
 
 StateMutability
     = ("pure" / "view" / "nonpayable" / "payable") { return text(); }
 
 FunctionType
-    = "t_function_" kind: FunctionKind "_" mutability: StateMutability parameters: ParenthesizedTypeList "returns" returns: ParenthesizedTypeList hasGas: ("gas"?) hasValue: ("value"?) hasSalt: ("salt"?) boundFirstArgType: ("attached_to" argT: ParenthesizedTypeList { return argT; })?
+    = "t_function_" kind: FunctionKind "_" mutability: StateMutability parameters: ParenthesizedTypeList "returns" returns: ParenthesizedTypeList hasGas: ("gas"?) hasValue: ("value"?) hasSalt: ("salt"?) boundFirstArgType: (("attached_to"/"bound_to") argT: ParenthesizedTypeList { return argT; })?
     {
         let firstArgT: ast.TypeIdentifier | undefined = undefined;
 
