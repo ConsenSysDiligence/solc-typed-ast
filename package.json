@@ -14,10 +14,12 @@
     "scripts": {
         "clean": "rm -rf dist/ src/compile/inference/file_level_definitions_parser.ts test/utils/typeStrings/typeString_parser.ts",
         "transpile": "tsc",
+        "build-typeIdentifier-parser": "tspegjs -o src/typeIdentifiers/typeIdentifier_parser_gen.ts --custom-header-file src/typeIdentifiers/typeIdentifier_parser_header.ts --cache src/typeIdentifiers/typeIdentifier_grammar.pegjs",
         "build-type-parser": "tspegjs -o test/utils/typeStrings/typeString_parser.ts --custom-header-file test/utils/typeStrings/typeString_parser_header.ts --cache test/utils/typeStrings/typeString_grammar.pegjs",
         "build-file-level-definitions-parser": "tspegjs -o src/compile/inference/file_level_definitions_parser.ts --custom-header-file src/compile/inference/file_level_definitions_parser_header.ts --cache src/compile/inference/file_level_definitions.pegjs",
         "build-comments-parser": "tspegjs -o src/ast/comments/comments_parser.ts --custom-header-file src/ast/comments/comments_parser_header.ts --cache src/ast/comments/comments_grammar.pegjs",
-        "build": "npm run clean && npm run build-comments-parser && npm run build-file-level-definitions-parser && npm run transpile && chmod u+x dist/bin/compile.js",
+        "build-parsers": "npm run build-comments-parser && npm run build-file-level-definitions-parser && npm run build-typeIdentifier-parser",
+        "build": "npm run clean && npm run build-parsers && npm run transpile && chmod u+x dist/bin/compile.js",
         "lint": "eslint src/ test/ --ext=ts",
         "lint:fix": "eslint src/ test/ --ext=ts --fix",
         "test": "npm run build-type-parser && NODE_OPTIONS='--max-old-space-size=2048' jest --coverage",
