@@ -1,6 +1,6 @@
 import { assert } from "../../misc";
-import { bigintAbs } from "../../types";
 import { TypeIdentifier } from "./type_identifier";
+import { bigintAbs } from "./utils";
 
 export class RationalNumTypeId extends TypeIdentifier {
     constructor(

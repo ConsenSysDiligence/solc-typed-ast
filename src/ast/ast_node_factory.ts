@@ -1050,13 +1050,13 @@ export class ASTNodeFactory {
             typeIdentifier = `t_contract$_${target.name}_$${target.id}`;
         } else if (target instanceof StructDefinition) {
             typeString = `type(struct ${target.canonicalName} storage pointer)`;
-            typeIdentifier = `t_contract$_${target.name}_$${target.id}`;
+            typeIdentifier = `t_struct$_${target.name}_$${target.id}`;
         } else if (target instanceof EnumDefinition) {
             typeString = `type(enum ${target.canonicalName})`;
-            typeIdentifier = `t_contract$_${target.name}_$${target.id}`;
+            typeIdentifier = `t_enum$_${target.name}_$${target.id}`;
         } else if (target instanceof UserDefinedValueTypeDefinition) {
             typeString = `type(${target.canonicalName})`;
-            typeIdentifier = `t_contract$_${target.name}_$${target.id}`;
+            typeIdentifier = `t_userDefinedValueType$_${target.name}_$${target.id}`;
         } else if (target instanceof EventDefinition || target instanceof ErrorDefinition) {
             const args = target.vParameters.vParameters.map(this.typeExtractor);
 
@@ -1068,6 +1068,7 @@ export class ASTNodeFactory {
             if (target.unitAlias === "") {
                 throw new Error('Target ImportDirective required to have valid "unitAlias"');
             }
+
             typeIdentifier = undefined;
         } else {
             throw new Error(

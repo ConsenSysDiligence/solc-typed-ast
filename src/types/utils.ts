@@ -559,7 +559,3 @@ export function decimalToRational(d: Decimal): Rational {
         denominator: 10n ** BigInt(valStr.length - dotPos - 1)
     };
 }
-
-export function bigintAbs(a: bigint): bigint {
-    return a < 0n ? -a : a;
-}

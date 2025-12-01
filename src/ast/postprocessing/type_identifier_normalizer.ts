@@ -1,6 +1,6 @@
 import { parseTypeIdentifier, TypeTypeId } from "../../typeIdentifiers";
 import { ASTNode } from "../ast_node";
-import { ASTContext, ASTNodePostprocessor } from "../ast_reader";
+import { ASTNodePostprocessor } from "../ast_reader";
 import { VariableDeclaration } from "../implementation/declaration";
 import { ElementaryTypeNameExpression, Expression, Identifier } from "../implementation/expression";
 import { ImportDirective } from "../implementation/meta";
@@ -9,7 +9,7 @@ import { TypeName } from "../implementation/type";
 type SupportedNode = Expression | VariableDeclaration | TypeName;
 
 export class TypeIdentifierNormalizer implements ASTNodePostprocessor<SupportedNode> {
-    process(node: SupportedNode, context: ASTContext): void {
+    process(node: SupportedNode): void {
         if (typeof node.typeIdentifier === "string") {
             return;
         }
@@ -27,7 +27,17 @@ export class TypeIdentifierNormalizer implements ASTNodePostprocessor<SupportedN
             }
         }
 
-        if (node instanceof Identifier && node.parent instanceof ImportDirective && node.typeIdentifier === undefined && node.vReferencedDeclaration instanceof VariableDeclaration) {
+        /**
+         * `Identifier`s under `ImportDirective` nodes don't have a `typeString`. However in the edge
+         * case where they refer to `VariableDeclaration`s (i.e. imported constants) we can fill in their
+         * `typeIdentifier` trivially.
+         */
+        if (
+            node instanceof Identifier &&
+            node.parent instanceof ImportDirective &&
+            node.typeIdentifier === undefined &&
+            node.vReferencedDeclaration instanceof VariableDeclaration
+        ) {
             node.typeIdentifier = node.vReferencedDeclaration.typeIdentifier;
         }
     }

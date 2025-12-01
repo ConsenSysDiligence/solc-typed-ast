@@ -1,6 +1,6 @@
 import { TypeIdentifier } from "./type_identifier";
 
-export abstract class BaseUserDefinedTypeIdentifier extends TypeIdentifier {
+export abstract class BaseUserDefinedTypeId extends TypeIdentifier {
     constructor(
         public readonly kind: string,
         public readonly name: string,

@@ -1,6 +1,6 @@
-import { BaseUserDefinedTypeIdentifier } from "./base_user_defined_type";
+import { BaseUserDefinedTypeId } from "./base_user_defined_type";
 
-export class EnumTypeId extends BaseUserDefinedTypeIdentifier {
+export class EnumTypeId extends BaseUserDefinedTypeId {
     constructor(
         public readonly name: string,
         public readonly id: number
