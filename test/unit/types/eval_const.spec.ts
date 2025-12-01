@@ -1311,20 +1311,22 @@ const cases: Array<[string, (factory: ASTNodeFactory) => Expression, boolean, Va
                     FunctionCallKind.TypeConversion,
                     factory.makeElementaryTypeNameExpression("uint256", undefined, "uint256"),
                     [
-                        factory.makeVariableDeclaration(
-                            false,
-                            false,
-                            "A",
-                            0,
-                            true,
-                            DataLocation.Default,
-                            StateVariableVisibility.Public,
-                            Mutability.Mutable,
-                            "uint8",
-                            undefined,
-                            undefined,
-                            factory.makeElementaryTypeName("uint8", undefined, "uint8"),
-                            undefined
+                        factory.makeIdentifierFor(
+                            factory.makeVariableDeclaration(
+                                false,
+                                false,
+                                "A",
+                                0,
+                                true,
+                                DataLocation.Default,
+                                StateVariableVisibility.Public,
+                                Mutability.Mutable,
+                                "uint8",
+                                undefined,
+                                undefined,
+                                factory.makeElementaryTypeName("uint8", undefined, "uint8"),
+                                undefined
+                            )
                         )
                     ]
                 );
