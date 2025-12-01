@@ -12,6 +12,6 @@ export class LegacyTypeNameProcessor<T extends TypeName> extends LegacyNodeProce
 
         const typeString: string = raw.attributes.type;
 
-        return [id, src, typeString, raw];
+        return [id, src, typeString, undefined, raw];
     }
 }

@@ -8,4 +8,5 @@ coverage
 src/compile/inference/file_level_definitions_parser.ts
 src/ast/comments/comments_parser.ts
 test/utils/typeStrings/typeString_parser.ts
+src/typeIdentifiers/typeIdentifier_parser_gen.ts
 .idea

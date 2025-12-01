@@ -18,11 +18,12 @@ export class TupleExpression extends Expression {
         id: number,
         src: string,
         typeString: string,
+        typeIdentifier: string | undefined,
         isInlineArray: boolean,
         components: Array<Expression | null>,
         raw?: any
     ) {
-        super(id, src, typeString, raw);
+        super(id, src, typeString, typeIdentifier, raw);
 
         this.isInlineArray = isInlineArray;
         this.vOriginalComponents = components;

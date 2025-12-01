@@ -9,7 +9,7 @@ export class LegacyUnaryOperationProcessor extends LegacyExpressionProcessor<Una
         config: ASTReaderConfiguration,
         raw: any
     ): ConstructorParameters<typeof UnaryOperation> {
-        const [id, src, typeString] = super.process(reader, config, raw);
+        const [id, src, typeString, typeIdentifier] = super.process(reader, config, raw);
         const attributes = raw.attributes;
 
         const prefix: boolean = attributes.prefix;
@@ -17,6 +17,16 @@ export class LegacyUnaryOperationProcessor extends LegacyExpressionProcessor<Una
 
         const [subExpression] = reader.convertArray(raw.children, config) as [Expression];
 
-        return [id, src, typeString, prefix, operator, subExpression, undefined, raw];
+        return [
+            id,
+            src,
+            typeString,
+            typeIdentifier,
+            prefix,
+            operator,
+            subExpression,
+            undefined,
+            raw
+        ];
     }
 }

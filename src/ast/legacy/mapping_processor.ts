@@ -9,13 +9,13 @@ export class LegacyMappingProcessor extends LegacyTypeNameProcessor<Mapping> {
         config: ASTReaderConfiguration,
         raw: any
     ): ConstructorParameters<typeof Mapping> {
-        const [id, src, typeString] = super.process(reader, config, raw);
+        const [id, src, typeString, typeIdentifier] = super.process(reader, config, raw);
 
         const [keyType, valueType] = reader.convertArray(raw.children, config) as [
             TypeName,
             TypeName
         ];
 
-        return [id, src, typeString, keyType, valueType, raw];
+        return [id, src, typeString, typeIdentifier, keyType, valueType, raw];
     }
 }

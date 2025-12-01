@@ -31,7 +31,7 @@ ctx.id = 555;
 
 const factory = new ASTNodeFactory(ctx);
 
-const elementaryTypeName = factory.makeElementaryTypeName("uint8", "uint8");
+const elementaryTypeName = factory.makeElementaryTypeName("uint8", undefined, "uint8");
 const contractDef = factory.makeContractDefinition(
     "SomeContract",
     0,

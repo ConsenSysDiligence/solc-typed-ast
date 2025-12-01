@@ -9,12 +9,12 @@ export class ModernTupleExpressionProcessor extends ModernExpressionProcessor<Tu
         config: ASTReaderConfiguration,
         raw: any
     ): ConstructorParameters<typeof TupleExpression> {
-        const [id, src, typeString] = super.process(reader, config, raw);
+        const [id, src, typeString, typeIdentifier] = super.process(reader, config, raw);
 
         const isInlineArray: boolean = raw.isInlineArray;
         const components = this.extractComponents(raw.components, reader, config);
 
-        return [id, src, typeString, isInlineArray, components, raw];
+        return [id, src, typeString, typeIdentifier, isInlineArray, components, raw];
     }
 
     private extractComponents(

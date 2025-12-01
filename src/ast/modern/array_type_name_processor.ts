@@ -10,11 +10,11 @@ export class ModernArrayTypeNameProcessor extends ModernTypeNameProcessor<ArrayT
         config: ASTReaderConfiguration,
         raw: any
     ): ConstructorParameters<typeof ArrayTypeName> {
-        const [id, src, typeString] = super.process(reader, config, raw);
+        const [id, src, typeString, typeIdentifier] = super.process(reader, config, raw);
 
         const baseType = reader.convert(raw.baseType, config) as TypeName;
         const length = raw.length ? (reader.convert(raw.length, config) as Expression) : undefined;
 
-        return [id, src, typeString, baseType, length, raw];
+        return [id, src, typeString, typeIdentifier, baseType, length, raw];
     }
 }

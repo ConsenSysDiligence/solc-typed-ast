@@ -32,13 +32,14 @@ export class Literal extends PrimaryExpression {
         id: number,
         src: string,
         typeString: string,
+        typeIdentifier: string | undefined,
         kind: LiteralKind,
         hexValue: string,
         value: string,
         subdenomination?: TimeUnit | EtherUnit,
         raw?: any
     ) {
-        super(id, src, typeString, raw);
+        super(id, src, typeString, typeIdentifier, raw);
 
         this.kind = kind;
         this.hexValue = hexValue;

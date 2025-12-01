@@ -54,7 +54,7 @@ export class EvalError extends Error {
 }
 
 export class NonConstantExpressionError extends EvalError {
-    constructor(expr: Expression) {
+    constructor(expr: Expression | undefined) {
         super(`Found non-constant expression ${pp(expr)} during constant evaluation`, expr);
     }
 }
@@ -615,7 +615,7 @@ export function evalConstantExpr(
     inference: InferType
 ): Value {
     if (!isConstant(node)) {
-        throw new NonConstantExpressionError(node);
+        throw new NonConstantExpressionError(node instanceof Expression ? node : node.vValue);
     }
 
     if (node instanceof Literal) {

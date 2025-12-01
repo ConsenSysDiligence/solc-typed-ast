@@ -4,7 +4,15 @@ import { Block, ExpressionStatement, Literal, LiteralKind } from "../../../../sr
 describe("Block", () => {
     describe("removeChild()", () => {
         it("Single child", () => {
-            const myLiteral1 = new Literal(1, "0:0:0", "uint256", LiteralKind.Number, "", "1");
+            const myLiteral1 = new Literal(
+                1,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "1"
+            );
             const myExprStmt1 = new ExpressionStatement(2, "0:0:0", myLiteral1);
 
             const block = new Block(3, "0:0:0", [myExprStmt1]);
@@ -24,10 +32,26 @@ describe("Block", () => {
         });
 
         it("First child", () => {
-            const myLiteral1 = new Literal(1, "0:0:0", "uint256", LiteralKind.Number, "", "1");
+            const myLiteral1 = new Literal(
+                1,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "1"
+            );
             const myExprStmt1 = new ExpressionStatement(2, "0:0:0", myLiteral1);
 
-            const myLiteral2 = new Literal(3, "0:0:0", "uint256", LiteralKind.Number, "", "2");
+            const myLiteral2 = new Literal(
+                3,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "2"
+            );
             const myExprStmt2 = new ExpressionStatement(4, "0:0:0", myLiteral2);
 
             const block = new Block(5, "0:0:0", [myExprStmt1, myExprStmt2]);
@@ -50,10 +74,26 @@ describe("Block", () => {
         });
 
         it("Last child", () => {
-            const myLiteral1 = new Literal(1, "0:0:0", "uint256", LiteralKind.Number, "", "1");
+            const myLiteral1 = new Literal(
+                1,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "1"
+            );
             const myExprStmt1 = new ExpressionStatement(2, "0:0:0", myLiteral1);
 
-            const myLiteral2 = new Literal(3, "0:0:0", "uint256", LiteralKind.Number, "", "2");
+            const myLiteral2 = new Literal(
+                3,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "2"
+            );
             const myExprStmt2 = new ExpressionStatement(4, "0:0:0", myLiteral2);
 
             const block = new Block(5, "0:0:0", [myExprStmt1, myExprStmt2]);
@@ -76,13 +116,37 @@ describe("Block", () => {
         });
 
         it("Middle child", () => {
-            const myLiteral1 = new Literal(1, "0:0:0", "uint256", LiteralKind.Number, "", "1");
+            const myLiteral1 = new Literal(
+                1,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "1"
+            );
             const myExprStmt1 = new ExpressionStatement(2, "0:0:0", myLiteral1);
 
-            const myLiteral2 = new Literal(3, "0:0:0", "uint256", LiteralKind.Number, "", "2");
+            const myLiteral2 = new Literal(
+                3,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "2"
+            );
             const myExprStmt2 = new ExpressionStatement(4, "0:0:0", myLiteral2);
 
-            const myLiteral3 = new Literal(5, "0:0:0", "uint256", LiteralKind.Number, "", "3");
+            const myLiteral3 = new Literal(
+                5,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "3"
+            );
             const myExprStmt3 = new ExpressionStatement(6, "0:0:0", myLiteral3);
 
             const block = new Block(7, "0:0:0", [myExprStmt1, myExprStmt2, myExprStmt3]);
@@ -107,10 +171,26 @@ describe("Block", () => {
 
     describe("insertBefore()", () => {
         it("First child", () => {
-            const myLiteral1 = new Literal(1, "0:0:0", "uint256", LiteralKind.Number, "", "1");
+            const myLiteral1 = new Literal(
+                1,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "1"
+            );
             const myExprStmt1 = new ExpressionStatement(2, "0:0:0", myLiteral1);
 
-            const myLiteral2 = new Literal(3, "0:0:0", "uint256", LiteralKind.Number, "", "2");
+            const myLiteral2 = new Literal(
+                3,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "2"
+            );
             const myExprStmt2 = new ExpressionStatement(4, "0:0:0", myLiteral2);
 
             const block = new Block(5, "0:0:0", [myExprStmt1]);
@@ -132,13 +212,37 @@ describe("Block", () => {
         });
 
         it("Last child", () => {
-            const myLiteral1 = new Literal(1, "0:0:0", "uint256", LiteralKind.Number, "", "1");
+            const myLiteral1 = new Literal(
+                1,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "1"
+            );
             const myExprStmt1 = new ExpressionStatement(2, "0:0:0", myLiteral1);
 
-            const myLiteral2 = new Literal(3, "0:0:0", "uint256", LiteralKind.Number, "", "2");
+            const myLiteral2 = new Literal(
+                3,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "2"
+            );
             const myExprStmt2 = new ExpressionStatement(4, "0:0:0", myLiteral2);
 
-            const myLiteral3 = new Literal(5, "0:0:0", "uint256", LiteralKind.Number, "", "3");
+            const myLiteral3 = new Literal(
+                5,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "3"
+            );
             const myExprStmt3 = new ExpressionStatement(6, "0:0:0", myLiteral3);
 
             const block = new Block(7, "0:0:0", [myExprStmt1, myExprStmt2]);
@@ -163,7 +267,15 @@ describe("Block", () => {
 
     describe("insertAtBeginning()", () => {
         it("Without children", () => {
-            const myLiteral1 = new Literal(1, "0:0:0", "uint256", LiteralKind.Number, "", "1");
+            const myLiteral1 = new Literal(
+                1,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "1"
+            );
             const myExprStmt1 = new ExpressionStatement(2, "0:0:0", myLiteral1);
 
             const block = new Block(3, "0:0:0", []);
@@ -183,10 +295,26 @@ describe("Block", () => {
         });
 
         it("With children", () => {
-            const myLiteral1 = new Literal(1, "0:0:0", "uint256", LiteralKind.Number, "", "1");
+            const myLiteral1 = new Literal(
+                1,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "1"
+            );
             const myExprStmt1 = new ExpressionStatement(2, "0:0:0", myLiteral1);
 
-            const myLiteral2 = new Literal(3, "0:0:0", "uint256", LiteralKind.Number, "", "2");
+            const myLiteral2 = new Literal(
+                3,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "2"
+            );
             const myExprStmt2 = new ExpressionStatement(4, "0:0:0", myLiteral2);
 
             const block = new Block(5, "0:0:0", [myExprStmt1]);
@@ -213,10 +341,26 @@ describe("Block", () => {
 
     describe("insertAfter()", () => {
         it("Last child", () => {
-            const myLiteral1 = new Literal(1, "0:0:0", "uint256", LiteralKind.Number, "", "1");
+            const myLiteral1 = new Literal(
+                1,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "1"
+            );
             const myExprStmt1 = new ExpressionStatement(2, "0:0:0", myLiteral1);
 
-            const myLiteral2 = new Literal(3, "0:0:0", "uint256", LiteralKind.Number, "", "2");
+            const myLiteral2 = new Literal(
+                3,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "2"
+            );
             const myExprStmt2 = new ExpressionStatement(4, "0:0:0", myLiteral2);
 
             const block = new Block(5, "0:0:0", [myExprStmt1]);
@@ -238,13 +382,37 @@ describe("Block", () => {
         });
 
         it("First child", () => {
-            const myLiteral1 = new Literal(1, "0:0:0", "uint256", LiteralKind.Number, "", "1");
+            const myLiteral1 = new Literal(
+                1,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "1"
+            );
             const myExprStmt1 = new ExpressionStatement(2, "0:0:0", myLiteral1);
 
-            const myLiteral2 = new Literal(3, "0:0:0", "uint256", LiteralKind.Number, "", "2");
+            const myLiteral2 = new Literal(
+                3,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "2"
+            );
             const myExprStmt2 = new ExpressionStatement(4, "0:0:0", myLiteral2);
 
-            const myLiteral3 = new Literal(5, "0:0:0", "uint256", LiteralKind.Number, "", "3");
+            const myLiteral3 = new Literal(
+                5,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "3"
+            );
             const myExprStmt3 = new ExpressionStatement(6, "0:0:0", myLiteral3);
 
             const block = new Block(7, "0:0:0", [myExprStmt1, myExprStmt2]);
@@ -266,10 +434,26 @@ describe("Block", () => {
 
     describe("replaceChild()", () => {
         it("Single child", () => {
-            const myLiteral1 = new Literal(1, "0:0:0", "uint256", LiteralKind.Number, "", "1");
+            const myLiteral1 = new Literal(
+                1,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "1"
+            );
             const myExprStmt1 = new ExpressionStatement(2, "0:0:0", myLiteral1);
 
-            const myLiteral2 = new Literal(3, "0:0:0", "uint256", LiteralKind.Number, "", "2");
+            const myLiteral2 = new Literal(
+                3,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "2"
+            );
             const myExprStmt2 = new ExpressionStatement(4, "0:0:0", myLiteral2);
 
             const block = new Block(5, "0:0:0", [myExprStmt1]);
@@ -289,16 +473,48 @@ describe("Block", () => {
         });
 
         it("Middle child", () => {
-            const myLiteral1 = new Literal(1, "0:0:0", "uint256", LiteralKind.Number, "", "1");
+            const myLiteral1 = new Literal(
+                1,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "1"
+            );
             const myExprStmt1 = new ExpressionStatement(2, "0:0:0", myLiteral1);
 
-            const myLiteral2 = new Literal(3, "0:0:0", "uint256", LiteralKind.Number, "", "2");
+            const myLiteral2 = new Literal(
+                3,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "2"
+            );
             const myExprStmt2 = new ExpressionStatement(4, "0:0:0", myLiteral2);
 
-            const myLiteral3 = new Literal(5, "0:0:0", "uint256", LiteralKind.Number, "", "3");
+            const myLiteral3 = new Literal(
+                5,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "3"
+            );
             const myExprStmt3 = new ExpressionStatement(6, "0:0:0", myLiteral3);
 
-            const myLiteral4 = new Literal(7, "0:0:0", "uint256", LiteralKind.Number, "", "4");
+            const myLiteral4 = new Literal(
+                7,
+                "0:0:0",
+                "uint256",
+                undefined,
+                LiteralKind.Number,
+                "",
+                "4"
+            );
             const myExprStmt4 = new ExpressionStatement(8, "0:0:0", myLiteral4);
 
             const block = new Block(9, "0:0:0", [myExprStmt1, myExprStmt2, myExprStmt3]);

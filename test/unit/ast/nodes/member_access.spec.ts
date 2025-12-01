@@ -16,9 +16,15 @@ describe("MemberAccess", () => {
     it("set vReferencedDeclaration", () => {
         const context = new ASTContext();
 
-        const arrayBaseType = new ElementaryTypeName(1, "0:0:0", "uint256", "uint256");
+        const arrayBaseType = new ElementaryTypeName(1, "0:0:0", "uint256", undefined, "uint256");
 
-        const arrayType = new ArrayTypeName(2, "0:0:0", "uint256[] memory", arrayBaseType);
+        const arrayType = new ArrayTypeName(
+            2,
+            "0:0:0",
+            "uint256[] memory",
+            undefined,
+            arrayBaseType
+        );
 
         const variable = new VariableDeclaration(
             3,
@@ -32,13 +38,29 @@ describe("MemberAccess", () => {
             StateVariableVisibility.Default,
             Mutability.Constant,
             arrayType.typeString,
+            "<missing>",
             undefined,
             arrayType
         );
 
-        const identifier = new Identifier(4, "0:0:0", arrayBaseType.typeString, "myArr", 0);
+        const identifier = new Identifier(
+            4,
+            "0:0:0",
+            arrayBaseType.typeString,
+            "t_uint256",
+            "myArr",
+            0
+        );
 
-        const memberAccess = new MemberAccess(5, "0:0:0", "uint256", identifier, "length", -1);
+        const memberAccess = new MemberAccess(
+            5,
+            "0:0:0",
+            "uint256",
+            "t_uint256",
+            identifier,
+            "length",
+            -1
+        );
 
         const other = new ASTNode(6, "0:0:0", "Custom");
 

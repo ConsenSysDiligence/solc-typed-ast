@@ -270,6 +270,7 @@ SourceUnit #30
                 visibility: "internal"
                 mutability: "mutable"
                 typeString: "uint256"
+                typeIdentifier: "t_uint256"
                 documentation: undefined
                 nameLocation: "53:1:1"
                 vType: ElementaryTypeName #23
@@ -291,6 +292,7 @@ SourceUnit #30
                     id: 23
                     src: "0:0:0"
                     typeString: "uint256"
+                    typeIdentifier: "t_uint256"
                     name: "uint"
                     stateMutability: "nonpayable"
                     context: ASTContext #1000
@@ -316,6 +318,7 @@ SourceUnit #30
             visibility: "public"
             mutability: "mutable"
             typeString: "struct B.S"
+            typeIdentifier: "t_struct$_S_$10_storage"
             documentation: undefined
             nameLocation: "70:1:1"
             vType: UserDefinedTypeName #27
@@ -337,6 +340,7 @@ SourceUnit #30
                 id: 27
                 src: "0:0:0"
                 typeString: "struct B.S"
+                typeIdentifier: "t_struct$_S_$10_storage_ptr"
                 name: undefined
                 referencedDeclaration: 25
                 path: IdentifierPath #26

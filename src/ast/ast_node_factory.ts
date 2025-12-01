@@ -210,6 +210,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
             node.visibility,
             node.mutability,
             node.typeString,
+            node.typeIdentifier,
             node.documentation,
             node.vType,
             node.vOverrideSpecifier,
@@ -222,6 +223,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         Assignment,
         (node: Assignment): Specific<ConstructorParameters<typeof Assignment>> => [
             node.typeString,
+            node.typeIdentifier,
             node.operator,
             node.vLeftHandSide,
             node.vRightHandSide,
@@ -232,6 +234,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         BinaryOperation,
         (node: BinaryOperation): Specific<ConstructorParameters<typeof BinaryOperation>> => [
             node.typeString,
+            node.typeIdentifier,
             node.operator,
             node.vLeftExpression,
             node.vRightExpression,
@@ -243,6 +246,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         Conditional,
         (node: Conditional): Specific<ConstructorParameters<typeof Conditional>> => [
             node.typeString,
+            node.typeIdentifier,
             node.vCondition,
             node.vTrueExpression,
             node.vFalseExpression,
@@ -255,6 +259,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
             node: ElementaryTypeNameExpression
         ): Specific<ConstructorParameters<typeof ElementaryTypeNameExpression>> => [
             node.typeString,
+            node.typeIdentifier,
             node.typeName,
             node.raw
         ]
@@ -265,6 +270,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
             node: FunctionCallOptions
         ): Specific<ConstructorParameters<typeof FunctionCallOptions>> => [
             node.typeString,
+            node.typeIdentifier,
             node.vExpression,
             node.vOptionsMap,
             node.raw
@@ -274,6 +280,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         FunctionCall,
         (node: FunctionCall): Specific<ConstructorParameters<typeof FunctionCall>> => [
             node.typeString,
+            node.typeIdentifier,
             node.kind,
             node.vExpression,
             node.vArguments,
@@ -285,6 +292,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         Identifier,
         (node: Identifier): Specific<ConstructorParameters<typeof Identifier>> => [
             node.typeString,
+            node.typeIdentifier,
             node.name,
             node.referencedDeclaration,
             node.raw
@@ -302,6 +310,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         IndexAccess,
         (node: IndexAccess): Specific<ConstructorParameters<typeof IndexAccess>> => [
             node.typeString,
+            node.typeIdentifier,
             node.vBaseExpression,
             node.vIndexExpression,
             node.raw
@@ -311,6 +320,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         IndexRangeAccess,
         (node: IndexRangeAccess): Specific<ConstructorParameters<typeof IndexRangeAccess>> => [
             node.typeString,
+            node.typeIdentifier,
             node.vBaseExpression,
             node.vStartExpression,
             node.vEndExpression,
@@ -321,6 +331,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         Literal,
         (node: Literal): Specific<ConstructorParameters<typeof Literal>> => [
             node.typeString,
+            node.typeIdentifier,
             node.kind,
             node.hexValue,
             node.value,
@@ -332,6 +343,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         MemberAccess,
         (node: MemberAccess): Specific<ConstructorParameters<typeof MemberAccess>> => [
             node.typeString,
+            node.typeIdentifier,
             node.vExpression,
             node.memberName,
             node.referencedDeclaration,
@@ -342,6 +354,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         NewExpression,
         (node: NewExpression): Specific<ConstructorParameters<typeof NewExpression>> => [
             node.typeString,
+            node.typeIdentifier,
             node.vTypeName,
             node.raw
         ]
@@ -350,6 +363,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         TupleExpression,
         (node: TupleExpression): Specific<ConstructorParameters<typeof TupleExpression>> => [
             node.typeString,
+            node.typeIdentifier,
             node.isInlineArray,
             node.vOriginalComponents,
             node.raw
@@ -359,6 +373,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         UnaryOperation,
         (node: UnaryOperation): Specific<ConstructorParameters<typeof UnaryOperation>> => [
             node.typeString,
+            node.typeIdentifier,
             node.prefix,
             node.operator,
             node.vSubExpression,
@@ -613,6 +628,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         ArrayTypeName,
         (node: ArrayTypeName): Specific<ConstructorParameters<typeof ArrayTypeName>> => [
             node.typeString,
+            node.typeIdentifier,
             node.vBaseType,
             node.vLength,
             node.raw
@@ -622,6 +638,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         ElementaryTypeName,
         (node: ElementaryTypeName): Specific<ConstructorParameters<typeof ElementaryTypeName>> => [
             node.typeString,
+            node.typeIdentifier,
             node.name,
             node.stateMutability,
             node.raw
@@ -631,6 +648,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         FunctionTypeName,
         (node: FunctionTypeName): Specific<ConstructorParameters<typeof FunctionTypeName>> => [
             node.typeString,
+            node.typeIdentifier,
             node.visibility,
             node.stateMutability,
             node.vParameterTypes,
@@ -642,6 +660,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
         Mapping,
         (node: Mapping): Specific<ConstructorParameters<typeof Mapping>> => [
             node.typeString,
+            node.typeIdentifier,
             node.vKeyType,
             node.vValueType,
             node.raw
@@ -653,6 +672,7 @@ const argExtractionMapping = new Map<ASTNodeConstructor<ASTNode>, (node: any) =>
             node: UserDefinedTypeName
         ): Specific<ConstructorParameters<typeof UserDefinedTypeName>> => [
             node.typeString,
+            node.typeIdentifier,
             node.name,
             node.referencedDeclaration,
             node.path,
@@ -999,9 +1019,11 @@ export class ASTNodeFactory {
             | ImportDirective
     ): Identifier {
         let typeString: string;
+        let typeIdentifier: string | undefined;
 
         if (target instanceof VariableDeclaration) {
             typeString = target.typeString;
+            typeIdentifier = target.typeIdentifier;
         } else if (target instanceof FunctionDefinition) {
             const args = target.vParameters.vParameters.map(this.typeExtractor);
 
@@ -1022,24 +1044,32 @@ export class ASTNodeFactory {
             }
 
             typeString = result.join(" ");
+            typeIdentifier = undefined;
         } else if (target instanceof ContractDefinition) {
             typeString = `type(contract ${target.name})`;
+            typeIdentifier = `t_contract$_${target.name}_$${target.id}`;
         } else if (target instanceof StructDefinition) {
             typeString = `type(struct ${target.canonicalName} storage pointer)`;
+            typeIdentifier = `t_struct$_${target.name}_$${target.id}`;
         } else if (target instanceof EnumDefinition) {
             typeString = `type(enum ${target.canonicalName})`;
+            typeIdentifier = `t_enum$_${target.name}_$${target.id}`;
         } else if (target instanceof UserDefinedValueTypeDefinition) {
             typeString = `type(${target.canonicalName})`;
+            typeIdentifier = `t_userDefinedValueType$_${target.name}_$${target.id}`;
         } else if (target instanceof EventDefinition || target instanceof ErrorDefinition) {
             const args = target.vParameters.vParameters.map(this.typeExtractor);
 
             typeString = `function (${args.join(",")})`;
+            typeIdentifier = undefined;
         } else if (target instanceof ImportDirective) {
             typeString = "<missing>";
 
             if (target.unitAlias === "") {
                 throw new Error('Target ImportDirective required to have valid "unitAlias"');
             }
+
+            typeIdentifier = undefined;
         } else {
             throw new Error(
                 "ASTNodeFactory.makeIdentifierFor(): Unable to compose typeString for supplied target"
@@ -1048,6 +1078,7 @@ export class ASTNodeFactory {
 
         return this.makeIdentifier(
             typeString,
+            typeIdentifier,
             target instanceof ImportDirective ? target.unitAlias : target.name,
             target.id
         );

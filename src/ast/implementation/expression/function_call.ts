@@ -46,13 +46,14 @@ export class FunctionCall extends Expression {
         id: number,
         src: string,
         typeString: string,
+        typeIdentifier: string | undefined,
         kind: FunctionCallKind,
         expression: Expression,
         args: Expression[],
         fieldNames?: string[],
         raw?: any
     ) {
-        super(id, src, typeString, raw);
+        super(id, src, typeString, typeIdentifier, raw);
 
         this.kind = kind;
         this.fieldNames = fieldNames;

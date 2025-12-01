@@ -36,10 +36,34 @@ describe("BinaryOperation", () => {
             body
         );
 
-        const literal1 = new Literal(5, "0:0:0", "uint256", LiteralKind.Number, "", "1");
-        const literal2 = new Literal(6, "0:0:0", "uint256", LiteralKind.Number, "", "2");
+        const literal1 = new Literal(
+            5,
+            "0:0:0",
+            "uint256",
+            "t_uint256",
+            LiteralKind.Number,
+            "",
+            "1"
+        );
+        const literal2 = new Literal(
+            6,
+            "0:0:0",
+            "uint256",
+            "t_uint256",
+            LiteralKind.Number,
+            "",
+            "2"
+        );
 
-        const operation = new BinaryOperation(7, "0:0:0", "CustomType", "-", literal1, literal2);
+        const operation = new BinaryOperation(
+            7,
+            "0:0:0",
+            "CustomType",
+            "t_uint256",
+            "-",
+            literal1,
+            literal2
+        );
 
         context.register(body, args, rets, fn, literal1, literal2, operation);
 

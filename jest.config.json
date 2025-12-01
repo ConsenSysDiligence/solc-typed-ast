@@ -16,7 +16,9 @@
         "/docs/",
         "/.compiler_cache/",
         "file_level_definitions_parser*.ts",
-        "comments_parser*.ts"
+        "comments_parser*.ts",
+        "src/typeIdentifiers/typeIdentifier_parser_gen.ts",
+        "typeIdentifier_parser_header.ts"
     ],
     "coverageReporters": ["text", "text-summary", "lcov"],
     "coverageThreshold": {

@@ -8,12 +8,12 @@ export class LegacyUserDefinedTypeNameProcessor extends LegacyTypeNameProcessor<
         config: ASTReaderConfiguration,
         raw: any
     ): ConstructorParameters<typeof UserDefinedTypeName> {
-        const [id, src, typeString] = super.process(reader, config, raw);
+        const [id, src, typeString, typeIdentifier] = super.process(reader, config, raw);
         const attributes = raw.attributes;
 
         const name: string = attributes.name;
         const referencedDeclaration: number = attributes.referencedDeclaration;
 
-        return [id, src, typeString, name, referencedDeclaration, undefined, raw];
+        return [id, src, typeString, typeIdentifier, name, referencedDeclaration, undefined, raw];
     }
 }

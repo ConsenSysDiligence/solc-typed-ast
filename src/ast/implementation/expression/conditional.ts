@@ -25,12 +25,13 @@ export class Conditional extends Expression {
         id: number,
         src: string,
         typeString: string,
+        typeIdentifier: string | undefined,
         condition: Expression,
         trueExpression: Expression,
         falseExpression: Expression,
         raw?: any
     ) {
-        super(id, src, typeString, raw);
+        super(id, src, typeString, typeIdentifier, raw);
 
         this.vCondition = condition;
         this.vTrueExpression = trueExpression;

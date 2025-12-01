@@ -177,11 +177,13 @@ const cases: Array<
                     StateVariableVisibility.Default,
                     Mutability.Mutable,
                     "<missing>",
+                    undefined,
                     "",
                     factory.makeMapping(
                         "<missing>",
-                        factory.makeElementaryTypeName("uint8", "uint8"),
-                        factory.makeElementaryTypeName("uint8", "uint8")
+                        undefined,
+                        factory.makeElementaryTypeName("uint8", undefined, "uint8"),
+                        factory.makeElementaryTypeName("uint8", undefined, "uint8")
                     )
                 )
             ]);
@@ -205,9 +207,11 @@ const cases: Array<
                     StateVariableVisibility.Default,
                     Mutability.Mutable,
                     "<missing>",
+                    undefined,
                     "",
                     factory.makeFunctionTypeName(
                         "<missing>",
+                        undefined,
                         FunctionVisibility.Internal,
                         FunctionStateMutability.View,
                         factory.makeParameterList([]),

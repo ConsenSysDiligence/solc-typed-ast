@@ -86,7 +86,7 @@ describe("ASTNodeFactory.makeIdentifierFor()", () => {
         const factory = new ASTNodeFactory();
         const target = factory.makeUserDefinedValueTypeDefinition(
             "Some",
-            factory.makeElementaryTypeName("uint256", "uint256")
+            factory.makeElementaryTypeName("uint256", undefined, "uint256")
         );
 
         const id = factory.makeIdentifierFor(target);
@@ -134,7 +134,8 @@ describe("ASTNodeFactory.makeIdentifierFor()", () => {
                     DataLocation.Default,
                     StateVariableVisibility.Default,
                     Mutability.Mutable,
-                    "uint256"
+                    "uint256",
+                    undefined
                 )
             ]),
             factory.makeParameterList([
@@ -147,7 +148,8 @@ describe("ASTNodeFactory.makeIdentifierFor()", () => {
                     DataLocation.Default,
                     StateVariableVisibility.Default,
                     Mutability.Mutable,
-                    "uint256"
+                    "uint256",
+                    undefined
                 )
             ]),
             []
@@ -184,7 +186,8 @@ describe("ASTNodeFactory.makeIdentifierFor()", () => {
                     DataLocation.Default,
                     StateVariableVisibility.Default,
                     Mutability.Mutable,
-                    "uint256"
+                    "uint256",
+                    undefined
                 )
             ])
         );
@@ -219,7 +222,8 @@ describe("ASTNodeFactory.makeIdentifierFor()", () => {
                     DataLocation.Default,
                     StateVariableVisibility.Default,
                     Mutability.Mutable,
-                    "uint256"
+                    "uint256",
+                    undefined
                 )
             ])
         );

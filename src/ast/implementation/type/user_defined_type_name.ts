@@ -22,12 +22,13 @@ export class UserDefinedTypeName extends TypeName {
         id: number,
         src: string,
         typeString: string,
+        typeIdentifier: string | undefined,
         name: string | undefined,
         referencedDeclaration: number,
         path?: IdentifierPath,
         raw?: any
     ) {
-        super(id, src, typeString, raw);
+        super(id, src, typeString, typeIdentifier, raw);
 
         this.name = name;
         this.referencedDeclaration = referencedDeclaration;

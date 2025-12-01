@@ -59,6 +59,11 @@ export class VariableDeclaration extends ASTNode {
     typeString: string;
 
     /**
+     * Type identifier. May be undefined for legacy ASTs
+     */
+    typeIdentifier: string | undefined;
+
+    /**
      * Optional documentation appearing above the variable declaration:
      * - Is `undefined` when not specified.
      * - Is type of `string` for compatibility reasons.
@@ -99,6 +104,7 @@ export class VariableDeclaration extends ASTNode {
         visibility: StateVariableVisibility,
         mutability: Mutability,
         typeString: string,
+        typeIdentifier: string | undefined,
         documentation?: string | StructuredDocumentation,
         typeName?: TypeName,
         overrideSpecifier?: OverrideSpecifier,
@@ -117,6 +123,7 @@ export class VariableDeclaration extends ASTNode {
         this.visibility = visibility;
         this.mutability = mutability;
         this.typeString = typeString;
+        this.typeIdentifier = typeIdentifier;
         this.documentation = documentation;
         this.nameLocation = nameLocation;
 

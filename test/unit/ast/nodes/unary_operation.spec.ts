@@ -36,9 +36,25 @@ describe("UnaryOperation", () => {
             body
         );
 
-        const literal = new Literal(5, "0:0:0", "uint256", LiteralKind.Number, "", "1");
+        const literal = new Literal(
+            5,
+            "0:0:0",
+            "uint256",
+            "t_uint256",
+            LiteralKind.Number,
+            "",
+            "1"
+        );
 
-        const operation = new UnaryOperation(6, "0:0:0", "CustomType", false, "-", literal);
+        const operation = new UnaryOperation(
+            6,
+            "0:0:0",
+            "uint256",
+            "t_uint256",
+            false,
+            "-",
+            literal
+        );
 
         context.register(body, args, rets, fn, literal, operation);
 
