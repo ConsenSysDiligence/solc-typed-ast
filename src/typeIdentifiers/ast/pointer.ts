@@ -1,4 +1,4 @@
-import { DataLocation } from "../../ast";
+import { DataLocation } from "../../ast/constants";
 import { TypeIdentifier } from "./type_identifier";
 
 export class PointerTypeId extends TypeIdentifier {

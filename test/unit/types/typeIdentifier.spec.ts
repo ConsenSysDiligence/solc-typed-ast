@@ -1,17 +1,29 @@
 import * as ast from "../../../src/typeIdentifiers/ast";
-import { parseTypeIdentifier } from "../../../src/typeIdentifiers";
-import { DataLocation } from "../../../src";
-
-const bytesT = new ast.BytesTypeId();
-const stringT = new ast.StringTypeId();
-const memStringPtrT = new ast.PointerTypeId(stringT, DataLocation.Memory, true);
-const uint256T = new ast.IntTypeId(256, false);
-const int256T = new ast.IntTypeId(256, true);
-const int8T = new ast.IntTypeId(8, true);
-const bytes2T = new ast.FixedBytesTypeId(2);
-const bytes4T = new ast.FixedBytesTypeId(4);
-const boolT = new ast.BoolTypeId();
-const addressT = new ast.AddressTypeId(false);
+import { DataLocation, SourceUnit, StateVariableVisibility } from "../../../src";
+import {
+    changeLocationTo,
+    generalize,
+    getterArgsAndReturn,
+    parseTypeIdentifier,
+    specialize
+} from "../../../src/typeIdentifiers";
+import { loadSample } from "../../utils/file";
+import {
+    addressT,
+    boolT,
+    bytes1T,
+    bytes2T,
+    bytes32T,
+    bytes4T,
+    bytesT,
+    int256T,
+    int8T,
+    memBytesPtrT,
+    memStringPtrT,
+    stringT,
+    uint256T,
+    uint8T
+} from "../../../src/typeIdentifiers/constants";
 
 const samples: Array<[string, ast.TypeIdentifier]> = [
     ["t_address", addressT],
@@ -162,13 +174,138 @@ describe("typeIdetifier parser tests", () => {
     for (const [text, expectedT] of samples) {
         it(text, () => {
             const parsedT = parseTypeIdentifier(text);
-            if (parsedT instanceof ast.EnumTypeId) {
-                console.error(
-                    `Parsed name: ${parsedT.name} expected: ${(expectedT as ast.ContractTypeId).name}`
-                );
-            }
             expect(parsedT.pp()).toEqual(expectedT.pp());
             expect(parsedT.pp()).toEqual(text);
         });
+    }
+});
+
+describe("typeIdetifier changeLocTo round-trip test", () => {
+    for (const [text] of samples) {
+        it(text, () => {
+            const parsedT = parseTypeIdentifier(text);
+            const memVersion = changeLocationTo(parsedT, DataLocation.Memory);
+            const storageVersion = changeLocationTo(memVersion, DataLocation.Storage);
+            const memVersion2 = changeLocationTo(storageVersion, DataLocation.Memory);
+            expect(memVersion2.pp()).toEqual(memVersion.pp());
+        });
+    }
+});
+
+describe("typeIdetifier getterArgsAndReturns", () => {
+    let units: SourceUnit[];
+
+    beforeAll(async () => {
+        const res = await loadSample("test/samples/solidity/getters_08.sol");
+        units = res[1];
+    });
+
+    const expected = new Map<string, [ast.TypeIdentifier[], ast.TypeIdentifier]>([
+        ["a", [[uint256T], uint256T]],
+        ["b", [[addressT], uint256T]],
+        ["c", [[], uint8T]],
+        ["d", [[], new ast.TupleTypeId([uint8T, bytes1T])]],
+        ["e", [[], addressT]],
+        [
+            "f",
+            [
+                [uint256T],
+                new ast.TupleTypeId([
+                    int8T,
+                    stringT,
+                    new ast.TupleTypeId([uint8T, new ast.ArrayTypeId(uint256T), bytes1T])
+                ])
+            ]
+        ],
+        ["g", [[uint256T], addressT]],
+        ["h", [[], addressT]],
+        ["i", [[], int256T]],
+        ["addr", [[], addressT]],
+        ["ap", [[], addressT]],
+        ["b1", [[], bytes1T]],
+        ["b32", [[], bytes32T]],
+        ["udtvMapping", [[addressT, uint256T], uint256T]],
+        [
+            "complexMap",
+            [
+                [bytesT, stringT, uint256T],
+                new ast.TupleTypeId([
+                    int8T,
+                    stringT,
+                    new ast.TupleTypeId([uint8T, new ast.ArrayTypeId(uint256T), bytes1T])
+                ])
+            ]
+        ]
+    ]);
+
+    it(`Sample test/samples/solidity/getters_08.sol`, () => {
+        for (const sVar of units[0].vContracts[1].vStateVariables) {
+            if (sVar.visibility !== StateVariableVisibility.Public) {
+                continue;
+            }
+
+            if (!expected.has(sVar.name)) {
+                continue;
+            }
+
+            const [expArgs, expRet] = expected.get(sVar.name) as [
+                ast.TypeIdentifier[],
+                ast.TypeIdentifier
+            ];
+            const [args, ret] = getterArgsAndReturn(sVar);
+
+            console.error(
+                sVar.name,
+                "expected: ",
+                expArgs.map((t) => t.pp()),
+                expRet.pp(),
+                "got: ",
+                args.map((t) => t.pp()),
+                ret.pp()
+            );
+            expect(args.map((t) => t.pp())).toEqual(expArgs.map((t) => t.pp()));
+            expect(ret.pp()).toEqual(expRet.pp());
+        }
+    });
+});
+
+it("generalize/specialize typeIdentifiers", () => {
+    const samples: ast.TypeIdentifier[] = [
+        addressT,
+        new ast.AddressTypeId(true),
+        uint256T,
+        int8T,
+        new ast.IntTypeId(32, true),
+        new ast.IntTypeId(32, false),
+        new ast.RationalNumTypeId(323423n, 1231n),
+        new ast.RationalNumTypeId(-3n, 2n),
+        new ast.StringLiteralTypeId(
+            "83c737ad570e9f3e71e0d2800958e44770d812e92db2c1758626613d1e6ba514"
+        ),
+        new ast.FixedBytesTypeId(1),
+        new ast.FixedBytesTypeId(24),
+        new ast.FixedBytesTypeId(32),
+        memBytesPtrT,
+        memStringPtrT,
+        new ast.PointerTypeId(new ast.ArrayTypeId(uint256T), DataLocation.Memory, true),
+        new ast.PointerTypeId(
+            new ast.ArrayTypeId(
+                new ast.PointerTypeId(new ast.ArrayTypeId(int8T, 4n), DataLocation.Storage, true)
+            ),
+            DataLocation.Storage,
+            true
+        ),
+        new ast.TupleTypeId([
+            memBytesPtrT,
+            uint256T,
+            memStringPtrT,
+            new ast.TupleTypeId([new ast.FixedBytesTypeId(32), memBytesPtrT])
+        ])
+    ];
+
+    for (const sample of samples) {
+        const gen = generalize(sample);
+        const s1 = specialize(gen, DataLocation.Memory);
+        expect(s1.pp()).toEqual(changeLocationTo(sample, DataLocation.Memory).pp());
     }
 });
