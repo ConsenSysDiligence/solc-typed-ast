@@ -8,7 +8,22 @@ import {
     specialize
 } from "../../../src/typeIdentifiers";
 import { loadSample } from "../../utils/file";
-import { addressT, boolT, bytes1T, bytes2T, bytes32T, bytes4T, bytesT, int256T, int8T, memBytesPtrT, memStringPtrT, stringT, uint256T, uint8T } from "../../../src/typeIdentifiers/constants";
+import {
+    addressT,
+    boolT,
+    bytes1T,
+    bytes2T,
+    bytes32T,
+    bytes4T,
+    bytesT,
+    int256T,
+    int8T,
+    memBytesPtrT,
+    memStringPtrT,
+    stringT,
+    uint256T,
+    uint8T
+} from "../../../src/typeIdentifiers/constants";
 
 const samples: Array<[string, ast.TypeIdentifier]> = [
     ["t_address", addressT],
@@ -255,7 +270,7 @@ describe("typeIdetifier getterArgsAndReturns", () => {
 });
 
 it("generalize/specialize typeIdentifiers", () => {
-    const samples: Array<ast.TypeIdentifier> = [
+    const samples: ast.TypeIdentifier[] = [
         addressT,
         new ast.AddressTypeId(true),
         uint256T,
@@ -278,22 +293,19 @@ it("generalize/specialize typeIdentifiers", () => {
                 new ast.PointerTypeId(new ast.ArrayTypeId(int8T, 4n), DataLocation.Storage, true)
             ),
             DataLocation.Storage,
-           true 
+            true
         ),
         new ast.TupleTypeId([
             memBytesPtrT,
             uint256T,
             memStringPtrT,
-            new ast.TupleTypeId([
-                new ast.FixedBytesTypeId(32),
-                memBytesPtrT,
-            ])
+            new ast.TupleTypeId([new ast.FixedBytesTypeId(32), memBytesPtrT])
         ])
-    ]
+    ];
 
     for (const sample of samples) {
         const gen = generalize(sample);
         const s1 = specialize(gen, DataLocation.Memory);
-        expect(s1.pp()).toEqual(changeLocationTo(sample, DataLocation.Memory).pp())
+        expect(s1.pp()).toEqual(changeLocationTo(sample, DataLocation.Memory).pp());
     }
-})
+});

@@ -6,7 +6,7 @@ import {
     StringTypeId,
     BoolTypeId,
     FixedBytesTypeId,
-    PointerTypeId,
+    PointerTypeId
 } from "./ast";
 
 export const uint256T = new IntTypeId(256, false);

@@ -265,7 +265,7 @@ export function toABIType(from: TypeIdentifier, ctx: ASTContext): TypeIdentifier
  */
 export function generalize(t: TypeIdentifier): TypeIdentifier {
     if (t instanceof PointerTypeId) {
-        return generalize(t.toType)
+        return generalize(t.toType);
     }
 
     if (t instanceof ArrayTypeId) {
@@ -277,9 +277,7 @@ export function generalize(t: TypeIdentifier): TypeIdentifier {
     }
 
     if (t instanceof TupleTypeId) {
-        return new TupleTypeId(
-            t.components.map((c) => (c === null ? c : generalize(c)))
-        );
+        return new TupleTypeId(t.components.map((c) => (c === null ? c : generalize(c))));
     }
 
     return t;
@@ -299,17 +297,15 @@ export function specialize(t: TypeIdentifier, loc: DataLocation): TypeIdentifier
     }
 
     if (t instanceof ArrayTypeId) {
-        return new PointerTypeId(new ArrayTypeId(specialize(t.elT, loc), t.size), loc, true)
+        return new PointerTypeId(new ArrayTypeId(specialize(t.elT, loc), t.size), loc, true);
     }
 
     if (t instanceof BytesTypeId || t instanceof StringTypeId) {
-        return new PointerTypeId(t, loc, true)
+        return new PointerTypeId(t, loc, true);
     }
 
     if (t instanceof TupleTypeId) {
-        return new TupleTypeId(
-            t.components.map((c) => (c === null ? c : specialize(c, loc)))
-        );
+        return new TupleTypeId(t.components.map((c) => (c === null ? c : specialize(c, loc))));
     }
 
     return t;

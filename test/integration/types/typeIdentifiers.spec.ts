@@ -313,32 +313,31 @@ describe("typeIdentifier tests", () => {
     }
 });
 
-function getArgsAndReturns(nd: FunctionDefinition | VariableDeclaration | EventDefinition | ErrorDefinition): [TypeIdentifier[], TypeIdentifier[]] {
+function getArgsAndReturns(
+    nd: FunctionDefinition | VariableDeclaration | EventDefinition | ErrorDefinition
+): [TypeIdentifier[], TypeIdentifier[]] {
     const ctx = nd.requiredContext;
 
     if (nd instanceof FunctionDefinition) {
         return [
             nd.vParameters.vParameters.map((p) => toABIType(typeOf(p), ctx)),
             nd.vReturnParameters.vParameters.map((p) => toABIType(typeOf(p), ctx))
-        ]
+        ];
     }
 
     if (nd instanceof VariableDeclaration) {
         const [argTs, retT] = getterArgsAndReturn(nd);
 
-        return [
-            argTs,
-            retT instanceof TupleTypeId ? retT.components : [retT]
-        ]
+        return [argTs, retT instanceof TupleTypeId ? retT.components : [retT]];
     }
 
-    return [
-        nd.vParameters.vParameters.map((p) => toABIType(typeOf(p), ctx)),
-        []
-    ]
+    return [nd.vParameters.vParameters.map((p) => toABIType(typeOf(p), ctx)), []];
 }
 
-function compareTypeLists(ts: TypeIdentifier[], frags: readonly AbiParameter[] | undefined): boolean {
+function compareTypeLists(
+    ts: TypeIdentifier[],
+    frags: readonly AbiParameter[] | undefined
+): boolean {
     frags = frags === undefined ? [] : frags;
 
     if (frags.length !== ts.length) {
@@ -359,14 +358,14 @@ function match(type: TypeIdentifier, frag: AbiParameter): boolean {
         return match(type.elT, { ...frag, type: frag.type.slice(0, -2) });
     }
 
-    if (type instanceof TupleTypeId && frag.type === 'tuple') {
+    if (type instanceof TupleTypeId && frag.type === "tuple") {
         if (frag.components === undefined || type.components.length !== frag.components.length) {
             return false;
         }
 
-        for(let i = 0; i < type.components.length; i++) {
+        for (let i = 0; i < type.components.length; i++) {
             if (!match(type.components[i], frag.components[i])) {
-                return false
+                return false;
             }
         }
 
@@ -378,18 +377,17 @@ function match(type: TypeIdentifier, frag: AbiParameter): boolean {
     }
 
     if (
-        (type instanceof IntTypeId ||
-            type instanceof StringTypeId ||
-            type instanceof BytesTypeId ||
-            type instanceof AddressTypeId ||
-            type instanceof BoolTypeId||
-            type instanceof FixedBytesTypeId)
+        type instanceof IntTypeId ||
+        type instanceof StringTypeId ||
+        type instanceof BytesTypeId ||
+        type instanceof AddressTypeId ||
+        type instanceof BoolTypeId ||
+        type instanceof FixedBytesTypeId
     ) {
         return type.pp().slice(2) == frag.type;
     }
 
     assert(false, `Can't match(${type.pp()}, ${JSON.stringify(frag)})`);
-
 }
 
 function getId(
