@@ -247,7 +247,7 @@ export function toABIType(from: TypeIdentifier, ctx: ASTContext): TypeIdentifier
                     !(abiFieldT instanceof TupleTypeId && abiFieldT.components.length === 0)
             );
 
-        return abiFieldTs.length === 1 ? abiFieldTs[0] : new TupleTypeId(abiFieldTs);
+        return new TupleTypeId(abiFieldTs);
     }
 
     if (from instanceof FunctionTypeId && from.kind === "external") {
