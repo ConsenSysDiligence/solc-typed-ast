@@ -33,6 +33,10 @@ contract AccessorReturns {
         S1 s1;
     }
 
+    struct SArrOnly {
+        uint[] x;
+    }
+
     uint[] public a;
     mapping(address => uint) public b;
     E public c;
@@ -50,6 +54,8 @@ contract AccessorReturns {
     B32 public b32;
 
     mapping(A => U[4]) public udtvMapping;
+
+    mapping(bytes => mapping(string => S[])) public complexMap;
 
     function main() public {
         function (uint256) external view returns (uint) a1 = this.a;

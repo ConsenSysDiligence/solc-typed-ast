@@ -1,4 +1,3 @@
-import { assert } from "../../misc";
 import { TypeIdentifier } from "./type_identifier";
 import { bigintAbs } from "./utils";
 
@@ -7,7 +6,6 @@ export class RationalNumTypeId extends TypeIdentifier {
         public readonly numerator: bigint,
         public readonly denominator: bigint
     ) {
-        assert(denominator > 0n, ``);
         super();
     }
 

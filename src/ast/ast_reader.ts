@@ -119,6 +119,16 @@ export class ASTContext {
         throw new Error("Required node not found for id " + id);
     }
 
+    requireType<T extends ASTNode>(id: number, constr: ASTNodeConstructor<T>): T {
+        const node = this.locate(id);
+
+        if (node instanceof constr) {
+            return node;
+        }
+
+        throw new Error(`Required node of type ${constr.name} for id ${id}, not ${node}`);
+    }
+
     contains(node: ASTNode): boolean {
         return this.locate(node.id) === node;
     }

@@ -15,7 +15,6 @@ import {
     Identifier,
     ImportDirective,
     SourceUnit,
-    StructDefinition,
     TypeName,
     typeOf,
     VariableDeclaration
@@ -177,8 +176,7 @@ describe("typeIdentifier tests", () => {
                             !(
                                 node instanceof Expression ||
                                 node instanceof TypeName ||
-                                (node instanceof VariableDeclaration &&
-                                    !(node.parent instanceof StructDefinition))
+                                node instanceof VariableDeclaration
                             )
                         ) {
                             return;
@@ -200,8 +198,7 @@ describe("typeIdentifier tests", () => {
                             !(
                                 node instanceof Expression ||
                                 node instanceof TypeName ||
-                                (node instanceof VariableDeclaration &&
-                                    !(node.parent instanceof StructDefinition))
+                                node instanceof VariableDeclaration
                             )
                         ) {
                             return;

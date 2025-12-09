@@ -1,4 +1,4 @@
-import { fmt, PPIsh } from "..";
+import { fmt, PPIsh } from "./pretty_printing";
 
 export function forAll<T>(iterable: Iterable<T>, cb: (v: T) => boolean): boolean {
     for (const el of iterable) {
