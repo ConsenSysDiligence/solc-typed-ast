@@ -256,3 +256,61 @@ export function toABIType(from: TypeIdentifier, ctx: ASTContext): TypeIdentifier
 
     assert(false, `Cannot abi encode type ${from.pp()}`);
 }
+
+/**
+ * Given a `TypeIdentifier` `t` return a new generalized `TypeIdentifier` with all pointers removed (i.e. no specifications for locations)
+ * @param t
+ * @param loc
+ * @returns
+ */
+export function generalize(t: TypeIdentifier): TypeIdentifier {
+    if (t instanceof PointerTypeId) {
+        return generalize(t.toType)
+    }
+
+    if (t instanceof ArrayTypeId) {
+        return new ArrayTypeId(generalize(t.elT), t.size);
+    }
+
+    if (t instanceof ArraySliceTypeId || t instanceof MappingTypeId) {
+        throw new Error(`Cannot generalize ${t.pp()}`);
+    }
+
+    if (t instanceof TupleTypeId) {
+        return new TupleTypeId(
+            t.components.map((c) => (c === null ? c : generalize(c)))
+        );
+    }
+
+    return t;
+}
+
+/**
+ * Given an already generalized `TypeIdentifier` `t` and a location return a new
+ * specialized `TypeIdentifier` with all reference types wrapped in a pointer to
+ * the given location
+ * @param t
+ * @param loc
+ * @returns
+ */
+export function specialize(t: TypeIdentifier, loc: DataLocation): TypeIdentifier {
+    if (t instanceof ArraySliceTypeId || t instanceof PointerTypeId || t instanceof MappingTypeId) {
+        throw new Error(`Cannot specialize ${t.pp()}`);
+    }
+
+    if (t instanceof ArrayTypeId) {
+        return new PointerTypeId(new ArrayTypeId(specialize(t.elT, loc), t.size), loc, true)
+    }
+
+    if (t instanceof BytesTypeId || t instanceof StringTypeId) {
+        return new PointerTypeId(t, loc, true)
+    }
+
+    if (t instanceof TupleTypeId) {
+        return new TupleTypeId(
+            t.components.map((c) => (c === null ? c : specialize(c, loc)))
+        );
+    }
+
+    return t;
+}

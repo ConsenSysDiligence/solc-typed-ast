@@ -2,21 +2,13 @@ import * as ast from "../../../src/typeIdentifiers/ast";
 import { DataLocation, SourceUnit, StateVariableVisibility } from "../../../src";
 import {
     changeLocationTo,
+    generalize,
     getterArgsAndReturn,
-    parseTypeIdentifier
+    parseTypeIdentifier,
+    specialize
 } from "../../../src/typeIdentifiers";
 import { loadSample } from "../../utils/file";
-import { bytes1T, bytes32T, uint256T, uint8T } from "../../../src/typeIdentifiers/constants";
-
-const bytesT = new ast.BytesTypeId();
-const stringT = new ast.StringTypeId();
-const memStringPtrT = new ast.PointerTypeId(stringT, DataLocation.Memory, true);
-const int256T = new ast.IntTypeId(256, true);
-const int8T = new ast.IntTypeId(8, true);
-const bytes2T = new ast.FixedBytesTypeId(2);
-const bytes4T = new ast.FixedBytesTypeId(4);
-const boolT = new ast.BoolTypeId();
-const addressT = new ast.AddressTypeId(false);
+import { addressT, boolT, bytes1T, bytes2T, bytes32T, bytes4T, bytesT, int256T, int8T, memBytesPtrT, memStringPtrT, stringT, uint256T, uint8T } from "../../../src/typeIdentifiers/constants";
 
 const samples: Array<[string, ast.TypeIdentifier]> = [
     ["t_address", addressT],
@@ -262,7 +254,46 @@ describe("typeIdetifier getterArgsAndReturns", () => {
     });
 });
 
-/*
-describe("typeIdetifier toABIType", () => {
+it("generalize/specialize typeIdentifiers", () => {
+    const samples: Array<ast.TypeIdentifier> = [
+        addressT,
+        new ast.AddressTypeId(true),
+        uint256T,
+        int8T,
+        new ast.IntTypeId(32, true),
+        new ast.IntTypeId(32, false),
+        new ast.RationalNumTypeId(323423n, 1231n),
+        new ast.RationalNumTypeId(-3n, 2n),
+        new ast.StringLiteralTypeId(
+            "83c737ad570e9f3e71e0d2800958e44770d812e92db2c1758626613d1e6ba514"
+        ),
+        new ast.FixedBytesTypeId(1),
+        new ast.FixedBytesTypeId(24),
+        new ast.FixedBytesTypeId(32),
+        memBytesPtrT,
+        memStringPtrT,
+        new ast.PointerTypeId(new ast.ArrayTypeId(uint256T), DataLocation.Memory, true),
+        new ast.PointerTypeId(
+            new ast.ArrayTypeId(
+                new ast.PointerTypeId(new ast.ArrayTypeId(int8T, 4n), DataLocation.Storage, true)
+            ),
+            DataLocation.Storage,
+           true 
+        ),
+        new ast.TupleTypeId([
+            memBytesPtrT,
+            uint256T,
+            memStringPtrT,
+            new ast.TupleTypeId([
+                new ast.FixedBytesTypeId(32),
+                memBytesPtrT,
+            ])
+        ])
+    ]
+
+    for (const sample of samples) {
+        const gen = generalize(sample);
+        const s1 = specialize(gen, DataLocation.Memory);
+        expect(s1.pp()).toEqual(changeLocationTo(sample, DataLocation.Memory).pp())
+    }
 })
-*/
