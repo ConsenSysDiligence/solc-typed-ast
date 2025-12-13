@@ -1,37 +1,24 @@
 import {
     ArrayTypeName,
-    ASTContext,
-    ContractDefinition,
     DataLocation,
-    EnumDefinition,
     Expression,
     Mapping,
-    StructDefinition,
     TypeName,
-    UserDefinedValueTypeDefinition,
     VariableDeclaration
 } from "../ast";
-import { assert, repeat } from "../misc";
+import { assert } from "../misc";
+import { toABIType } from "./abi";
 import {
-    AddressTypeId,
     ArraySliceTypeId,
     ArrayTypeId,
-    BoolTypeId,
     BytesTypeId,
-    ContractTypeId,
-    EnumTypeId,
-    FixedBytesTypeId,
-    FunctionTypeId,
-    IntTypeId,
     MappingTypeId,
     PointerTypeId,
     StringTypeId,
-    StructTypeId,
     TupleTypeId,
-    TypeIdentifier,
-    UserDefinedValueTypeId
+    TypeIdentifier
 } from "./ast";
-import { addressT, bytes24T, uint256T } from "./constants";
+import { uint256T } from "./constants";
 import { parseTypeIdentifier } from "./typeIdentifier_parser_gen";
 
 const cache = new Map<string, TypeIdentifier>();
@@ -147,191 +134,6 @@ export function getterArgsAndReturn(v: VariableDeclaration): [TypeIdentifier[], 
 }
 
 /**
- * Return the int typeIdentifier corresponding to a given Enum
- * @param decl
- * @returns
- */
-export function enumToIntTypeId(decl: EnumDefinition): IntTypeId {
-    const length = decl.children.length;
-
-    let size: number | undefined;
-
-    for (let n = 8; n <= 32; n += 8) {
-        if (length <= 2 ** n) {
-            size = n;
-
-            break;
-        }
-    }
-
-    assert(
-        size !== undefined,
-        "Unable to detect enum type size - member count exceeds 2 ** 32",
-        decl
-    );
-
-    return new IntTypeId(size, false);
-}
-
-/**
- * Given a `TypeIdentifier` `from` return the ABI type that corresponds to
- * `from`. Note that there are no pointers in ABI types - instead the 3 dynamic
- * types - bytes, strings and unsized arrays appear generalized.
- * @param from
- */
-export function toABIType(from: TypeIdentifier, ctx: ASTContext): TypeIdentifier {
-    if (from instanceof AddressTypeId) {
-        // normalize payable -> address
-        return addressT;
-    }
-
-    // Simple case - these are passed unchanged
-    if (
-        from instanceof BoolTypeId ||
-        from instanceof BytesTypeId ||
-        from instanceof StringTypeId ||
-        from instanceof FixedBytesTypeId ||
-        from instanceof IntTypeId
-    ) {
-        return from;
-    }
-
-    if (from instanceof PointerTypeId) {
-        // Storage pointers in delegate calls are passed as numbers
-        if (from.location === DataLocation.Storage) {
-            return uint256T;
-        }
-
-        return toABIType(from.toType, ctx);
-    }
-
-    // Size arrays are passed as tuples, unsized arrays as arrays
-    if (from instanceof ArrayTypeId) {
-        const elT = toABIType(from.elT, ctx);
-        return from.size === undefined
-            ? new ArrayTypeId(elT, from.size)
-            : new TupleTypeId(repeat(elT, Number(from.size)));
-    }
-
-    if (from instanceof UserDefinedValueTypeId) {
-        const def = ctx.requireType(from.id, UserDefinedValueTypeDefinition);
-        const innerT = typeOf(def.underlyingType);
-        return toABIType(innerT, ctx);
-    }
-
-    // Contracts are passed as addresses
-    if (from instanceof ContractTypeId) {
-        return addressT;
-    }
-
-    // Enums are passed as the smallest number that fits
-    if (from instanceof EnumTypeId) {
-        const def = ctx.requireType(from.id, EnumDefinition);
-        return enumToIntTypeId(def);
-    }
-
-    // Structs are passed as tuples
-    if (from instanceof StructTypeId) {
-        const def = ctx.requireType(from.id, StructDefinition);
-        let fieldTs = def.vMembers.map((decl) => typeOf(decl));
-        // Remove any mappings
-        fieldTs = fieldTs.filter((fieldT) => !(fieldT instanceof MappingTypeId));
-
-        // Convert the fields to ABI types and filter out any empty tuples.
-        // Empty tuples can result if a field is a struct contains only mappings.
-        // Also note that struct fields have "storage" as a default location.
-        // Convert to Memory to avoid treating them as storage pointers.
-        const abiFieldTs = fieldTs
-            .map((fieldT) => toABIType(changeLocationTo(fieldT, DataLocation.Memory), ctx))
-            .filter(
-                (abiFieldT) =>
-                    !(abiFieldT instanceof TupleTypeId && abiFieldT.components.length === 0)
-            );
-
-        return new TupleTypeId(abiFieldTs);
-    }
-
-    if (from instanceof FunctionTypeId && from.kind === "external") {
-        return bytes24T;
-    }
-
-    assert(false, `Cannot abi encode type ${from.pp()}`);
-}
-
-/**
- * Given an library function argument `TypeIdentifier` `from`, return the
- * `TypeIdentifier` as it should appear in the function signature.
- *
- * @param from
- */
-export function toLibrarySignatureType(from: TypeIdentifier, ctx: ASTContext): TypeIdentifier {
-    if (from instanceof AddressTypeId) {
-        // normalize payable -> address
-        return addressT;
-    }
-
-    // Simple case - these are passed unchanged
-    if (
-        from instanceof BoolTypeId ||
-        from instanceof BytesTypeId ||
-        from instanceof StringTypeId ||
-        from instanceof FixedBytesTypeId ||
-        from instanceof IntTypeId
-    ) {
-        return from;
-    }
-
-    if (from instanceof PointerTypeId) {
-        // Storage pointers in delegate calls are passed as numbers
-        if (from.location === DataLocation.Storage) {
-            return new PointerTypeId(
-                toLibrarySignatureType(from.toType, ctx),
-                DataLocation.Storage,
-                false
-            );
-        }
-
-        return toABIType(from.toType, ctx);
-    }
-
-    // Size arrays are passed as tuples, unsized arrays as arrays
-    if (from instanceof ArrayTypeId) {
-        const elT = toABIType(from.elT, ctx);
-        return from.size === undefined
-            ? new ArrayTypeId(elT, from.size)
-            : new TupleTypeId(repeat(elT, Number(from.size)));
-    }
-
-    if (from instanceof UserDefinedValueTypeId) {
-        const def = ctx.requireType(from.id, UserDefinedValueTypeDefinition);
-        const innerT = typeOf(def.underlyingType);
-        return toABIType(innerT, ctx);
-    }
-
-    // Contracts are passed as addresses
-    if (from instanceof ContractTypeId) {
-        return addressT;
-    }
-
-    // Enums are passed as the smallest number that fits
-    if (from instanceof EnumTypeId) {
-        const def = ctx.requireType(from.id, EnumDefinition);
-        return enumToIntTypeId(def);
-    }
-
-    // Structs are passed as tuples
-    if (from instanceof StructTypeId) {
-        return from;
-    }
-
-    if (from instanceof FunctionTypeId && from.kind === "external") {
-        return from;
-    }
-
-    assert(false, `Cannot abi encode type ${from.pp()}`);
-}
-
-/**
  * Given a `TypeIdentifier` `t` return a new generalized `TypeIdentifier` with all pointers removed (i.e. no specifications for locations)
  * @param t
  * @param loc
@@ -385,49 +187,14 @@ export function specialize(t: TypeIdentifier, loc: DataLocation): TypeIdentifier
     return t;
 }
 
-export function abiTypeIdToCanonicalName(t: TypeIdentifier, ctx: ASTContext): string {
-    if (
-        t instanceof IntTypeId ||
-        t instanceof FixedBytesTypeId ||
-        t instanceof BoolTypeId ||
-        t instanceof BytesTypeId ||
-        t instanceof StringTypeId
-    ) {
-        // Skip the t_
-        return t.pp().slice(2);
-    }
-
-    // Payable is ignored in canonical names
-    if (t instanceof AddressTypeId) {
-        return "address";
-    }
-
-    if (t instanceof ArrayTypeId) {
-        return `${abiTypeIdToCanonicalName(t.elT, ctx)}[${t.size ? t.size.toString(10) : ""}]`;
-    }
-
-    if (t instanceof TupleTypeId) {
-        return `(${t.components.map((compT) => abiTypeIdToCanonicalName(compT, ctx)).join(",")})`;
-    }
-
-    if (t instanceof FunctionTypeId) {
-        return "function";
-    }
-
-    if (t instanceof StructTypeId) {
-        const def = ctx.requireType(t.id, StructDefinition);
-
-        return def.vScope instanceof ContractDefinition ? `${def.vScope.name}.${t.name}` : t.name;
-    }
-
-    if (t instanceof PointerTypeId) {
-        assert(
-            t.location === DataLocation.Storage,
-            `abiTypeIdToCanonicalName({0}): unexpected non-storage pointer`,
-            t
-        );
-        return `${abiTypeIdToCanonicalName(t.toType, ctx)} storage`;
-    }
-
-    assert(false, "Unexpected ABI Type: {0}", t);
+/**
+ * Return true IFF the `TypeIdentifier` `t` must live in storage.
+ * @param t
+ * @returns
+ */
+export function isTypeInStorage(t: TypeIdentifier): boolean {
+    return (
+        t instanceof MappingTypeId ||
+        (t instanceof PointerTypeId && t.location === DataLocation.Storage)
+    );
 }
