@@ -38,7 +38,9 @@
         "semver": "^7.6.0",
         "solc": "0.8.25",
         "src-location": "^1.1.0",
-        "web3-eth-abi": "^4.2.0"
+        "web3-eth-abi": "^4.2.0",
+        "ethereum-cryptography": "3.2.0",
+        "@ethereumjs/util": "10.1.0"
     },
     "devDependencies": {
         "@types/fs-extra": "^11.0.4",

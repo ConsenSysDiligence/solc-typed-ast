@@ -27,6 +27,8 @@ import {
     Identifier,
     ImportDirective,
     IntTypeId,
+    signature,
+    signatureHash,
     SourceUnit,
     StateVariableVisibility,
     StringTypeId,
@@ -39,6 +41,7 @@ import {
 } from "../../../src";
 import { isAbiConstructorFragment, isAbiFragment } from "web3-eth-abi";
 import { AbiFragment, AbiParameter } from "web3-types";
+import { bytesToHex } from "ethereum-cryptography/utils";
 
 export const samples: Array<[string, any]> = [
     ["./test/samples/solidity/compile_04.sol", undefined],
@@ -281,6 +284,17 @@ describe("typeIdentifier tests", () => {
                             const [argTs, retTs] = getArgsAndReturns(fun);
                             expect(compareTypeLists(argTs, frag.inputs)).toBeTruthy();
                             expect(compareTypeLists(retTs, (frag as any).outputs)).toBeTruthy();
+
+                            if (fun.raw.functionSelector !== undefined) {
+                                if (bytesToHex(signatureHash(fun)) !== fun.raw.functionSelector) {
+                                    console.error(
+                                        `Wrong selector for ${fun.name} with sig ${signature(fun)} in ${unit.sourceEntryKey}`
+                                    );
+                                }
+                                expect(bytesToHex(signatureHash(fun))).toEqual(
+                                    fun.raw.functionSelector
+                                );
+                            }
                         }
 
                         for (const v of contract.vStateVariables) {
@@ -295,9 +309,20 @@ describe("typeIdentifier tests", () => {
                             const [argTs, retTs] = getArgsAndReturns(v);
                             expect(compareTypeLists(argTs, frag.inputs)).toBeTruthy();
                             expect(compareTypeLists(retTs, (frag as any).outputs)).toBeTruthy();
+
+                            if (v.raw.functionSelector !== undefined) {
+                                if (bytesToHex(signatureHash(v)) !== v.raw.functionSelector) {
+                                    console.error(
+                                        `Wrong selector for state var ${v.name} with sig ${signature(v)} in ${unit.sourceEntryKey}`
+                                    );
+                                }
+                                expect(bytesToHex(signatureHash(v))).toEqual(
+                                    v.raw.functionSelector
+                                );
+                            }
                         }
 
-                        for (const err of [...contract.vErrors, ...contract.vEvents]) {
+                        for (const err of contract.vErrors) {
                             const id = getId(err);
                             const frag = fragMap.get(id) as AbiFragment;
                             expect(frag).toBeDefined();
@@ -305,6 +330,38 @@ describe("typeIdentifier tests", () => {
                             const [argTs, retTs] = getArgsAndReturns(err);
                             expect(compareTypeLists(argTs, frag.inputs)).toBeTruthy();
                             expect(compareTypeLists(retTs, (frag as any).outputs)).toBeTruthy();
+
+                            if (err.raw.errorSelector !== undefined) {
+                                const expectedSelector = err.raw.errorSelector;
+
+                                if (bytesToHex(signatureHash(err)) !== expectedSelector) {
+                                    console.error(
+                                        `Wrong selector for error ${err.name} with sig ${signature(err)} in ${unit.sourceEntryKey}`
+                                    );
+                                }
+                                expect(bytesToHex(signatureHash(err))).toEqual(expectedSelector);
+                            }
+                        }
+
+                        for (const evt of contract.vEvents) {
+                            const id = getId(evt);
+                            const frag = fragMap.get(id) as AbiFragment;
+                            expect(frag).toBeDefined();
+
+                            const [argTs, retTs] = getArgsAndReturns(evt);
+                            expect(compareTypeLists(argTs, frag.inputs)).toBeTruthy();
+                            expect(compareTypeLists(retTs, (frag as any).outputs)).toBeTruthy();
+
+                            if (evt.raw.eventSelector !== undefined) {
+                                const expectedSelector = evt.raw.eventSelector.slice(0, 8);
+
+                                if (bytesToHex(signatureHash(evt)) !== expectedSelector) {
+                                    console.error(
+                                        `Wrong selector for event ${evt.name} with sig ${signature(evt)} in ${unit.sourceEntryKey}`
+                                    );
+                                }
+                                expect(bytesToHex(signatureHash(evt))).toEqual(expectedSelector);
+                            }
                         }
                     }
                 }
@@ -353,7 +410,27 @@ function compareTypeLists(
     return true;
 }
 
+const endArrRE = /\[([0-9]+)\]$/;
+
 function match(type: TypeIdentifier, frag: AbiParameter): boolean {
+    const m = frag.type.match(endArrRE);
+    if (m !== null && type instanceof TupleTypeId) {
+        const expectedLen = Number(m[1]);
+        if (expectedLen !== type.components.length) {
+            return false;
+        }
+
+        const baseT = { ...frag, type: frag.type.slice(0, -m[0].length) };
+
+        for (let i = 0; i < expectedLen; i++) {
+            if (!match(type.components[i], baseT)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     if (frag.type.endsWith("[]") && type instanceof ArrayTypeId && type.size === undefined) {
         return match(type.elT, { ...frag, type: frag.type.slice(0, -2) });
     }

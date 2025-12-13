@@ -19,6 +19,7 @@ import {
     InferType,
     PossibleCompilerKinds,
     resolveAny,
+    signature,
     SourceUnit,
     VariableDeclaration
 } from "../../../src";
@@ -41,7 +42,7 @@ const samples: Array<[string, string, any]> = [
     ["test/samples/solidity/compile_04.sol", "0.4.26", undefined],
     ["test/samples/solidity/compile_05.sol", "0.5.17", undefined],
     ["test/samples/solidity/compile_06.sol", "0.6.12", undefined],
-    ["test/samples/solidity/signatures.sol", "0.8.7", undefined]
+    ["test/samples/solidity/signatures.sol", "0.8.8", undefined]
 ];
 
 function resolveOne(
@@ -113,18 +114,18 @@ describe("Check canonical signatures are generated correctly", () => {
                             continue;
                         }
 
-                        let signature: string;
+                        let sig: string;
 
+                        // Check new signature logic
                         if (
                             def instanceof VariableDeclaration ||
-                            def instanceof FunctionDefinition
+                            def instanceof FunctionDefinition ||
+                            def instanceof EventDefinition ||
+                            def instanceof ErrorDefinition
                         ) {
-                            signature = inference.signature(def);
-                        } else {
-                            throw new Error(`NYI: ${def.print()}`);
+                            sig = signature(def);
+                            expect(sig).toEqual(expectedSignature);
                         }
-
-                        expect(signature).toEqual(expectedSignature);
                     }
 
                     /// 0.4.x doesn't report internal types in the ABI so we skip the ABI checks.
