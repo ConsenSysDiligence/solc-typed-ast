@@ -72,7 +72,7 @@ function toSignatureType(
         return toSignatureType(from.toType, ctx, isLibrary);
     }
 
-    // Size arrays are passed as tuples, unsized arrays as arrays
+    // Arrays appear just as arrays in signatures
     if (from instanceof ArrayTypeId) {
         const elT = toSignatureType(from.elT, ctx, isLibrary);
         return new ArrayTypeId(elT, from.size);
@@ -84,7 +84,7 @@ function toSignatureType(
         return toSignatureType(innerT, ctx, isLibrary);
     }
 
-    // Contracts are passed as addresses
+    // Contracts are passed as addresses for normal contracts, and by name for libraries
     if (from instanceof ContractTypeId) {
         return isLibrary ? from : addressT;
     }

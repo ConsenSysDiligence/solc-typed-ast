@@ -410,7 +410,7 @@ function compareTypeLists(
     return true;
 }
 
-const endArrRE = /\[([0-9]+)\]/;
+const endArrRE = /\[([0-9]+)\]$/;
 
 function match(type: TypeIdentifier, frag: AbiParameter): boolean {
     const m = frag.type.match(endArrRE);
