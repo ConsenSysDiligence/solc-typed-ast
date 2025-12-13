@@ -1,5 +1,10 @@
 pragma solidity 0.8.7;
 
+struct S2 {
+    uint x;
+    uint y;
+}
+
 library Lib {
         struct S {
                 uint[] nums;
@@ -21,6 +26,7 @@ library Lib {
         function f6(S calldata s) external {}
         function f7(address payable a) public {}
         function f8(function (address) external returns (bool) fn) external returns (bool) {}
+        function f9(S2 memory) external {}
 }
 
 library L {

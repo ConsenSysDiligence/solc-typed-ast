@@ -1,6 +1,7 @@
 import {
     ArrayTypeName,
     ASTContext,
+    ContractDefinition,
     DataLocation,
     EnumDefinition,
     Expression,
@@ -258,6 +259,79 @@ export function toABIType(from: TypeIdentifier, ctx: ASTContext): TypeIdentifier
 }
 
 /**
+ * Given an library function argument `TypeIdentifier` `from`, return the
+ * `TypeIdentifier` as it should appear in the function signature.
+ *
+ * @param from
+ */
+export function toLibrarySignatureType(from: TypeIdentifier, ctx: ASTContext): TypeIdentifier {
+    if (from instanceof AddressTypeId) {
+        // normalize payable -> address
+        return addressT;
+    }
+
+    // Simple case - these are passed unchanged
+    if (
+        from instanceof BoolTypeId ||
+        from instanceof BytesTypeId ||
+        from instanceof StringTypeId ||
+        from instanceof FixedBytesTypeId ||
+        from instanceof IntTypeId
+    ) {
+        return from;
+    }
+
+    if (from instanceof PointerTypeId) {
+        // Storage pointers in delegate calls are passed as numbers
+        if (from.location === DataLocation.Storage) {
+            return new PointerTypeId(
+                toLibrarySignatureType(from.toType, ctx),
+                DataLocation.Storage,
+                false
+            );
+        }
+
+        return toABIType(from.toType, ctx);
+    }
+
+    // Size arrays are passed as tuples, unsized arrays as arrays
+    if (from instanceof ArrayTypeId) {
+        const elT = toABIType(from.elT, ctx);
+        return from.size === undefined
+            ? new ArrayTypeId(elT, from.size)
+            : new TupleTypeId(repeat(elT, Number(from.size)));
+    }
+
+    if (from instanceof UserDefinedValueTypeId) {
+        const def = ctx.requireType(from.id, UserDefinedValueTypeDefinition);
+        const innerT = typeOf(def.underlyingType);
+        return toABIType(innerT, ctx);
+    }
+
+    // Contracts are passed as addresses
+    if (from instanceof ContractTypeId) {
+        return addressT;
+    }
+
+    // Enums are passed as the smallest number that fits
+    if (from instanceof EnumTypeId) {
+        const def = ctx.requireType(from.id, EnumDefinition);
+        return enumToIntTypeId(def);
+    }
+
+    // Structs are passed as tuples
+    if (from instanceof StructTypeId) {
+        return from;
+    }
+
+    if (from instanceof FunctionTypeId && from.kind === "external") {
+        return from;
+    }
+
+    assert(false, `Cannot abi encode type ${from.pp()}`);
+}
+
+/**
  * Given a `TypeIdentifier` `t` return a new generalized `TypeIdentifier` with all pointers removed (i.e. no specifications for locations)
  * @param t
  * @param loc
@@ -309,4 +383,51 @@ export function specialize(t: TypeIdentifier, loc: DataLocation): TypeIdentifier
     }
 
     return t;
+}
+
+export function abiTypeIdToCanonicalName(t: TypeIdentifier, ctx: ASTContext): string {
+    if (
+        t instanceof IntTypeId ||
+        t instanceof FixedBytesTypeId ||
+        t instanceof BoolTypeId ||
+        t instanceof BytesTypeId ||
+        t instanceof StringTypeId
+    ) {
+        // Skip the t_
+        return t.pp().slice(2);
+    }
+
+    // Payable is ignored in canonical names
+    if (t instanceof AddressTypeId) {
+        return "address";
+    }
+
+    if (t instanceof ArrayTypeId) {
+        return `${abiTypeIdToCanonicalName(t.elT, ctx)}[${t.size ? t.size.toString(10) : ""}]`;
+    }
+
+    if (t instanceof TupleTypeId) {
+        return `(${t.components.map((compT) => abiTypeIdToCanonicalName(compT, ctx)).join(",")})`;
+    }
+
+    if (t instanceof FunctionTypeId) {
+        return "function";
+    }
+
+    if (t instanceof StructTypeId) {
+        const def = ctx.requireType(t.id, StructDefinition);
+
+        return def.vScope instanceof ContractDefinition ? `${def.vScope.name}.${t.name}` : t.name;
+    }
+
+    if (t instanceof PointerTypeId) {
+        assert(
+            t.location === DataLocation.Storage,
+            `abiTypeIdToCanonicalName({0}): unexpected non-storage pointer`,
+            t
+        );
+        return `${abiTypeIdToCanonicalName(t.toType, ctx)} storage`;
+    }
+
+    assert(false, "Unexpected ABI Type: {0}", t);
 }
