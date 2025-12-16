@@ -355,12 +355,12 @@ describe("typeIdentifier tests", () => {
                             if (evt.raw.eventSelector !== undefined) {
                                 const expectedSelector = evt.raw.eventSelector.slice(0, 8);
 
-                                if (bytesToHex(signatureHash(evt)) !== expectedSelector) {
+                                if (bytesToHex(signatureHash(evt).slice(0, 4)) !== expectedSelector) {
                                     console.error(
                                         `Wrong selector for event ${evt.name} with sig ${signature(evt)} in ${unit.sourceEntryKey}`
                                     );
                                 }
-                                expect(bytesToHex(signatureHash(evt))).toEqual(expectedSelector);
+                                expect(bytesToHex(signatureHash(evt).slice(0, 4))).toEqual(expectedSelector);
                             }
                         }
                     }

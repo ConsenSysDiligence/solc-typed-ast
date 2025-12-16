@@ -232,6 +232,7 @@ export function signatureHash(
     nd: FunctionDefinition | VariableDeclaration | EventDefinition | ErrorDefinition
 ): Uint8Array {
     const sig = signature(nd);
+    const hash = keccak256(utf8ToBytes(sig));
 
-    return keccak256(utf8ToBytes(sig)).slice(0, 4);
+    return nd instanceof EventDefinition ? hash : hash.slice(0, 4);
 }
