@@ -3,12 +3,10 @@ import fse from "fs-extra";
 import {
     ASTNodeConstructor,
     ASTReader,
-    CompilerVersions05,
     ContractDefinition,
     EmitStatement,
     EventDefinition,
     FunctionDefinition,
-    InferType,
     ModifierDefinition,
     resolve,
     resolveByName,
@@ -22,10 +20,6 @@ type Resolvable = EventDefinition | FunctionDefinition | ModifierDefinition | Va
 describe("Dynamic dispatch AST utils", () => {
     const sample = "test/samples/solidity/dispatch_05.json";
     const reader = new ASTReader();
-
-    const compilerVersion = CompilerVersions05[CompilerVersions05.length - 1];
-
-    const inference = new InferType(compilerVersion);
 
     const data = fse.readJsonSync(sample);
 
@@ -91,7 +85,7 @@ describe("Dynamic dispatch AST utils", () => {
             const definer = resolvable.vScope as ContractDefinition;
 
             it(`${resolvable.name} of ${definer.name} for ${scope.name}`, () => {
-                const node = resolve(scope, resolvable, inference, onlyParents);
+                const node = resolve(scope, resolvable, onlyParents);
 
                 if (expectation === undefined) {
                     expect(node === undefined).toEqual(true);
@@ -146,7 +140,7 @@ describe("Dynamic dispatch AST utils", () => {
 
         for (const [scope, kind, name, onlyParents, expectations] of cases) {
             it(`${kind.name} ${name} for ${scope.name} (only parents: ${onlyParents})`, () => {
-                const result = resolveByName(scope, kind, name, inference, onlyParents);
+                const result = resolveByName(scope, kind, name, onlyParents);
 
                 expect(result.length).toEqual(expectations.length);
 
@@ -177,7 +171,7 @@ describe("Dynamic dispatch AST utils", () => {
 
         for (const [scope, stmt, id] of cases) {
             it(`${stmt.type}#${stmt.id} for ${scope.name}`, () => {
-                const node = resolveEvent(scope, stmt, inference);
+                const node = resolveEvent(scope, stmt);
 
                 expect(node).toBeInstanceOf(EventDefinition);
                 expect((node as EventDefinition).id).toEqual(id);
@@ -226,7 +220,7 @@ describe("Dynamic dispatch AST utils", () => {
             const definer = resolvable.vScope as ContractDefinition;
 
             it(`${resolvable.name} of ${definer.name} for ${scope.name}`, () => {
-                const node = resolveCallable(scope, resolvable, inference, onlyParents);
+                const node = resolveCallable(scope, resolvable, onlyParents);
 
                 if (expectation === undefined) {
                     expect(node === undefined).toEqual(true);

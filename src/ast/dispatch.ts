@@ -1,4 +1,5 @@
-import { InferType } from "../types";
+import { bytesToHex, equalsBytes } from "ethereum-cryptography/utils";
+import { signatureHash } from "../typeIdentifiers";
 import { ASTNodeConstructor } from "./ast_node";
 import { StateVariableVisibility } from "./constants";
 import { ContractDefinition } from "./implementation/declaration/contract_definition";
@@ -40,7 +41,6 @@ function getResolvableCollection(
 export function resolve<T extends Resolvable>(
     scope: ContractDefinition,
     target: T,
-    inference: InferType,
     onlyParents = false
 ): T | undefined {
     let finder: (candidate: Resolvable) => boolean;
@@ -48,9 +48,9 @@ export function resolve<T extends Resolvable>(
     if (target instanceof VariableDeclaration) {
         finder = (candidate) => candidate.name === target.name;
     } else {
-        const signatureHash = inference.signatureHash(target);
+        const hash = signatureHash(target);
 
-        finder = (candidate) => signatureHash === inference.signatureHash(candidate);
+        finder = (candidate) => equalsBytes(hash, signatureHash(candidate));
     }
 
     for (const base of scope.vLinearizedBaseContracts) {
@@ -88,7 +88,6 @@ export function resolveByName<T extends Resolvable>(
     scope: ContractDefinition,
     constructor: ASTNodeConstructor<T>,
     name: string,
-    inference: InferType,
     onlyParents = false
 ): T[] {
     const result = [];
@@ -111,7 +110,7 @@ export function resolveByName<T extends Resolvable>(
             const resolvableIdentifier =
                 resolvable instanceof VariableDeclaration
                     ? resolvable.name
-                    : inference.signatureHash(resolvable);
+                    : bytesToHex(signatureHash(resolvable));
 
             if (resolvable.name === name && !found.has(resolvableIdentifier)) {
                 result.push(resolvable as T);
@@ -141,17 +140,13 @@ function isExplicitlyBound(call: FunctionCall): boolean {
 
 export function resolveEvent(
     scope: ContractDefinition,
-    statement: EmitStatement,
-    inference: InferType,
-    onlyParents = false
+    statement: EmitStatement
 ): EventDefinition | undefined {
     const call = statement.vEventCall;
     const definition = call.vReferencedDeclaration;
 
     if (definition instanceof EventDefinition) {
-        return isExplicitlyBound(call)
-            ? definition
-            : resolve(scope, definition, inference, onlyParents);
+        return isExplicitlyBound(call) ? definition : resolve(scope, definition);
     }
 
     return undefined;
@@ -160,10 +155,9 @@ export function resolveEvent(
 export function resolveCallable(
     scope: ContractDefinition,
     definition: FunctionDefinition | VariableDeclaration,
-    inference: InferType,
     onlyParents = false
 ): FunctionDefinition | VariableDeclaration | undefined {
-    const selector = inference.signatureHash(definition);
+    const selector = signatureHash(definition);
 
     for (const base of scope.vLinearizedBaseContracts) {
         if (onlyParents && base === scope) {
@@ -171,14 +165,14 @@ export function resolveCallable(
         }
 
         for (const fn of base.vFunctions) {
-            if (inference.signatureHash(fn) === selector) {
+            if (equalsBytes(signatureHash(fn), selector)) {
                 return fn;
             }
         }
 
         for (const v of base.vStateVariables) {
             if (v.visibility === StateVariableVisibility.Public) {
-                if (inference.signatureHash(v) === selector) {
+                if (equalsBytes(signatureHash(v), selector)) {
                     return v;
                 }
             }

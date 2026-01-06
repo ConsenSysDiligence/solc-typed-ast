@@ -10,7 +10,8 @@ import {
     VariableDeclaration,
     EventDefinition,
     ErrorDefinition,
-    ContractKind
+    ContractKind,
+    ModifierDefinition
 } from "../ast";
 import { assert } from "../misc";
 import {
@@ -195,7 +196,12 @@ function abiTypeIdToCanonicalName(t: TypeIdentifier, ctx: ASTContext): string {
 }
 
 export function signature(
-    nd: FunctionDefinition | VariableDeclaration | EventDefinition | ErrorDefinition
+    nd:
+        | FunctionDefinition
+        | VariableDeclaration
+        | EventDefinition
+        | ErrorDefinition
+        | ModifierDefinition
 ): string {
     const ctx = nd.requiredContext;
     let argTs: TypeIdentifier[];
@@ -203,11 +209,16 @@ export function signature(
     if (
         nd instanceof FunctionDefinition ||
         nd instanceof EventDefinition ||
-        nd instanceof ErrorDefinition
+        nd instanceof ErrorDefinition ||
+        nd instanceof ModifierDefinition
     ) {
         argTs = nd.vParameters.vParameters.map(typeOf);
     } else {
         [argTs] = getterArgsAndReturn(nd);
+    }
+
+    if (nd instanceof ModifierDefinition) {
+        return `${nd.name}(${argTs.map((t) => t.pp()).join(",")})`;
     }
 
     const isLibFun =
@@ -229,7 +240,12 @@ export function signature(
 }
 
 export function signatureHash(
-    nd: FunctionDefinition | VariableDeclaration | EventDefinition | ErrorDefinition
+    nd:
+        | FunctionDefinition
+        | VariableDeclaration
+        | EventDefinition
+        | ErrorDefinition
+        | ModifierDefinition
 ): Uint8Array {
     const sig = signature(nd);
     const hash = keccak256(utf8ToBytes(sig));
