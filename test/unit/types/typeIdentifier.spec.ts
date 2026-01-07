@@ -236,7 +236,7 @@ describe("typeIdetifier getterArgsAndReturns", () => {
                 ])
             ]
         ],
-        ["j", [[], addressT]],
+        ["j", [[], addressT]]
     ]);
 
     it(`Sample test/samples/solidity/getters_08.sol`, () => {
