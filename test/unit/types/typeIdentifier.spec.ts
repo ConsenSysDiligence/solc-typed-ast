@@ -235,7 +235,8 @@ describe("typeIdetifier getterArgsAndReturns", () => {
                     new ast.TupleTypeId([uint8T, new ast.ArrayTypeId(uint256T), bytes1T])
                 ])
             ]
-        ]
+        ],
+        ["j", [[], addressT]],
     ]);
 
     it(`Sample test/samples/solidity/getters_08.sol`, () => {

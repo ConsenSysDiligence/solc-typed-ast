@@ -3,6 +3,7 @@ import {
     DataLocation,
     Expression,
     Mapping,
+    StructDefinition,
     TypeName,
     VariableDeclaration
 } from "../ast";
@@ -15,6 +16,7 @@ import {
     MappingTypeId,
     PointerTypeId,
     StringTypeId,
+    StructTypeId,
     TupleTypeId,
     TypeIdentifier
 } from "./ast";
@@ -120,15 +122,27 @@ export function getterArgsAndReturn(v: VariableDeclaration): [TypeIdentifier[], 
         }
     }
 
-    let retType = toABIType(changeLocationTo(typeOf(type), DataLocation.Memory), ctx);
+    const solT = changeLocationTo(typeOf(type), DataLocation.Memory);
+    let retTs: TypeIdentifier[];
 
-    // Filter out top-level arrays. Maps are already filtered by toABIType
-    if (retType instanceof TupleTypeId) {
-        const filteredComps = retType.components.filter((compT) => !(compT instanceof ArrayTypeId));
-
-        // For top-level tuples remove any arrays from the tuple
-        retType = filteredComps.length === 1 ? filteredComps[0] : new TupleTypeId(filteredComps);
+    if (solT instanceof PointerTypeId && solT.toType instanceof StructTypeId) {
+        const def = ctx.locate(solT.toType.id) as StructDefinition;
+        // Filter out top-level arrays and maps
+        retTs = def.vMembers
+            .map((decl) => changeLocationTo(typeOf(decl), DataLocation.Memory))
+            .filter(
+                (t) =>
+                    !(
+                        (t instanceof PointerTypeId && t.toType instanceof ArrayTypeId) ||
+                        t instanceof MappingTypeId
+                    )
+            )
+            .map((t) => toABIType(t, ctx));
+    } else {
+        retTs = [toABIType(solT, ctx)];
     }
+
+    const retType = retTs.length === 1 ? retTs[0] : new TupleTypeId(retTs);
 
     return [argTypes, retType];
 }

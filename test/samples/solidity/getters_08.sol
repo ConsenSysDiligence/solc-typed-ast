@@ -26,6 +26,12 @@ contract AccessorReturns {
         mapping(address => uint) map;
     }
 
+    struct S3 {
+        uint[2] a;
+        address b;
+        mapping(address => uint) map;
+    }
+
     struct S {
         uint[] a;
         int8 b;
@@ -56,6 +62,8 @@ contract AccessorReturns {
     mapping(A => U[4]) public udtvMapping;
 
     mapping(bytes => mapping(string => S[])) public complexMap;
+
+    S3 public j;
 
     function main() public {
         function (uint256) external view returns (uint) a1 = this.a;
