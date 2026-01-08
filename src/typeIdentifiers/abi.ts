@@ -60,11 +60,6 @@ export function enumToIntTypeId(decl: EnumDefinition): IntTypeId {
  * @param from
  */
 export function toABIType(from: TypeIdentifier, ctx: ASTContext): TypeIdentifier {
-    if (from instanceof AddressTypeId) {
-        // normalize payable -> address
-        return addressT;
-    }
-
     // Simple case - these are passed unchanged
     if (
         from instanceof BoolTypeId ||
@@ -76,6 +71,11 @@ export function toABIType(from: TypeIdentifier, ctx: ASTContext): TypeIdentifier
         return from;
     }
 
+    // Contracts are passed as addresses. Also normalize payable to address
+    if (from instanceof AddressTypeId || from instanceof ContractTypeId) {
+        return addressT;
+    }
+
     if (isTypeInStorage(from)) {
         return uint256T;
     }
@@ -83,7 +83,10 @@ export function toABIType(from: TypeIdentifier, ctx: ASTContext): TypeIdentifier
     if (from instanceof PointerTypeId) {
         assert(from.location !== DataLocation.Storage, `Unexpected pointer {0}`, from);
 
-        return toABIType(from.toType, ctx);
+        const innerAbiT = toABIType(from.toType, ctx);
+        return innerAbiT instanceof TupleTypeId
+            ? innerAbiT
+            : new PointerTypeId(innerAbiT, from.location, from.isPointer);
     }
 
     // Size arrays are passed as tuples, unsized arrays as arrays
@@ -98,11 +101,6 @@ export function toABIType(from: TypeIdentifier, ctx: ASTContext): TypeIdentifier
         const def = ctx.requireType(from.id, UserDefinedValueTypeDefinition);
         const innerT = typeOf(def.underlyingType);
         return toABIType(innerT, ctx);
-    }
-
-    // Contracts are passed as addresses
-    if (from instanceof ContractTypeId) {
-        return addressT;
     }
 
     // Enums are passed as the smallest number that fits

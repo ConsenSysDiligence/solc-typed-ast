@@ -27,6 +27,7 @@ import {
     Identifier,
     ImportDirective,
     IntTypeId,
+    PointerTypeId,
     signature,
     signatureHash,
     SourceUnit,
@@ -417,6 +418,10 @@ function compareTypeLists(
 const endArrRE = /\[([0-9]+)\]$/;
 
 function match(type: TypeIdentifier, frag: AbiParameter): boolean {
+    if (type instanceof PointerTypeId) {
+        return match(type.toType, frag);
+    }
+
     const m = frag.type.match(endArrRE);
     if (m !== null && type instanceof TupleTypeId) {
         const expectedLen = Number(m[1]);

@@ -212,8 +212,16 @@ describe("typeIdetifier getterArgsAndReturns", () => {
                 [uint256T],
                 new ast.TupleTypeId([
                     int8T,
-                    stringT,
-                    new ast.TupleTypeId([uint8T, new ast.ArrayTypeId(uint256T), bytes1T])
+                    new ast.PointerTypeId(stringT, DataLocation.Memory, true),
+                    new ast.TupleTypeId([
+                        uint8T,
+                        new ast.PointerTypeId(
+                            new ast.ArrayTypeId(uint256T),
+                            DataLocation.Memory,
+                            true
+                        ),
+                        bytes1T
+                    ])
                 ])
             ]
         ],
@@ -228,11 +236,23 @@ describe("typeIdetifier getterArgsAndReturns", () => {
         [
             "complexMap",
             [
-                [bytesT, stringT, uint256T],
+                [
+                    new ast.PointerTypeId(bytesT, DataLocation.Memory, true),
+                    new ast.PointerTypeId(stringT, DataLocation.Memory, true),
+                    uint256T
+                ],
                 new ast.TupleTypeId([
                     int8T,
-                    stringT,
-                    new ast.TupleTypeId([uint8T, new ast.ArrayTypeId(uint256T), bytes1T])
+                    new ast.PointerTypeId(stringT, DataLocation.Memory, true),
+                    new ast.TupleTypeId([
+                        uint8T,
+                        new ast.PointerTypeId(
+                            new ast.ArrayTypeId(uint256T),
+                            DataLocation.Memory,
+                            true
+                        ),
+                        bytes1T
+                    ])
                 ])
             ]
         ],
@@ -255,15 +275,6 @@ describe("typeIdetifier getterArgsAndReturns", () => {
             ];
             const [args, ret] = getterArgsAndReturn(sVar);
 
-            console.error(
-                sVar.name,
-                "expected: ",
-                expArgs.map((t) => t.pp()),
-                expRet.pp(),
-                "got: ",
-                args.map((t) => t.pp()),
-                ret.pp()
-            );
             expect(args.map((t) => t.pp())).toEqual(expArgs.map((t) => t.pp()));
             expect(ret.pp()).toEqual(expRet.pp());
         }
