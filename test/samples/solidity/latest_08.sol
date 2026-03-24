@@ -22,7 +22,18 @@ struct Some {
  * Doc
  */
 enum EnumABC {
-    A, B, C
+    /**
+     * @notice First value
+     */
+    A,
+    /**
+     * @dev Second value
+     */
+    B,
+    /**
+     * @notice Third value
+     */
+    C
 
     /**
      * Enum
@@ -88,7 +99,18 @@ contract Features082 {
     event Ev(uint a);
 
     enum EnumXYZ {
-        X, Y, Z
+        /**
+         * X value
+         */
+        X,
+        /**
+         * Y value
+         */
+        Y,
+        /**
+         * Z value
+         */
+        Z
     }
 
     modifier modStructDocs() {

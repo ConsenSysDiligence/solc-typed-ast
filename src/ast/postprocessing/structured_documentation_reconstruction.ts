@@ -5,7 +5,7 @@ import { RawComment, parseComments } from "../comments";
 import { RawCommentKind } from "../constants";
 import {
     ContractDefinition,
-    EnumDefinition,
+    EnumDefinition, EnumValue,
     ErrorDefinition,
     EventDefinition,
     FunctionDefinition,
@@ -133,6 +133,7 @@ type SupportedNode =
     | ErrorDefinition
     | EventDefinition
     | EnumDefinition
+    | EnumValue
     | StructDefinition
     | ModifierDefinition
     | Statement
@@ -205,6 +206,7 @@ export class StructuredDocumentationReconstructingPostprocessor
             node instanceof FunctionDefinition ||
             node instanceof ContractDefinition ||
             node instanceof EnumDefinition ||
+            node instanceof EnumValue ||
             node instanceof StructDefinition ||
             node instanceof ErrorDefinition ||
             node instanceof EventDefinition ||
