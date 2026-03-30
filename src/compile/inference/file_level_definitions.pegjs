@@ -224,8 +224,10 @@ UsingEntryList =
         );
     }
 
+UsingForTypeSoup = IdentifierPath __ [\[\] ]*
+
 UsingForDirective =
-    USING __ utils: (IdentifierPath / ("{" __ UsingEntryList __ "}")) __ FOR __ typeName: IdentifierPath __ isGlobal: (GLOBAL)? SEMICOLON {
+    USING __ utils: (IdentifierPath / ("{" __ UsingEntryList __ "}")) __ FOR __ typeName: UsingForTypeSoup __ isGlobal: (GLOBAL)? SEMICOLON {
         const node: FLUsingForDirective = {
             kind: FileLevelNodeKind.UsingForDirective,
             location: location(),
