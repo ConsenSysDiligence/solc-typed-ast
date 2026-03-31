@@ -62,8 +62,8 @@
         "typedoc": "^0.25.12",
         "typescript": "^5.4.3"
     },
-    "homepage": "https://consensys.github.io/solc-typed-ast",
-    "bugs": "https://github.com/ConsenSys/solc-typed-ast/issues",
-    "repository": "https://github.com/ConsenSys/solc-typed-ast.git",
+    "homepage": "https://ConsenSysDiligence.github.io/solc-typed-ast",
+    "bugs": "https://github.com/ConsenSysDiligence/solc-typed-ast/issues",
+    "repository": "https://github.com/ConsenSysDiligence/solc-typed-ast.git",
     "license": "Apache-2.0"
 }
