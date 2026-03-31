@@ -532,7 +532,7 @@ is /*3*/ int24/*;*/;`,
         [
             {
                 kind: "usingForDirective",
-                typeName: "ZZZ",
+                typeName: "ZZZ /*!!*/",
                 isGlobal: true,
                 functionList: ["a", "b", "L.c"]
             }
