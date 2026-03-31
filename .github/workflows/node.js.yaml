@@ -53,7 +53,7 @@ jobs:
               run: npm test
 
             - name: Upload coverage to CodeCov
-              uses: codecov/codecov-action@b9fd7d16f6d7d1b5d2bec1a2887e65ceed900238 # v4
+              uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6
               with:
                   name: codecov-umbrella
                   directory: ./coverage/
@@ -74,8 +74,10 @@ jobs:
               run: echo "commit_message=$(git log --pretty=format:'%s' --no-merges -n 1)" >> $GITHUB_OUTPUT
               shell: bash
             - name: Send slack Notification
-              uses: slackapi/slack-github-action@007b2c3c751a190b6f0f040e47ed024deaa72844 # v1.23.0
+              uses: slackapi/slack-github-action@af78098f536edbc4de71162a307590698245be95 # v3.0.1
               with:
+                  webhook: ${{ secrets.slack_webhook_url }}
+                  webhook-type: incoming-webhook
                   payload: |
                       {
                         "project": "${{ github.repository }}",
@@ -87,5 +89,3 @@ jobs:
                         "commit_link": "${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}",
                         "message": ""
                       }
-              env:
-                  SLACK_WEBHOOK_URL: ${{ secrets.slack_webhook_url }}
