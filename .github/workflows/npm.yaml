@@ -18,5 +18,9 @@ jobs:
             - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
               with:
                   node-version: 20
+                  registry-url: "https://registry.npmjs.org"
+            - run: npm install -g npm@11.12.1
             - run: npm install
             - run: npm publish --provenance --access public
+              env:
+                  NODE_AUTH_TOKEN: ""
