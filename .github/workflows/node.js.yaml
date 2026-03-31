@@ -6,7 +6,8 @@ on:
     pull_request:
         branches: ["master"]
 
-permissions: read-all
+permissions:
+  contents: read
 
 jobs:
     build:
@@ -22,10 +23,12 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@v6
+              uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+              with:
+                  persist-credentials: false
 
             - name: Use NodeJS ${{ matrix.node-version }}
-              uses: actions/setup-node@v6
+              uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
               with:
                   node-version: ${{ matrix.node-version }}
                   cache: "npm"
@@ -50,7 +53,7 @@ jobs:
               run: npm test
 
             - name: Upload coverage to CodeCov
-              uses: codecov/codecov-action@v4
+              uses: codecov/codecov-action@b9fd7d16f6d7d1b5d2bec1a2887e65ceed900238 # v4
               with:
                   name: codecov-umbrella
                   directory: ./coverage/
@@ -63,14 +66,15 @@ jobs:
         runs-on: ubuntu-latest
         if: github.ref == 'refs/heads/master'
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
               with:
                   ref: ${{ github.event.pull_request.head.sha }}
+                  persist-credentials: false
             - id: non_merge_commit_message
               run: echo "commit_message=$(git log --pretty=format:'%s' --no-merges -n 1)" >> $GITHUB_OUTPUT
               shell: bash
             - name: Send slack Notification
-              uses: slackapi/slack-github-action@v1.23.0
+              uses: slackapi/slack-github-action@007b2c3c751a190b6f0f040e47ed024deaa72844 # v1.23.0
               with:
                   payload: |
                       {

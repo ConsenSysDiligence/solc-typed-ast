@@ -4,20 +4,23 @@ on:
     release:
         types: [published]
 
+permissions:
+  contents: read
+
 jobs:
     build_deploy:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout 🛎️
-              uses: actions/checkout@v4 # If you're using actions/checkout since v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+              uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4 # If you're using actions/checkout since v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
               with:
                   persist-credentials: false
 
             - name: Install SSH Client 🔑
-              uses: webfactory/ssh-agent@v0.4.1
+              uses: webfactory/ssh-agent@ee29fafb6aa450493bac9136b346e51ea60a8b5e # v0.4.1
               with:
                   ssh-private-key: ${{ secrets.DEPLOY_KEY }}
-            - uses: actions/setup-node@v4
+            - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
               with:
                   node-version: 20
 
@@ -28,7 +31,7 @@ jobs:
                   npm run docs:refresh
 
             - name: Deploy 🚀
-              uses: JamesIves/github-pages-deploy-action@3.7.1
+              uses: JamesIves/github-pages-deploy-action@132898c54c57c7cc6b80eb3a89968de8fc283505 # v3.7.1
               with:
                   BRANCH: docs
                   FOLDER: docs
