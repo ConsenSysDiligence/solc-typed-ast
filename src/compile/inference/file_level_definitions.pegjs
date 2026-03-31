@@ -224,7 +224,7 @@ UsingEntryList =
         );
     }
 
-UsingForTypeSoup = IdentifierPath __ [\[\] ]*
+UsingForTypeSoup = IdentifierPath __ [\[\] ]* { return text().trim(); }
 
 UsingForDirective =
     USING __ utils: (IdentifierPath / ("{" __ UsingEntryList __ "}")) __ FOR __ typeName: UsingForTypeSoup __ isGlobal: (GLOBAL)? SEMICOLON {
