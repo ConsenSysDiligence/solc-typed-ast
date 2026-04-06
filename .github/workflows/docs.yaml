@@ -16,10 +16,6 @@ jobs:
               with:
                   persist-credentials: false
 
-            - name: Install SSH Client 🔑
-              uses: webfactory/ssh-agent@ee29fafb6aa450493bac9136b346e51ea60a8b5e # v0.4.1
-              with:
-                  ssh-private-key: ${{ secrets.DEPLOY_KEY }}
             - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
               with:
                   node-version: 20
@@ -31,8 +27,8 @@ jobs:
                   npm run docs:refresh
 
             - name: Deploy 🚀
-              uses: JamesIves/github-pages-deploy-action@132898c54c57c7cc6b80eb3a89968de8fc283505 # v3.7.1
+              uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f # v4.8.0
               with:
-                  BRANCH: docs
-                  FOLDER: docs
-                  SSH: true
+                  branch: docs
+                  folder: docs
+                  ssh-key: ${{ secrets.DEPLOY_KEY }}
