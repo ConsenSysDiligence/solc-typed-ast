@@ -173,7 +173,7 @@ StateMutability
     = ("pure" / "view" / "nonpayable" / "payable") { return text(); }
 
 FunctionType
-    = "t_function_" kind: FunctionKind "_" mutability: StateMutability parameters: ParenthesizedTypeList "returns" returns: ParenthesizedTypeList hasGas: ("gas"?) hasValue: ("value"?) hasSalt: ("salt"?) boundFirstArgType: (("attached_to"/"bound_to") argT: ParenthesizedTypeList { return argT; })?
+    = "t_function_" kind: FunctionKind mutability: ("_" StateMutability)? parameters: ParenthesizedTypeList "returns" returns: ParenthesizedTypeList hasGas: ("gas"?) hasValue: ("value"?) hasSalt: ("salt"?) boundFirstArgType: (("attached_to"/"bound_to") argT: ParenthesizedTypeList { return argT; })?
     {
         let firstArgT: ast.TypeIdentifier | undefined = undefined;
 
@@ -182,7 +182,13 @@ FunctionType
             firstArgT = boundFirstArgType[0];
         }
 
-        return new ast.FunctionTypeId(kind, mutability, parameters, returns, hasGas !== null, hasValue !== null, hasSalt !== null, firstArgT)
+        let funStateMutability: ast.FunctionTypeMutability = "nonpayable";
+
+        if (mutability !== null) {
+            funStateMutability = mutability[1];
+        }
+
+        return new ast.FunctionTypeId(kind, funStateMutability, parameters, returns, hasGas !== null, hasValue !== null, hasSalt !== null, firstArgT)
     }
 
 UserDefinedValueType
