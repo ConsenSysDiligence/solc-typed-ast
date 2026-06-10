@@ -39,7 +39,7 @@ TypeList
 ParenthesizedTypeList
     = "$_" lst: TypeList? "_$" { return lst === null ? [] : lst; }
 
-Identifier = [a-zA-Z]([a-zA-Z0-9]+ / "$$$" { return "$"; } / ("_" !( [$]!. / [$][^$])))* { return text().replace("$$$", "$"); }
+Identifier = [a-zA-Z_]([a-zA-Z0-9]+ / "$$$" { return "$"; } / ("_" !( [$]!. / [$][^$])))* { return text().replace("$$$", "$"); }
 
 ParenthesizedUserIdentifier
     = "$_" id: Identifier "_$" { return id.replaceAll("$$$", "$"); }
@@ -127,6 +127,7 @@ FunctionKind
     / "barecall"
     / "baredelegatecall"
     / "barestaticcall"
+    / "bare" /* This is a 0.4.x alias for barecall*/
     / "creation"
     / "send"
     / "transfer"
@@ -170,7 +171,7 @@ FunctionKind
     ) { return text(); }
 
 StateMutability
-    = ("pure" / "view" / "nonpayable" / "payable") { return text(); }
+    = ("pure" / "view" / "nonpayable" / "payable" / "constant") { return text(); }
 
 FunctionType
     = "t_function_" kind: FunctionKind mutability: ("_" StateMutability)? parameters: ParenthesizedTypeList "returns" returns: ParenthesizedTypeList hasGas: ("gas"?) hasValue: ("value"?) hasSalt: ("salt"?) boundFirstArgType: (("attached_to"/"bound_to") argT: ParenthesizedTypeList { return argT; })?
