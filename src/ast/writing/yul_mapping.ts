@@ -68,7 +68,8 @@ class YulFunctionCallWriter implements YulNodeWriter {
 class YulVariableDeclarationWriter implements YulNodeWriter {
     write(node: YulNode, writer: YulWriter): string {
         const vars = node.variables.map((v: YulNode) => writer.write(v));
-        const rhs = node.value === null ? undefined : writer.write(node.value);
+        const rhs =
+            node.value === undefined || node.value === null ? undefined : writer.write(node.value);
         const lhs = "let " + vars.join(", ");
 
         return rhs !== undefined ? lhs + " := " + rhs : lhs;
