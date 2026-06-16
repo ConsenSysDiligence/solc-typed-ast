@@ -13,6 +13,6 @@ export class LegacyEnumValueProcessor extends LegacyNodeProcessor<EnumValue> {
 
         const name: string = attributes.name;
 
-        return [id, src, name, undefined, raw];
+        return [id, src, name, undefined,  undefined, raw];
     }
 }

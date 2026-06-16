@@ -30,7 +30,7 @@ const encounters = new Map<string, number>([
     ["PragmaDirective", 2],
     ["ImportDirective", 1],
     ["StructDefinition", 1],
-    ["StructuredDocumentation", 6],
+    ["StructuredDocumentation", 12],
     ["VariableDeclaration", 86],
     ["ElementaryTypeName", 70],
     ["EnumDefinition", 2],
@@ -116,15 +116,11 @@ for (const compilerKind of PossibleCompilerKinds) {
 
             const sourceUnit = sourceUnits[0];
 
-            // Uncomment following lines to get the current state of unit:
-            // console.log(sourceUnit.print());
-            // console.log(sourceUnit.getChildren().length);
-
-            expect(sourceUnit.id).toEqual(888);
-            expect(sourceUnit.src).toEqual("0:10283:0");
+            expect(sourceUnit.id).toEqual(894);
+            expect(sourceUnit.src).toEqual("0:10563:0");
             expect(sourceUnit.absolutePath).toEqual(mainSample);
             expect(sourceUnit.children.length).toEqual(41);
-            expect(sourceUnit.getChildren().length).toEqual(877);
+            expect(sourceUnit.getChildren().length).toEqual(883);
         });
 
         it(`Validate parsed output (${astKind})`, () => {
@@ -132,13 +128,6 @@ for (const compilerKind of PossibleCompilerKinds) {
             const sourceUnitImprint = createImprint(sourceUnit);
 
             expect(sourceUnitImprint.ASTNode).toBeUndefined();
-
-            // Uncomment following lines to get the current unit snapshot data:
-            // let s = "";
-            // for (const [type, nodes] of Object.entries(sourceUnitImprint)) {
-            //    s += `["${type}", ${nodes.length}],\n`;
-            // }
-            // console.log(s);
 
             for (const [type, count] of encounters.entries()) {
                 expect(sourceUnitImprint[type]).toBeDefined();
