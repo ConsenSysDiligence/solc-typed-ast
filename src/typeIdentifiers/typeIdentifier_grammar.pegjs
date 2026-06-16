@@ -39,7 +39,7 @@ TypeList
 ParenthesizedTypeList
     = "$_" lst: TypeList? "_$" { return lst === null ? [] : lst; }
 
-Identifier = [a-zA-Z_]([a-zA-Z0-9]+ / "$$$" { return "$"; } / ("_" !( [$]!. / [$][^$])))* { return text().replace("$$$", "$"); }
+Identifier = ([a-zA-Z_] / ("$$$" { return "$"; } ))([a-zA-Z0-9]+ / "$$$" { return "$"; } / ("_" !( [$]!. / [$][^$])))* { return text().replace("$$$", "$"); }
 
 ParenthesizedUserIdentifier
     = "$_" id: Identifier "_$" { return id.replaceAll("$$$", "$"); }
