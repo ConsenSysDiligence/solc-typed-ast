@@ -71,13 +71,13 @@ StringType
 
 ArraySize
     = "dyn" { return "dyn"; }
-    / Nat
+    / BigInt
 
 ArrayType
     = "t_array" elT: ParenthesizedTypeList size: ArraySize
     {
         assert(elT.length == 1, ``);
-        return new ast.ArrayTypeId(elT[0], size === "dyn" ? undefined : BigInt(size))
+        return new ast.ArrayTypeId(elT[0], size === "dyn" ? undefined : size)
     }
 
 RefType
